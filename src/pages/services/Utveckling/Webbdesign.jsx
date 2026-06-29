@@ -150,7 +150,7 @@ const Webbdesign = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-[260px] w-full rounded-2xl object-cover transition duration-500 hover:scale-105 sm:h-[340px] lg:h-[420px]"
+                    className="h-[260px] w-full rounded-2xl object-cover transition sm:h-[340px] lg:h-[420px]"
                   />
                 </div>
 

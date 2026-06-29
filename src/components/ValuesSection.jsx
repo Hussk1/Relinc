@@ -21,7 +21,7 @@ const values = [
   {
     icon: Check,
     title: "Enkelhet",
-    text: "Vi gör det komplexa enkelt. Oavsett om det handlar om webb, design eller ekonomi bryter vi ner processer så att de blir tydliga och lättförståeliga.",
+    text: "Vi gör det komplexa enkelt. Oavsett om det handlar om webb, design eller digitala lösningar bryter vi ner processer så att de blir tydliga och lättförståeliga.",
   },
   {
     icon: ChartNoAxesCombined,

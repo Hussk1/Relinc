@@ -61,7 +61,7 @@ export const TextImageBlock = () => {
           <img
             src={imagePath("images/Digitala.webp")}
             alt="Bygg din digitala grund"
-            className="h-full w-full rounded-2xl object-cover transition duration-700 hover:scale-105"
+            className="h-full w-full rounded-2xl object-cover"
           />
         </motion.div>
       </div>

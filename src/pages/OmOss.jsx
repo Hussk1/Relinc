@@ -33,7 +33,7 @@ const OmOss = () => {
               <img
                 src={imagePath("images/img-3770.webp")}
                 alt="Relinc erbjudande"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover transition duration-700 hover:scale-105 md:min-h-[460px]"
+                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
               />
             </motion.div>
 
@@ -109,7 +109,7 @@ const OmOss = () => {
               <img
                 src={imagePath("images/img-3770.webp")}
                 alt="Relinc team"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover transition duration-700 hover:scale-105 md:min-h-[460px]"
+                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
               />
             </motion.div>
           </div>

@@ -42,7 +42,7 @@ export const TwoColumnBlock = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full rounded-2xl object-cover transition duration-500 hover:scale-105"
+                className="w-full h-[400px] rounded-2xl object-cover"
               />
             </div>
 

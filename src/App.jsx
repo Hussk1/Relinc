@@ -12,14 +12,6 @@ import OmOss from "./pages/OmOss";
 import StartaForetag from "./pages/StartaForetag";
 import Kontakt from "./pages/Kontakt";
 
-// Redovisning
-import Radgivning from "./pages/services/Redovisning/Radgivning";
-import Arsredovisning from "./pages/services/Redovisning/Arsredovisning";
-import Bokforing from "./pages/services/Redovisning/Bokforing";
-import Bokslut from "./pages/services/Redovisning/Bokslut";
-import Deklaration from "./pages/services/Redovisning/Deklaration";
-import Lonehantering from "./pages/services/Redovisning/Lonehantering";
-
 // Utveckling
 import Webbdesign from "./pages/services/Utveckling/Webbdesign";
 import SEOOptimering from "./pages/services/Utveckling/SEOOptimering";
@@ -62,14 +54,6 @@ function App() {
           <Route path="/om-oss" element={<OmOss />} />
           <Route path="/starta-foretag" element={<StartaForetag />} />
           <Route path="/kontakta-oss" element={<Kontakt />} />
-
-          {/* Redovisning */}
-          <Route path="/radgivning" element={<Radgivning />} />
-          <Route path="/arsredovisning" element={<Arsredovisning />} />
-          <Route path="/bokforing" element={<Bokforing />} />
-          <Route path="/bokslut" element={<Bokslut />} />
-          <Route path="/deklaration" element={<Deklaration />} />
-          <Route path="/lonehantering" element={<Lonehantering />} />
 
           {/* Utveckling */}
           <Route path="/webbdesign" element={<Webbdesign />} />

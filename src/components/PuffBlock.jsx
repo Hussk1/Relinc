@@ -18,13 +18,6 @@ const PuffBlockItems = [
     link: "/logotypdesign",
   },
   {
-    title: "Rådgivning",
-    description:
-      "Rådgivning inom ekonomi med fokus på bokföring, bokslut och struktur i ditt företag.",
-    linkText: "Få rådgivning",
-    link: "/radgivning",
-  },
-  {
     title: "Kontakta oss",
     description:
       "Kontakta oss så hjälper vi dig att ta nästa steg med rätt strategi och lösning.",
@@ -36,7 +29,7 @@ const PuffBlockItems = [
 export const PuffBlock = () => {
   return (
     <section className="container py-20 md:py-28">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {PuffBlockItems.map((item, index) => (
           <motion.div
             key={item.title}

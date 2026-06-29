@@ -289,7 +289,7 @@ const Accessoarer = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-[320px] w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-[320px] w-full object-cover"
                   />
                 </div>
 

@@ -11,11 +11,11 @@ const packages = [
     price: "12 900 kr",
     text: "För dig som vill komma igång snabbt med en tydlig identitet och enkel webbnärvaro.",
     features: [
-      "Logotyp",
       "Enkel grafisk profil",
-      "1-sides webbplats",
+      "3-sidig webbplats",
       "Mobilanpassning",
-      "Kontaktsektion",
+      "Kontaktformulär",
+      "7 dagars supportperiod efter lansering",
     ],
   },
   {
@@ -25,10 +25,11 @@ const packages = [
     popular: true,
     features: [
       "Logotyp + grafisk profil",
-      "Webbplats med flera sidor",
-      "SEO grundoptimering",
+      "9-sidig webbplats",
+      "Mobilanpassning",
       "Kontaktformulär",
-      "Bild- och textstruktur",
+      "14 dagars supportperiod efter lansering",
+      "Enkel SEO optimering",
     ],
   },
   {
@@ -36,11 +37,14 @@ const packages = [
     price: "Pris på offert",
     text: "För dig som behöver något mer anpassat med design, strategi och funktioner.",
     features: [
-      "Skräddarsydd design",
-      "Avancerad webbplats",
-      "Integrationer",
-      "Digital strategi",
-      "Löpande support",
+      "Skräddarsydd logotyp + grafisk profil",
+      "Webbplats med 10+ sidor",
+      "Mobilanpassning",
+      "Kontaktformulär",
+      "30 dagars supportperiod efter lansering",
+      "Avancerad SEO optimering",
+      "Webbapplikationer",
+      "Säkerhet",
     ],
   },
 ];
@@ -101,20 +105,19 @@ const StartaForetag = () => {
               </span>
 
               <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-                Starta ditt företag med rätt grund
+                Bygg en stark närvaro online 
               </h2>
-
+              
               <p className="mb-6 text-base font-semibold leading-7 text-white/80 sm:text-lg">
-                Vi hjälper dig att förverkliga din idé och finns med dig hela
-                vägen från första tanke till färdigt varumärke och digital
-                närvaro.
+                Oavsett om du behöver en helt ny webbplats eller vill ta din
+                befintliga närvaro till nästa nivå hjälper vi dig att skapa en
+                lösning som passar ditt företag.
               </p>
 
               <p className="mb-8 text-base font-semibold leading-7 text-white/80 sm:text-lg">
-                Vi bygger en stark grund genom att skapa din företagsidentitet
-                med logotyp, grafisk profil och design som speglar ditt företag.
-                Därefter utvecklar vi en modern och professionell webbplats
-                anpassad efter dina mål.
+                Vi kombinerar design, strategi och teknik för att utveckla en
+                modern och professionell webbplats som stärker ditt varumärke
+                och skapar förtroende hos dina kunder.
               </p>
 
               <Link
@@ -136,7 +139,7 @@ const StartaForetag = () => {
               <img
                 src={imagePath("images/img-3770.webp")}
                 alt="Webbredo"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover transition duration-700 hover:scale-105 md:min-h-[460px]"
+                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
               />
             </motion.div>
           </div>

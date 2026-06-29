@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const options = [
-  "Jag vill boka möte eller begära offert",
-  "Jag vill ha hjälp med webb, design eller digitala tjänster",
-  "Jag vill ha hjälp med företagsprodukter",
-  "Jag vill ha hjälp med ekonomi eller rådgivning",
+  "Jag vill boka ett möte eller begära offert",
+  "Jag behöver hjälp med webb och digitala lösningar",
+  "Jag behöver hjälp med grafisk design",
+  "Jag är intresserad av företagsprodukter",
   "Annat ärende",
 ];
 

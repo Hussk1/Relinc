@@ -13,17 +13,6 @@ const menuColumns = [
       { label: "Säkerhet", path: "/sakerhet" },
     ],
   },
-    {
-    title: "Redovisning",
-    links: [
-      { label: "Rådgivning", path: "/radgivning" },
-      { label: "Årsredovisning", path: "/arsredovisning" },
-      { label: "Bokföring", path: "/bokforing" },
-      { label: "Bokslut", path: "/bokslut" },
-      { label: "Lönehantering", path: "/lonehantering" },
-      { label: "Deklaration", path: "/deklaration" },
-    ],
-  },
   {
     title: "Grafisk",
     links: [
@@ -47,7 +36,11 @@ export const Navbar = () => {
       <div className="container flex h-20 items-center justify-between">
         {/* LOGO */}
         <Link to="/hem/" className="flex items-center">
-          <img src={imagePath("/images/LOGO_PNG.png")} alt="Logo" className="h-12 w-auto" />
+          <img
+            src={imagePath("/images/LOGO_PNG.png")}
+            alt="Logo"
+            className="h-12 w-auto"
+          />
         </Link>
 
         {/* NAV */}
@@ -61,7 +54,7 @@ export const Navbar = () => {
 
             <div className="invisible absolute left-1/2 top-20 w-full max-w-6xl -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
               <div className="rounded-b-2xl border border-white/10 bg-[#202020] p-10 shadow-2xl">
-                <div className="grid grid-cols-5 gap-10">
+                <div className="grid grid-cols-3 gap-10">
                   {menuColumns.map((column) => (
                     <div key={column.title}>
                       <h3 className="mb-4 text-lg font-semibold text-primary">
@@ -101,13 +94,6 @@ export const Navbar = () => {
           >
             Om oss
           </Link>
-
-          <Link
-            to="/kontakta-oss"
-            className="text-lg font-semibold text-white/90 transition hover:text-white"
-          >
-            Kontakta oss
-          </Link>
         </nav>
 
         {/* CTA */}
@@ -115,7 +101,7 @@ export const Navbar = () => {
           to="/kontakt"
           className="hidden rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:bg-secondary xl:inline-flex"
         >
-          Offert
+          Kontakta oss
         </Link>
       </div>
     </header>

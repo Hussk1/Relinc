@@ -29,10 +29,9 @@ export const WhyRelincSection = () => {
 
         <p className="mb-10 max-w-3xl text-base font-medium leading-8 text-white/80 md:text-lg">
           Vi kombinerar strategi, design, teknik och affärsförståelse för att
-          skapa lösningar som hjälper företag att växa. Oavsett om du behöver
-          en ny webbplats, starkare varumärke, digital marknadsföring eller
-          stöd inom ekonomi arbetar vi alltid med fokus på resultat,
-          långsiktighet och kvalitet.
+          skapa lösningar som hjälper företag att växa. Oavsett om du behöver en
+          ny webbplats, ett starkare varumärke eller digital marknadsföring
+          arbetar vi alltid med fokus på resultat, långsiktighet och kvalitet.
         </p>
 
         <Link
