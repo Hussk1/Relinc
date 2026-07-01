@@ -35,12 +35,8 @@ export const Navbar = () => {
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#171717]/95 text-white backdrop-blur">
       <div className="container flex h-20 items-center justify-between">
         {/* LOGO */}
-        <Link to="/hem/" className="flex items-center">
-          <img
-            src={"/images/LOGO_PNG.png"}
-            alt="Logo"
-            className="h-12 w-auto"
-          />
+        <Link to="/" className="flex items-center">
+          <img src="/images/LOGO_PNG.png" alt="Logo" className="h-12 w-auto" />
         </Link>
 
         {/* NAV */}

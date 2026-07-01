@@ -49,8 +49,11 @@ function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          {/* Main pages */}
+          {/* Home */}
+          <Route path="/" element={<Home />} />
           <Route path="/hem" element={<Home />} />
+
+          {/* Main Pages */}
           <Route path="/om-oss" element={<OmOss />} />
           <Route path="/starta-foretag" element={<StartaForetag />} />
           <Route path="/kontakta-oss" element={<Kontakt />} />
