@@ -52,7 +52,7 @@ export const Navbar = () => {
               <ChevronDown className="h-4 w-4 transition duration-200 group-hover:rotate-180" />
             </button>
 
-            <div className="invisible absolute left-1/2 top-20 w-full max-w-6xl -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-20 w-full max-w-4xl -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
               <div className="rounded-b-2xl border border-white/10 bg-[#202020] p-10 shadow-2xl">
                 <div className="grid grid-cols-3 gap-10">
                   {menuColumns.map((column) => (
