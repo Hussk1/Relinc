@@ -37,7 +37,7 @@ export const Navbar = () => {
         {/* LOGO */}
         <Link to="/hem/" className="flex items-center">
           <img
-            src={imagePath("/images/LOGO_PNG.png")}
+            src={"/images/LOGO_PNG.png"}
             alt="Logo"
             className="h-12 w-auto"
           />
