@@ -103,8 +103,9 @@ export const Footer = () => {
             <h3 className="mb-4 text-lg font-semibold text-white">Om oss</h3>
 
             <p className="text-white/70">
-              Vi hjälper företag att omvandla vision till värde genom design,
-              teknik och digital utveckling.
+              Relinc grundades med ambitionen att hjälpa företag att växa
+              digitalt. Genom att kombinera webb, design och strategi skapar vi
+              smarta lösningar och starkare varumärken som håller över tid.
             </p>
           </div>
         </motion.div>
@@ -115,7 +116,10 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/privacy-policy" className="transition hover:text-primary">
+            <Link
+              to="/privacy-policy"
+              className="transition hover:text-primary"
+            >
               Integritetspolicy
             </Link>
           </div>

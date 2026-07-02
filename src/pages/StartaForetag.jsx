@@ -124,7 +124,7 @@ const StartaForetag = () => {
                 to="/kontakta-oss"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
-                Boka rådgivning
+                Kontakta oss
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>

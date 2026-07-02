@@ -24,7 +24,7 @@ export const WhyRelincSection = () => {
         <h2 className="mb-6 max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">
           Mer än en leverantör
           <br />
-          <span className="text-primary">en långsiktig partner</span>
+          <span className="text-primary">En långsiktig partner</span>
         </h2>
 
         <p className="mb-10 max-w-3xl text-base font-medium leading-8 text-white/80 md:text-lg">
@@ -38,7 +38,7 @@ export const WhyRelincSection = () => {
           to="/kontakta-oss"
           className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:opacity-90"
         >
-          Starta ditt projekt
+          Börja din resa här
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </motion.div>
