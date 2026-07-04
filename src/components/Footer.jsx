@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { imagePath } from "@/lib/imagePath";
 
@@ -91,7 +91,12 @@ export const Footer = () => {
                 <Mail size={18} className="text-primary" />
                 kontakt@relinc.se
               </li>
-
+              <li className="flex items-center gap-3">
+                <Phone size={18} className="text-primary" />
+                <a href="tel:0704667004" className="hover:underline">
+                  +46 70 466 70 04
+                </a>
+              </li>
               <li className="flex items-center gap-3">
                 <MapPin size={18} className="text-primary" />
                 Malmö, Sverige
