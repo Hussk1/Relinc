@@ -59,7 +59,7 @@ export const TextImageBlock = () => {
           className="overflow-hidden rounded-2xl"
         >
           <img
-            src={imagePath("images/Digitala.webp")}
+            src={imagePath("images/digital-narvaro-for-foretag-malmo.webp")}
             alt="Bygg din digitala grund"
             className="h-full w-full rounded-2xl object-cover"
           />

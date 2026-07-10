@@ -10,7 +10,7 @@ const serviceHighlights = [
       "Ta första steget mot en stark närvaro med en genomtänkt visuell identitet. Vi hjälper dig att skapa logotyp, grafisk profil och design som speglar ditt företag och skapar förtroende hos dina kunder. Perfekt för dig som startar nytt eller vill stärka ditt varumärke.",
     buttonText: "Skapa din identitet",
     link: "/logotypdesign",
-    image: imagePath("images/forre.webp"),
+    image: imagePath("images/grafisk-profil-logotypdesign-malmo.webp"),
     imagePosition: "left",
   },
   {
@@ -19,7 +19,7 @@ const serviceHighlights = [
       "Vi skapar moderna, användarvänliga och SEO-optimerade webbplatser anpassade efter dina affärsmål. Genom att kombinera kreativ design, teknisk utveckling och strategisk förståelse bygger vi en digital plattform som stärker ditt varumärke och driver resultat.",
     buttonText: "Vårt erbjudande inom webb",
     link: "/webbdesign",
-    image: imagePath("images/webb.webp"),
+    image: imagePath("images/webbdesign-malmo-seo-optimerad-hemsida.webp"),
     imagePosition: "right",
   },
 ];

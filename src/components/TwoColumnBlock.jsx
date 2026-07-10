@@ -6,7 +6,7 @@ import { imagePath } from "@/lib/imagePath";
 const TwoColumnBlockItems = [
   {
     title: "Fokus på kunden",
-    image: imagePath("images/test.webp"),
+    image: imagePath("images/kundanpassade-digitala-losningar-malmo.webp"),
     description:
       "Varje företag är unikt och därför anpassar vi våra lösningar efter dina behov och mål. Genom ett nära samarbete skapar vi smarta och effektiva lösningar inom digital utveckling, design och affärsstöd. Vi hjälper dig med allt från webbdesign, SEO och systemutveckling till grafisk design, video och digital marknadsföring, samt erbjuder stöd inom redovisning och företagslösningar för att förenkla din vardag. Med rätt strategi, teknik och kreativitet bygger vi lösningar som stärker din verksamhet, effektiviserar processer och skapar långsiktig tillväxt.",
     linkText: "Webbredo",
@@ -14,7 +14,7 @@ const TwoColumnBlockItems = [
   },
   {
     title: "Strategi möter resultat",
-    image: imagePath("images/strategimoterresultat.webp"),
+    image: imagePath("images/digital-strategi-for-foretag.webp"),
     description:
       "Hos oss tror vi att de bästa resultaten skapas när strategi, teknik och kreativitet samverkar, och vi kombinerar teknisk kompetens med en djup förståelse för din verksamhet och dina mål. Oavsett om det handlar om att utveckla en modern webbplats, förbättra din synlighet genom SEO, skapa stark visuell kommunikation eller effektivisera din verksamhet med smarta system och redovisningstjänster är vårt mål alltid detsamma att leverera lösningar som inte bara möter dina behov idag utan också driver din verksamhet framåt långsiktigt. ",
     linkText: "Kontakta oss",
