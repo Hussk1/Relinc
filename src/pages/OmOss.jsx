@@ -31,7 +31,7 @@ const OmOss = () => {
               className="overflow-hidden rounded-2xl"
             >
               <img
-                src={imagePath("images/img-3770.webp")}
+                src={imagePath("images/kundsamarbete-digital-byra-malmo.webp")}
                 alt="Relinc erbjudande"
                 className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
               />
@@ -107,7 +107,7 @@ const OmOss = () => {
               className="overflow-hidden rounded-2xl md:order-2"
             >
               <img
-                src={imagePath("images/img-3770.webp")}
+                src={imagePath("images/digitala-losningar-foretag-malmo.webp")}
                 alt="Relinc team"
                 className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
               />
