@@ -14,11 +14,11 @@ const menuColumns = [
     ],
   },
   {
-    title: "Grafisk",
+    title: "Design",
     links: [
-      { label: "Logotypdesign", path: "/logotypdesign" },
-      { label: "Banners & Annonser", path: "/banners-annonser" },
-      { label: "Bildredigering", path: "/bildredigering" },
+      { label: "Logotyp & Grafisk profil", path: "/logotypdesign" },
+      { label: "Marknadsföringsmaterial", path: "/banners-annonser" },
+      { label: "Bildproduktion", path: "/bildredigering" },
     ],
   },
   {
@@ -36,7 +36,7 @@ export const Navbar = () => {
       <div className="container flex h-20 items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="flex items-center">
-          <img src="/images/LOGO_PNG.png" alt="Logo" className="h-12 w-auto" />
+          <img src={imagePath("images/relinc-vit-logotyp.webp")} alt="Logo" className="w-32 h-auto" />
         </Link>
 
         {/* NAV */}

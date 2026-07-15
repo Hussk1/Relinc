@@ -59,9 +59,9 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 text-2xl font-extrabold uppercase tracking-wide">
               <img
-                src={imagePath("images/LOGO_PNG.png")}
+                src={imagePath("images/relinc-vit-logotyp.webp")}
                 alt="Relinc Logo"
-                className="h-10 w-auto"
+                className="w-32 h-auto"
               />
             </h3>
 
