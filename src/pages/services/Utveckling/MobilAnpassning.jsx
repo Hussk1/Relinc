@@ -9,13 +9,13 @@ import { imagePath } from "@/lib/imagePath";
 const TwoColumnBlockItems = [
   {
     title: "Responsiv design",
-    image: imagePath("images/ModernWebbdesign.webp"),
+    image: imagePath("images/responsiv-webbdesign-malmo.webp"),
     description:
       "Vi skapar mobilanpassade webbplatser som fungerar smidigt på alla enheter och skärmstorlekar. Med responsiv design säkerställer vi en konsekvent och användarvänlig upplevelse för alla besökare.",
   },
   {
     title: "Smidig användarupplevelse",
-    image: imagePath("images/upplevelse.webp"),
+    image: imagePath("images/ux-design-webbdesign-malmo.webp"),
     description:
       "Vi designar webbplatser med fokus på snabbhet, tydlig navigering och enkel användning för att skapa en bättre upplevelse på både mobil, surfplatta och dator.",
   },
@@ -85,7 +85,7 @@ const MobilAnpassning = () => {
       <PageHero
         title="Mobilanpassning"
         subtitle="Vi säkerställer att din webbplats fungerar perfekt på alla enheter med responsiv design och optimerad användarupplevelse."
-        image="/images/Utveckling.webp"
+        image="images/Utveckling.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />

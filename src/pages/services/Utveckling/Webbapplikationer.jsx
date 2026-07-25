@@ -9,13 +9,13 @@ import { imagePath } from "@/lib/imagePath";
 const TwoColumnBlockItems = [
   {
     title: "Smarta digitala lösningar",
-    image: imagePath("images/ModernWebbdesign.webp"),
+    image: imagePath("images/webbapplikationer-digitala-losningar-malmo.webp"),
     description:
       "Vi utvecklar moderna webbapplikationer som förenklar arbetsprocesser, effektiviserar verksamheter och skapar smarta digitala upplevelser anpassade efter företagets behov.",
   },
   {
     title: "Anpassade efter din verksamhet",
-    image: imagePath("images/upplevelse.webp"),
+    image: imagePath("images/skraddarsydda-webbapplikationer-malmo.webp"),
     description:
       "Varje webbapplikation skräddarsys efter dina behov och mål. Med fokus på prestanda, användarvänlighet och skalbarhet skapar vi lösningar som växer tillsammans med din verksamhet.",
   },
@@ -85,7 +85,7 @@ const Webbapplikationer = () => {
       <PageHero
         title="Webbapplikationer"
         subtitle="Moderna webbapplikationer byggda för prestanda, användarvänlighet och skalbarhet som hjälper din verksamhet att växa digitalt."
-        image="/images/Utveckling.webp"
+        image="images/Utveckling.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />

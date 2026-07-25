@@ -9,13 +9,13 @@ import { imagePath } from "@/lib/imagePath";
 const TwoColumnBlockItems = [
   {
     title: "Säkra webblösningar",
-    image: imagePath("images/ModernWebbdesign.webp"),
+    image: imagePath("images/sakra-webblosningar-malmo.webp"),
     description:
       "Vi utvecklar webbplatser med fokus på säkerhet, stabilitet och skydd mot digitala hot. Genom moderna säkerhetslösningar hjälper vi till att skydda både data och användare.",
   },
   {
     title: "Skydd och prestanda",
-    image: imagePath("images/upplevelse.webp"),
+    image: imagePath("images/webbsakerhet-prestanda-malmo.webp"),
     description:
       "En säker webbplats handlar om mer än bara skydd. Vi arbetar med uppdateringar, optimering och säkerhetsåtgärder för att skapa en trygg och stabil upplevelse för alla besökare.",
   },
@@ -85,7 +85,7 @@ const Sakerhet = () => {
       <PageHero
         title="Säkerhet"
         subtitle="Säkra och stabila webblösningar med fokus på dataskydd, prestanda och trygg användarupplevelse."
-        image="/images/Utveckling.webp"
+        image="images/Utveckling.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />

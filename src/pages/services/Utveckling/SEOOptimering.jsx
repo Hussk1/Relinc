@@ -9,13 +9,13 @@ import { imagePath } from "@/lib/imagePath";
 const TwoColumnBlockItems = [
   {
     title: "Ökad synlighet online",
-    image: imagePath("images/ModernWebbdesign.webp"),
+    image: imagePath("images/seo-optimering-malmo.webp"),
     description:
       "Vi hjälper din webbplats att synas bättre i sökresultaten genom genomtänkt SEO, optimerat innehåll och tekniska förbättringar som stärker din digitala närvaro.",
   },
   {
     title: "Smart SEO-struktur",
-    image: imagePath("images/upplevelse.webp"),
+    image: imagePath("images/seo-optimerad-webbdesign-malmo.webp"),
     description:
       "En framgångsrik webbplats behöver vara snabb, användarvänlig och tydligt strukturerad. Vi kombinerar modern webbdesign med SEO för att skapa en bättre upplevelse för både besökare och sökmotorer.",
   },
@@ -85,7 +85,7 @@ const SEOOptimering = () => {
       <PageHero
         title="SEO Optimering"
         subtitle="Vi hjälper företag att förbättra sin synlighet på Google genom strategisk SEO och optimerade webblösningar som driver organisk trafik och fler affärer."
-        image="/images/Utveckling.webp"
+        image="images/Utveckling.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />
