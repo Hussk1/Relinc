@@ -155,7 +155,7 @@ const Accessoarer = () => {
       <PageHero
         title="Accessoarer"
         subtitle="Professionella accessoarer som stärker ert varumärke och skapar ett enhetligt intryck."
-        image={imagePath("images/Företagsprodukter.webp")}
+        image="images/Företagsprodukter.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />

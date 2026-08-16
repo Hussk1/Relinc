@@ -16,8 +16,8 @@ const menuColumns = [
   {
     title: "Design",
     links: [
-      { label: "Logotyp & Grafisk profil", path: "/logotypdesign" },
-      { label: "Marknadsföringsmaterial", path: "/banners-annonser" },
+      { label: "Logotyp & Grafisk profil", path: "/LogotypGrafiskProfil" },
+      { label: "Marknadsföringsmaterial", path: "/Marknadsforingsmaterial" },
       { label: "Bildproduktion", path: "/bildredigering" },
     ],
   },

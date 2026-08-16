@@ -154,7 +154,7 @@ const Arbetsklader = () => {
       <PageHero
         title="Arbetskläder"
         subtitle="Professionella arbetskläder och profilkläder som stärker ert varumärke och skapar ett enhetligt intryck."
-        image={imagePath("images/Företagsprodukter.webp")}
+        image="images/Företagsprodukter.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />

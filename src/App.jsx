@@ -20,8 +20,8 @@ import MobilAnpassning from "./pages/services/Utveckling/MobilAnpassning";
 import Sakerhet from "./pages/services/Utveckling/Sakerhet";
 
 // Grafisk
-import Logotypdesign from "./pages/services/Grafisk/Logotypdesign";
-import BannersAnnonser from "./pages/services/Grafisk/BannersAnnonser";
+import LogotypGrafiskProfil from "./pages/services/Grafisk/LogotypGrafiskProfil";
+import Marknadsforingsmaterial from "./pages/services/Grafisk/Marknadsforingsmaterial";
 import Bildredigering from "./pages/services/Grafisk/Bildredigering";
 
 // Företagsprodukter
@@ -66,8 +66,8 @@ function App() {
           <Route path="/sakerhet" element={<Sakerhet />} />
 
           {/* Grafisk */}
-          <Route path="/logotypdesign" element={<Logotypdesign />} />
-          <Route path="/banners-annonser" element={<BannersAnnonser />} />
+          <Route path="/LogotypGrafiskProfil" element={<LogotypGrafiskProfil />} />
+          <Route path="/Marknadsforingsmaterial" element={<Marknadsforingsmaterial />} />
           <Route path="/bildredigering" element={<Bildredigering />} />
 
           {/* Företagsprodukter */}

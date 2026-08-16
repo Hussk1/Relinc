@@ -44,29 +44,29 @@ const values = [
 
 const faqs = [
   {
-    question: "Vad är logotypdesign?",
+    question: "Vad är en grafisk profil?",
     answer:
-      "Logotypdesign handlar om att skapa en visuell symbol eller identitet som representerar ett företag eller varumärke. En professionell logotyp hjälper till att skapa igenkänning och ger ett starkt första intryck.",
+      "En grafisk profil är grunden för företagets visuella identitet och består vanligtvis av logotyp, färger, typografi och andra grafiska element som skapar ett enhetligt uttryck.",
   },
   {
-    question: "Varför är en bra logotyp viktig?",
+    question: "Varför är en stark visuell identitet viktig?",
     answer:
-      "En bra logotyp stärker varumärkets identitet och gör företaget mer minnesvärt. Den skapar förtroende, professionalism och hjälper företaget att sticka ut från konkurrenterna.",
+      "En tydlig visuell identitet hjälper ditt företag att skapa igenkänning, bygga förtroende och ge ett professionellt intryck i alla kanaler.",
   },
   {
-    question: "Hur går processen för logotypdesign till?",
+    question: "Hur går processen för logotyp & grafisk profil till?",
     answer:
-      "Processen börjar vanligtvis med research och idéarbete för att förstå företagets mål, målgrupp och identitet. Därefter tas designförslag fram som vidareutvecklas till en färdig logotyp.",
+      "Vi börjar med att förstå ditt företag, din målgrupp och vilken känsla varumärket ska förmedla. Därefter utvecklar vi logotyp, färger, typografi och visuella riktlinjer till en sammanhängande profil.",
   },
   {
-    question: "Vad bör en bra logotyp innehålla?",
+    question: "Vad ingår i en grafisk profil?",
     answer:
-      "En bra logotyp ska vara enkel, tydlig och lätt att känna igen. Den bör fungera på olika plattformar och storlekar samtidigt som den speglar företagets värderingar och visuella identitet.",
+      "Innehållet kan variera beroende på behov, men vanligtvis ingår logotyp, färgpalett, typografi och riktlinjer för hur företagets visuella material ska användas.",
   },
   {
-    question: "Kan en logotyp användas både digitalt och i tryck?",
+    question: "Kan den grafiska profilen användas både digitalt och i tryck?",
     answer:
-      "Ja, en professionellt designad logotyp anpassas för att fungera både digitalt och i tryckt material. Den levereras ofta i flera format för att kunna användas på webbplatser, sociala medier, visitkort och andra marknadsföringsmaterial.",
+      "Ja. Profilen utformas för att fungera på exempelvis webbplatser, sociala medier, annonser, visitkort, skyltar och annat tryckt material.",
   },
 ];
 
@@ -87,7 +87,7 @@ const PuffBlockItems = [
   },
 ];
 
-const Logotypdesign = () => {
+const LogotypGrafiskProfil = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -97,9 +97,9 @@ const Logotypdesign = () => {
   return (
     <>
       <PageHero
-        title="Logotypdesign"
-        subtitle="Modern logotypdesign som kombinerar kreativitet, strategi och tydlig varumärkesidentitet för att hjälpa ditt företag att sticka ut."
-        image="/images/Grafisk.webp"
+        title="Logotyp & Grafisk profil"
+        subtitle="Vi skapar en tydlig och professionell visuell identitet med logotyp, färger och design som stärker ditt varumärke och skapar igenkänning."
+        image="images/Grafisk.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />
@@ -109,29 +109,28 @@ const Logotypdesign = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src={imagePath("images/img-3770.webp")}
-                alt="Logotypdesign"
+                src="images/img-3770.webp"
+                alt="LogotypGrafiskProfil"
                 className="rounded-2xl"
               />
             </div>
 
             <div className="max-w-xl self-end">
               <h2 className="mb-6 text-4xl font-bold text-white">
-                Unik visuell identitet
+                Stark visuell identitet
               </h2>
 
               <p className="mb-8 text-lg font-semibold leading-7 text-white">
-                Vi skapar professionella logotyper som stärker ditt varumärke
-                och hjälper ditt företag att sticka ut. Med fokus på design,
-                färg och typografi bygger vi en visuell identitet som känns
-                modern och minnesvärd.
+                Vi skapar en genomtänkt grafisk profil med logotyp, färger och
+                visuella uttryck som stärker ditt varumärke och skapar en tydlig
+                helhet.
               </p>
 
               <a
                 href="/kontakt"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
-                Boka logotypdesign
+                Kontakta oss
               </a>
             </div>
           </div>
@@ -148,7 +147,7 @@ const Logotypdesign = () => {
             className="mb-12 max-w-3xl md:mb-16"
           >
             <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-              Vanliga frågor om logotypdesign
+              Vanliga frågor om logotyp & grafisk profil
             </h2>
           </motion.div>
 
@@ -246,4 +245,4 @@ const Logotypdesign = () => {
   );
 };
 
-export default Logotypdesign;
+export default LogotypGrafiskProfil;

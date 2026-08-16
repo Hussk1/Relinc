@@ -45,29 +45,29 @@ const values = [
 
 const faqs = [
   {
-    question: "Vad är banners och annonser?",
+    question: "Vad menas med marknadsföringsmaterial?",
     answer:
-      "Banners och annonser är visuellt marknadsföringsmaterial som används för att marknadsföra företag, produkter eller tjänster digitalt. De används ofta på webbplatser, sociala medier och i digitala kampanjer för att fånga uppmärksamhet och skapa engagemang.",
+      "Vi skapar visuellt innehåll för marknadsföring i form av bilder och videor som hjälper företag att presentera produkter, tjänster och varumärken på ett professionellt sätt.",
   },
   {
-    question: "Varför är professionell annonsdesign viktigt?",
+    question: "Skapar ni AI-genererade bilder och videor?",
     answer:
-      "Professionell annonsdesign hjälper företag att skapa ett starkt första intryck och ökar chansen att nå rätt målgrupp. En genomtänkt design med tydliga budskap och stark visuell identitet kan förbättra både synlighet och konvertering.",
+      "Ja, vi använder AI som en del av produktionen för att skapa unikt visuellt material. Innehållet bearbetas och anpassas därefter manuellt för att uppnå ett professionellt resultat.",
   },
   {
-    question: "Vilka typer av banners och annonser kan ni skapa?",
+    question: "Redigeras materialet manuellt?",
     answer:
-      "Vi skapar banners och annonser för webbplatser, sociala medier, kampanjer och digital marknadsföring. Designen anpassas efter företagets varumärke, målgrupp och plattform för bästa möjliga resultat.",
+      "Ja, AI är ett verktyg i processen. Vi arbetar även manuellt med bland annat videoklippning, bildredigering, text, ljud, övergångar och andra detaljer för att skapa ett färdigt material.",
   },
   {
-    question: "Kan banners och annonser anpassas för olika plattformar?",
+    question: "Vilken typ av innehåll kan ni skapa?",
     answer:
-      "Ja, banners och annonser anpassas efter olika format och plattformar för att fungera optimalt på exempelvis Instagram, Facebook, Google Ads och webbplatser.",
+      "Vi kan skapa produktbilder, produktvideor, reklamvideor, kampanjmaterial och visuellt innehåll för exempelvis sociala medier, webbplatser och digital annonsering.",
   },
   {
-    question: "Hur skapar man effektiva banners och annonser?",
+    question: "Kan materialet anpassas efter mitt företag?",
     answer:
-      "Effektiva banners och annonser kombinerar tydliga budskap, stark design och strategisk placering. Genom rätt färger, typografi och visuella element skapas annonser som fångar uppmärksamhet och engagerar målgruppen.",
+      "Ja, innehållet anpassas efter ditt varumärke, dina produkter, färger, stil och målgrupp för att skapa ett enhetligt uttryck som passar företagets marknadsföring",
   },
 ];
 
@@ -88,7 +88,7 @@ const PuffBlockItems = [
   },
 ];
 
-const BannersAnnonser = () => {
+const Marknadsforingsmaterial = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -98,9 +98,9 @@ const BannersAnnonser = () => {
   return (
     <>
       <PageHero
-        title="Banners och annonser"
-        subtitle="Vi designar professionella banners och annonser som stärker ditt varumärke och hjälper dig att fånga uppmärksamheten online."
-        image="/images/Grafisk.webp"
+        title="Marknadsföringsmaterial"
+        subtitle="Vi skapar professionellt marknadsföringsmaterial som stärker ditt varumärke och hjälper dig att kommunicera tydligt och effektivt i både digitala och tryckta kanaler."
+        image="images/Grafisk.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />
@@ -110,7 +110,7 @@ const BannersAnnonser = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src={imagePath("images/img-3770.webp")}
+                src="images/img-3770.webp"
                 alt="Logotypdesign"
                 className="rounded-2xl"
               />
@@ -118,20 +118,20 @@ const BannersAnnonser = () => {
 
             <div className="max-w-xl self-end">
               <h2 className="mb-6 text-4xl font-bold text-white">
-                Design för digital marknadsföring
+                Design som stärker din marknadsföring
               </h2>
 
               <p className="mb-8 text-lg font-semibold leading-7 text-white">
-                Professionella banners och annonser anpassade för webb, sociala
-                medier och digitala kampanjer med fokus på synlighet, varumärke
-                och resultat.
+                Vi skapar visuellt marknadsföringsmaterial för sociala medier,
+                annonser, kampanjer och tryck som är anpassat efter ditt
+                varumärke och dina mål.
               </p>
 
               <a
                 href="/kontakt"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
-                Boka möte
+                Kontakta oss
               </a>
             </div>
           </div>
@@ -148,7 +148,7 @@ const BannersAnnonser = () => {
             className="mb-12 max-w-4xl md:mb-16"
           >
             <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-              Vanliga frågor om banners & annonser
+              Vanliga frågor om marknadsföringsmaterial
             </h2>
           </motion.div>
 
@@ -246,4 +246,4 @@ const BannersAnnonser = () => {
   );
 };
 
-export default BannersAnnonser;
+export default Marknadsforingsmaterial;

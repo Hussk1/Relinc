@@ -44,29 +44,29 @@ const values = [
 
 const faqs = [
   {
-    question: "Vad är bildredigering?",
+    question: "Vad innebär bildproduktion?",
     answer:
-      "Bildredigering handlar om att förbättra och anpassa bilder för att skapa ett mer professionellt och visuellt tilltalande resultat. Det kan inkludera justering av färger, ljus, kontrast, retuschering och andra visuella förbättringar.",
+      "Bildproduktion innebär att vi skapar, redigerar och anpassar visuellt material för företag, produkter och marknadsföring.",
   },
   {
-    question: "Varför är professionell bildredigering viktigt?",
+    question: "Vilka typer av bilder kan ni skapa?",
     answer:
-      "Professionell bildredigering hjälper företag att skapa ett starkare visuellt intryck och stärka sitt varumärke. Högkvalitativa bilder skapar större förtroende och gör innehåll mer attraktivt för besökare och kunder.",
+      "Vi kan skapa produktbilder, kampanjbilder, bilder för sociala medier, webbmaterial och annat visuellt innehåll anpassat efter ditt varumärke.",
   },
   {
-    question: "Vilka typer av bilder kan redigeras?",
+    question: "Arbetar ni med AI-genererade bilder?",
     answer:
-      "Bildredigering kan användas för produktbilder, porträtt, marknadsföringsmaterial, sociala medier och webbplatsbilder. Anpassningar görs efter användningsområde och önskat visuellt uttryck.",
+      "Ja, vi använder AI som en del av produktionen och kombinerar det med manuell redigering för att skapa ett mer genomarbetat och professionellt resultat",
   },
   {
-    question: "Kan bilder anpassas för sociala medier och webb?",
+    question: "Kan bilderna anpassas för olika plattformar?",
     answer:
-      "Ja, bilder kan optimeras och anpassas för olika plattformar och format för att säkerställa bästa möjliga kvalitet och prestanda på webbplatser och sociala medier.",
+      "Ja, bilderna kan anpassas i storlek, format och utformning för exempelvis sociala medier, webbplatser, annonser och andra digitala kanaler.",
   },
   {
-    question: "Hur förbättrar bildredigering ett varumärke?",
+    question: "Kan ni utgå från befintliga produktbilder?",
     answer:
-      "Genom konsekvent och professionell bildredigering skapas ett enhetligt visuellt uttryck som stärker företagets identitet och gör varumärket mer igenkännbart och attraktivt.",
+      "Ja, vi kan arbeta med befintliga bilder och förbättra, redigera eller bygga vidare på materialet för att skapa ett nytt visuellt uttryck.",
   },
 ];
 
@@ -97,9 +97,9 @@ const Bildredigering = () => {
   return (
     <>
       <PageHero
-        title="Bildredigering"
-        subtitle="Bildredigering som förbättrar dina bilder och skapar ett mer professionellt och enhetligt visuellt uttryck."
-        image="/images/Grafisk.webp"
+        title="Bildproduktion"
+        subtitle="Vi skapar och redigerar professionellt bildmaterial anpassat för ditt varumärke, dina produkter och din marknadsföring."
+        image="images/Grafisk.webp"
         ctaText="Kontakta oss"
         ctaLink="/kontakt"
       />
@@ -109,7 +109,7 @@ const Bildredigering = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src={imagePath("images/img-3770.webp")}
+                src="images/img-3770.webp"
                 alt="Logotypdesign"
                 className="rounded-2xl"
               />
@@ -117,21 +117,21 @@ const Bildredigering = () => {
 
             <div className="max-w-xl self-end">
               <h2 className="mb-6 text-4xl font-bold text-white">
-                Professionell bildredigering
+                Professionell bildproduktion
               </h2>
 
               <p className="mb-8 text-lg font-semibold leading-7 text-white">
-                Vi förbättrar och anpassar bilder för att skapa ett
-                professionellt och visuellt tilltalande uttryck. Med fokus på
-                kvalitet, färg och detaljer hjälper vi företag att stärka sitt
-                visuella varumärke.
+                Vi skapar och redigerar visuellt bildmaterial anpassat efter
+                ditt varumärke, dina produkter och dina mål. Med fokus på
+                kvalitet, detaljer och ett professionellt uttryck tar vi fram
+                bilder som stärker din visuella kommunikation.
               </p>
 
               <a
                 href="/kontakt"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
-                Boka logotypdesign
+                Kontakta oss
               </a>
             </div>
           </div>
@@ -148,7 +148,7 @@ const Bildredigering = () => {
             className="mb-12 max-w-3xl md:mb-16"
           >
             <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-              Vanliga frågor om bildredigering
+              Vanliga frågor om bildproduktion
             </h2>
           </motion.div>
 
