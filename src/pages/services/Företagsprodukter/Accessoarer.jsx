@@ -222,51 +222,6 @@ const Accessoarer = () => {
         </div>
       </section>
 
-      <section className="container py-20 text-white md:py-28">
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-          >
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-              Anpassade accessoarer <br /> för alla behov
-            </h2>
-
-            <p className="mb-8 text-lg font-semibold leading-7 text-white/75">
-              Vi erbjuder accessoarer och profilprodukter som stärker företagets
-              varumärke och skapar ett professionellt helhetsintryck. Behöver ni
-              något utöver vårt sortiment kan vi även hjälpa till med
-              specialbeställningar och skräddarsydda lösningar via kontakt med
-              oss.
-            </p>
-
-            <Link
-              to="/kontakt"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
-            >
-              Kontakta oss
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="overflow-hidden rounded-2xl"
-          >
-            <img
-              src="/images/img-3770.webp"
-              alt="Arbetskläder"
-              className="h-[420px] w-full object-cover"
-            />
-          </motion.div>
-        </div>
-      </section>
-
       <section className="py-20 text-white md:py-28">
         <div className="container">
           <div className="mb-14 text-center">
