@@ -109,8 +109,8 @@ const Bildredigering = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src="images/img-3770.webp"
-                alt="Logotypdesign"
+                src="images/professionell-bildproduktion-malmo.webp"
+                alt="Bildredigering"
                 className="rounded-2xl"
               />
             </div>

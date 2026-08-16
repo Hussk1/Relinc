@@ -109,7 +109,7 @@ const LogotypGrafiskProfil = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src="images/img-3770.webp"
+                src="images/visuell-identitet-grafisk-profil-malmo.webp"
                 alt="LogotypGrafiskProfil"
                 className="rounded-2xl"
               />

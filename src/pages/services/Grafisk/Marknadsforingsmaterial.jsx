@@ -110,8 +110,8 @@ const Marknadsforingsmaterial = () => {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <img
-                src="images/img-3770.webp"
-                alt="Logotypdesign"
+                src="images/marknadsforingsmaterial-grafisk-design-malmo.webp"
+                alt="Marknadsföringsmaterial"
                 className="rounded-2xl"
               />
             </div>
