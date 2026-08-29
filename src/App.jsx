@@ -9,7 +9,7 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import OmOss from "./pages/OmOss";
-import StartaForetag from "./pages/StartaForetag";
+import Webbredo from "./pages/Webbredo";
 import Kontakt from "./pages/Kontakt";
 
 // Utveckling
@@ -53,9 +53,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hem" element={<Home />} />
 
-          {/* Main Pages */}
+          {/* Main pages */}
           <Route path="/om-oss" element={<OmOss />} />
-          <Route path="/starta-foretag" element={<StartaForetag />} />
+          <Route path="/webbredo" element={<Webbredo />} />
           <Route path="/kontakta-oss" element={<Kontakt />} />
 
           {/* Utveckling */}
@@ -66,8 +66,14 @@ function App() {
           <Route path="/sakerhet" element={<Sakerhet />} />
 
           {/* Grafisk */}
-          <Route path="/LogotypGrafiskProfil" element={<LogotypGrafiskProfil />} />
-          <Route path="/Marknadsforingsmaterial" element={<Marknadsforingsmaterial />} />
+          <Route
+            path="/LogotypGrafiskProfil"
+            element={<LogotypGrafiskProfil />}
+          />
+          <Route
+            path="/Marknadsforingsmaterial"
+            element={<Marknadsforingsmaterial />}
+          />
           <Route path="/bildredigering" element={<Bildredigering />} />
 
           {/* Företagsprodukter */}

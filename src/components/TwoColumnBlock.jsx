@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { imagePath } from "@/lib/imagePath";
 
 const TwoColumnBlockItems = [
@@ -16,7 +15,7 @@ const TwoColumnBlockItems = [
     title: "Strategi möter resultat",
     image: imagePath("images/digital-strategi-for-foretag.webp"),
     description:
-      "Hos oss tror vi att de bästa resultaten skapas när strategi, teknik och kreativitet samverkar, och vi kombinerar teknisk kompetens med en djup förståelse för din verksamhet och dina mål. Oavsett om det handlar om att utveckla en modern webbplats, förbättra din synlighet genom SEO, skapa stark visuell kommunikation eller effektivisera din verksamhet med smarta system och redovisningstjänster är vårt mål alltid detsamma att leverera lösningar som inte bara möter dina behov idag utan också driver din verksamhet framåt långsiktigt. ",
+      "Hos oss tror vi att de bästa resultaten skapas när strategi, teknik och kreativitet samverkar, och vi kombinerar teknisk kompetens med en djup förståelse för din verksamhet och dina mål. Oavsett om det handlar om att utveckla en modern webbplats, förbättra din synlighet genom SEO, skapa stark visuell kommunikation eller effektivisera din verksamhet med smarta system och redovisningstjänster är vårt mål alltid detsamma att leverera lösningar som inte bara möter dina behov idag utan också driver din verksamhet framåt långsiktigt.",
     linkText: "Kontakta oss",
     link: "/kontakta-oss",
   },
@@ -26,14 +25,8 @@ export const TwoColumnBlock = () => {
   return (
     <section className="relative container px-4 py-12 sm:px-6 sm:py-16 lg:px-4">
       <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-        {TwoColumnBlockItems.map((item, index) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.6, delay: index * 0.16 }}
-          >
+        {TwoColumnBlockItems.map((item) => (
+          <div key={item.title}>
             <div className="inline-block w-full overflow-hidden rounded-2xl">
               <img
                 src={item.image}
@@ -54,14 +47,14 @@ export const TwoColumnBlock = () => {
               <div className="inline-block">
                 <Link
                   to={item.link}
-                  className="group flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-6 font-semibold leading-none text-[#1b1b1b] transition hover:opacity-90"
+                  className="flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-6 font-semibold leading-none text-[#1b1b1b]"
                 >
                   {item.linkText}
-                  <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

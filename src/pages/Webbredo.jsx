@@ -102,7 +102,9 @@ const serviceHighlights = [
       "Vi skapar moderna, användarvänliga och SEO-optimerade webbplatser anpassade efter dina affärsmål. Genom att kombinera kreativ design, teknisk utveckling och strategisk förståelse bygger vi en digital plattform som stärker ditt varumärke och driver resultat. Vi hjälper dig hela vägen från idé och design till utveckling, innehåll och långsiktig tillväxt.",
     buttonText: "Vårt erbjudande inom webb",
     link: "/webbdesign",
-    image: imagePath("images/webbutveckling-malmo-seo-optimerad-hemsida.webp"),
+    image: imagePath(
+      "images/webbutveckling-malmo-seo-optimerad-hemsida.webp",
+    ),
     imagePosition: "right",
   },
   {
@@ -145,7 +147,7 @@ const ComparisonValue = ({ value }) => {
   );
 };
 
-const StartaForetag = () => {
+const Webbredo = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]">
       <PageHero
@@ -155,7 +157,7 @@ const StartaForetag = () => {
       />
 
       <section className="py-20 text-white md:py-28">
-        <div className="container">
+        <div className="container px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -35 }}
@@ -168,7 +170,7 @@ const StartaForetag = () => {
                 Webbredo
               </span>
 
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                 Bygg en stark närvaro online
               </h2>
 
@@ -201,9 +203,11 @@ const StartaForetag = () => {
               className="overflow-hidden rounded-2xl"
             >
               <img
-                src={imagePath("images/webbdesign-malmo-digital-narvaro.webp")}
+                src={imagePath(
+                  "images/webbdesign-malmo-digital-narvaro.webp",
+                )}
                 alt="Webbredo"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
+                className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </motion.div>
           </div>
@@ -211,7 +215,7 @@ const StartaForetag = () => {
       </section>
 
       <section id="paket" className="relative py-20 text-white md:py-28">
-        <div className="container relative z-10">
+        <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +246,7 @@ const StartaForetag = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`relative rounded-2xl bg-[#1f1f1f] p-6 ${
+                className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
                   item.popular
                     ? "border-2 border-primary"
                     : "border border-white/10"
@@ -409,7 +413,9 @@ const StartaForetag = () => {
                       <td
                         key={item.name}
                         className={`p-6 ${
-                          item.popular ? "bg-primary/[0.07]" : "bg-[#191919]"
+                          item.popular
+                            ? "bg-primary/[0.07]"
+                            : "bg-[#191919]"
                         }`}
                       >
                         <Link
@@ -437,7 +443,7 @@ const StartaForetag = () => {
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="relative container space-y-20 md:space-y-28">
+        <div className="relative container space-y-16 px-4 sm:px-6 md:space-y-24 lg:px-4 lg:space-y-28">
           {serviceHighlights.map((item) => (
             <div
               key={item.title}
@@ -458,7 +464,7 @@ const StartaForetag = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="h-full min-h-[260px] w-full rounded-lg object-cover md:min-h-[420px]"
+                  className="h-[260px] w-full rounded-lg object-cover sm:h-[340px] md:h-full md:min-h-[420px]"
                 />
               </motion.div>
 
@@ -474,7 +480,7 @@ const StartaForetag = () => {
                   item.imagePosition === "right" ? "md:order-1" : "md:order-2"
                 } flex h-full max-w-xl flex-col justify-center md:pt-12 lg:pt-16`}
               >
-                <h2 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+                <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                   {item.title}
                 </h2>
 
@@ -500,4 +506,4 @@ const StartaForetag = () => {
   );
 };
 
-export default StartaForetag;
+export default Webbredo;

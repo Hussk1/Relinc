@@ -118,7 +118,7 @@ export const Navbar = () => {
           </div>
 
           <Link
-            to="/starta-foretag"
+            to="/webbredo"
             className="text-lg font-semibold text-white/90 transition hover:text-white"
           >
             Webbredo
