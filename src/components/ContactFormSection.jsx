@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, LoaderCircle, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -11,7 +12,12 @@ const options = [
 ];
 
 const FormLinesIcon = ({ className = "" }) => (
-  <svg viewBox="0 0 90 90" fill="none" className={className}>
+  <svg
+    viewBox="0 0 90 90"
+    fill="none"
+    className={className}
+    aria-hidden="true"
+  >
     <path
       d="M10 70L25 45M28 78L38 50M48 82L48 52M68 78L58 50M84 68L68 45"
       stroke="currentColor"
@@ -21,7 +27,102 @@ const FormLinesIcon = ({ className = "" }) => (
   </svg>
 );
 
-export const ContactFormSection = () => {
+export const ContactFormSection = ({
+  endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT,
+}) => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
+
+  const toggleOption = (option) => {
+    setSelectedOptions((current) =>
+      current.includes(option)
+        ? current.filter((item) => item !== option)
+        : [...current, option],
+    );
+
+    setMessage("");
+  };
+
+  const closePopup = () => {
+    setMessage("");
+    setStatus("idle");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+
+    // Bots often fill hidden fields. Pretend that the submission succeeded,
+    // but do not send anything when the honeypot contains a value.
+    if (formData.get("website")) {
+      form.reset();
+      setSelectedOptions([]);
+      setStatus("success");
+      setMessage("Tack! Ditt meddelande är skickat.");
+      return;
+    }
+
+    if (selectedOptions.length === 0) {
+      setStatus("error");
+      setMessage("Välj minst ett alternativ under hur vi kan hjälpa dig.");
+      return;
+    }
+
+    if (!endpoint) {
+      setStatus("error");
+      setMessage(
+        "Formuläret är inte anslutet ännu. Lägg till VITE_CONTACT_FORM_ENDPOINT i miljövariablerna.",
+      );
+      return;
+    }
+
+    setStatus("submitting");
+    setMessage("");
+
+    const payload = {
+      email: formData.get("email"),
+      company: formData.get("company"),
+      services: selectedOptions,
+      message: formData.get("message"),
+      privacyAccepted: formData.get("privacy") === "on",
+    };
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `Form submission failed with status ${response.status}`,
+        );
+      }
+
+      form.reset();
+      setSelectedOptions([]);
+      setStatus("success");
+      setMessage(
+        "Tack! Ditt meddelande är skickat. Vi återkommer så snart vi kan.",
+      );
+    } catch {
+      setStatus("error");
+      setMessage(
+        "Det gick inte att skicka meddelandet. Försök igen eller kontakta oss direkt via e-post.",
+      );
+    }
+  };
+
   return (
     <section className="py-20 md:py-28">
       <div className="relative container px-4 sm:px-6 lg:px-4">
@@ -36,23 +137,39 @@ export const ContactFormSection = () => {
             Starta din resa <br /> med Relinc
           </h2>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
-              <label className="mb-2 block text-base font-bold text-white sm:text-lg">
+              <label
+                htmlFor="contact-email"
+                className="mb-2 block text-base font-bold text-white sm:text-lg"
+              >
                 E-post*
               </label>
+
               <input
+                id="contact-email"
+                name="email"
                 type="email"
+                autoComplete="email"
+                required
                 className="h-12 w-full rounded border border-white bg-transparent px-4 text-white outline-none transition focus:border-primary"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-base font-bold text-white sm:text-lg">
+              <label
+                htmlFor="contact-company"
+                className="mb-2 block text-base font-bold text-white sm:text-lg"
+              >
                 Företagsnamn*
               </label>
+
               <input
+                id="contact-company"
+                name="company"
                 type="text"
+                autoComplete="organization"
+                required
                 className="h-12 w-full rounded border border-white bg-transparent px-4 text-white outline-none transition focus:border-primary"
               />
             </div>
@@ -63,41 +180,81 @@ export const ContactFormSection = () => {
               </legend>
 
               <div className="space-y-2">
-                {options.map((option, index) => (
-                  <motion.label
-                    key={option}
-                    initial={{ opacity: 0, x: -15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-center gap-3 text-sm font-semibold text-white sm:text-base"
-                  >
-                    <input
-                      type="checkbox"
-                      className="h-5 w-5 shrink-0 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
-                    />
-                    {option}
-                  </motion.label>
-                ))}
+                {options.map((option, index) => {
+                  const id = `contact-option-${index}`;
+
+                  return (
+                    <motion.label
+                      htmlFor={id}
+                      key={option}
+                      initial={{ opacity: 0, x: -15 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex cursor-pointer items-center gap-3 text-sm font-semibold text-white sm:text-base"
+                    >
+                      <input
+                        id={id}
+                        name="services"
+                        type="checkbox"
+                        value={option}
+                        checked={selectedOptions.includes(option)}
+                        onChange={() => toggleOption(option)}
+                        className="h-5 w-5 shrink-0 rounded border border-white bg-transparent accent-primary"
+                      />
+
+                      {option}
+                    </motion.label>
+                  );
+                })}
               </div>
             </fieldset>
 
             <div>
-              <label className="mb-2 block text-base font-bold text-white sm:text-lg">
+              <label
+                htmlFor="contact-message"
+                className="mb-2 block text-base font-bold text-white sm:text-lg"
+              >
                 Meddelande*
               </label>
-              <textarea className="h-40 w-full resize-none rounded border border-white bg-transparent p-4 text-white outline-none transition focus:border-primary" />
+
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                className="h-40 w-full resize-none rounded border border-white bg-transparent p-4 text-white outline-none transition focus:border-primary"
+              />
+            </div>
+
+            <div
+              className="absolute -left-[9999px]"
+              aria-hidden="true"
+            >
+              <label htmlFor="contact-website">Webbplats</label>
+
+              <input
+                id="contact-website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </div>
 
             <label className="flex items-start gap-3 pt-2 text-sm font-semibold text-white sm:text-base">
               <input
+                name="privacy"
                 type="checkbox"
-                className="mt-1 h-5 w-5 shrink-0 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
+                required
+                className="mt-1 h-5 w-5 shrink-0 rounded border border-white bg-transparent accent-primary"
               />
 
               <span>
-                Jag godkänner Relincs integritetspolicy.{" "}
-                <Link to="/privacy-policy" className="text-primary underline">
+                Jag godkänner Relincs{" "}
+                <Link
+                  to="/privacy-policy"
+                  className="text-primary underline"
+                >
                   integritetspolicy
                 </Link>
                 .*
@@ -105,19 +262,116 @@ export const ContactFormSection = () => {
             </label>
 
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={
+                status === "submitting"
+                  ? undefined
+                  : { scale: 1.03 }
+              }
+              whileTap={
+                status === "submitting"
+                  ? undefined
+                  : { scale: 0.97 }
+              }
               type="submit"
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-base font-bold text-black transition hover:opacity-90"
+              disabled={status === "submitting"}
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-base font-bold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Skicka
-              <ArrowRight className="h-4 w-4" />
+              {status === "submitting" ? (
+                <>
+                  Skickar
+                  <LoaderCircle
+                    className="h-4 w-4 animate-spin"
+                    aria-hidden="true"
+                  />
+                </>
+              ) : (
+                <>
+                  Skicka
+                  <ArrowRight
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  />
+                </>
+              )}
             </motion.button>
           </form>
 
           <FormLinesIcon className="absolute -bottom-2 -right-24 hidden h-24 w-24 text-primary md:block" />
         </motion.div>
       </div>
+
+      {message && (status === "success" || status === "error") && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-status-title"
+        >
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.92,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#202020] p-6 shadow-2xl sm:p-8"
+          >
+            <button
+              type="button"
+              onClick={closePopup}
+              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/70 transition hover:border-primary hover:text-primary"
+              aria-label="Stäng"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div
+              className={`mb-5 flex h-14 w-14 items-center justify-center rounded-full ${
+                status === "success"
+                  ? "bg-primary/10 text-primary"
+                  : "bg-red-400/10 text-red-300"
+              }`}
+            >
+              {status === "success" ? (
+                <span className="text-2xl font-bold">✓</span>
+              ) : (
+                <span className="text-2xl font-bold">!</span>
+              )}
+            </div>
+
+            <h3
+              id="contact-status-title"
+              className="mb-3 pr-10 text-2xl font-bold text-white sm:text-3xl"
+            >
+              {status === "success"
+                ? "Tack för ditt meddelande!"
+                : "Något gick fel"}
+            </h3>
+
+            <p className="mb-6 leading-7 text-white/70">
+              {message}
+            </p>
+
+            <button
+              type="button"
+              onClick={closePopup}
+              className="inline-flex rounded-full bg-secondary px-5 py-2.5 font-bold text-black transition hover:opacity-90"
+            >
+              Stäng
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };

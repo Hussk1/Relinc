@@ -59,6 +59,10 @@ export const Navbar = () => {
     setIsServicesOpen(false);
   };
 
+  const closeServicesMenu = () => {
+    setIsServicesOpen(false);
+  };
+
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full text-white transition-all duration-300 ${
@@ -69,7 +73,11 @@ export const Navbar = () => {
     >
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6 xl:px-0">
         {/* Logo */}
-        <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
+        <Link
+          to="/"
+          className="flex items-center"
+          onClick={closeMobileMenu}
+        >
           <img
             src={imagePath("images/relinc-vit-logotyp.webp")}
             alt="Relinc"
@@ -80,16 +88,34 @@ export const Navbar = () => {
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-10 xl:flex">
           {/* Services dropdown */}
-          <div className="group">
+          <div
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
             <button
               type="button"
+              onClick={() => setIsServicesOpen((prev) => !prev)}
               className="flex items-center gap-1 text-lg font-semibold text-white/90 transition hover:text-white"
+              aria-expanded={isServicesOpen}
+              aria-haspopup="true"
             >
               Våra tjänster
-              <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isServicesOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
-            <div className="invisible absolute left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div
+              className={`absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-6 transition-all duration-200 ${
+                isServicesOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible translate-y-2 opacity-0"
+              }`}
+            >
               <div className="rounded-b-2xl border border-white/10 bg-[#202020] p-10 shadow-2xl">
                 <div className="grid grid-cols-2 gap-10">
                   {menuColumns.map((column) => (
@@ -103,6 +129,7 @@ export const Navbar = () => {
                           <li key={link.label}>
                             <Link
                               to={link.path}
+                              onClick={closeServicesMenu}
                               className="block text-lg font-medium text-white/80 transition hover:translate-x-1 hover:text-white"
                             >
                               {link.label}
