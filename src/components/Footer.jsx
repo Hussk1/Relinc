@@ -21,7 +21,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="px-4 pb-10 pt-20 text-white">
+    <footer className="px-4 pb-10 pt-16 text-white sm:px-6 sm:pt-20 lg:px-4">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -35,7 +35,7 @@ export const Footer = () => {
               Kontakt
             </p>
 
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-tight md:text-5xl">
+            <h2 className="max-w-2xl text-2xl font-extrabold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Redo att bygga något
               <span className="block text-primary">unikt tillsammans?</span>
             </h2>
@@ -43,7 +43,7 @@ export const Footer = () => {
 
           <Link
             to="/kontakta-oss"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-primary bg-primary px-6 font-semibold text-black transition hover:opacity-90"
+            className="inline-flex h-11 w-fit items-center justify-center rounded-full border border-primary bg-primary px-6 font-semibold text-black transition hover:opacity-90"
           >
             Kontakta oss
           </Link>
@@ -93,8 +93,8 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary" />
-                <a href="tel:0704667004" className="hover:underline">
-                  +46 70 466 70 04
+                <a href="tel:0704557004" className="hover:underline">
+                  +46 70 455 70 04
                 </a>
               </li>
               <li className="flex items-center gap-3">

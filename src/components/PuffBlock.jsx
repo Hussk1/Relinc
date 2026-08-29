@@ -28,7 +28,7 @@ const PuffBlockItems = [
 
 export const PuffBlock = () => {
   return (
-    <section className="container py-20 md:py-28">
+    <section className="container px-4 py-16 sm:px-6 sm:py-20 md:py-28 lg:px-4">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {PuffBlockItems.map((item, index) => (
           <motion.div
@@ -37,7 +37,7 @@ export const PuffBlock = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group flex h-full flex-col rounded-2xl border border-white/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-primary"
+            className="group flex h-full flex-col rounded-2xl border border-white/50 p-5 transition-all duration-300 hover:-translate-y-2 hover:border-primary sm:p-6"
           >
             <h3 className="mb-4 text-2xl font-bold text-primary">
               {item.title}

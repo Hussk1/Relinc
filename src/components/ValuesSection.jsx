@@ -38,7 +38,7 @@ const values = [
 export const ValuesSection = () => {
   return (
     <section className="py-20 md:py-28">
-      <div className="relative container">
+      <div className="relative container px-4 sm:px-6 lg:px-4">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,7 +47,7 @@ export const ValuesSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 max-w-3xl"
         >
-          <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Det här står vi för
           </h2>
 

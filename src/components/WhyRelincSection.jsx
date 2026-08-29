@@ -10,13 +10,13 @@ export const WhyRelincSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="container relative z-10 flex flex-col items-center text-center"
+        className="container relative z-10 flex flex-col items-center px-4 text-center sm:px-6 lg:px-4"
       >
         <span className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary">
           Relinc
         </span>
 
-        <h2 className="mb-6 max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">
+        <h2 className="mb-6 max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
           Mer än en leverantör
           <br />
           <span className="text-primary">En långsiktig partner</span>

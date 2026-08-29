@@ -16,8 +16,8 @@ const contactCards = [
     icon: Phone,
     title: "Telefon",
     text: "Ring oss för frågor, offert eller rådgivning kring era behov.",
-    value: "+46 70 466 70 04",
-    href: "tel:+46704667004",
+    value: "+46 70 455 70 04",
+    href: "tel:+46704557004",
   },
 ];
 

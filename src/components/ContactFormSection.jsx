@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const options = [
   "Jag vill boka ett möte eller begära offert",
   "Jag behöver hjälp med webb och digitala lösningar",
-  "Jag behöver hjälp med grafisk design",
-  "Jag är intresserad av företagsprodukter",
+  "Jag behöver hjälp med logotyp och grafisk profil",
+  "Jag behöver hjälp med marknadsföringsmaterial eller bildproduktion",
   "Annat ärende",
 ];
 
@@ -24,7 +24,7 @@ const FormLinesIcon = ({ className = "" }) => (
 export const ContactFormSection = () => {
   return (
     <section className="py-20 md:py-28">
-      <div className="relative container">
+      <div className="relative container px-4 sm:px-6 lg:px-4">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export const ContactFormSection = () => {
           transition={{ duration: 0.6 }}
           className="relative mx-auto max-w-2xl"
         >
-          <h2 className="mb-8 max-w-xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mb-8 max-w-xl text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Starta din resa <br /> med Relinc
           </h2>
 
@@ -74,7 +74,7 @@ export const ContactFormSection = () => {
                   >
                     <input
                       type="checkbox"
-                      className="h-5 w-5 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
+                      className="h-5 w-5 shrink-0 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
                     />
                     {option}
                   </motion.label>
@@ -92,7 +92,7 @@ export const ContactFormSection = () => {
             <label className="flex items-start gap-3 pt-2 text-sm font-semibold text-white sm:text-base">
               <input
                 type="checkbox"
-                className="mt-1 h-5 w-5 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
+                className="mt-1 h-5 w-5 shrink-0 appearance-none rounded border border-white bg-transparent transition checked:border-primary checked:bg-primary"
               />
 
               <span>

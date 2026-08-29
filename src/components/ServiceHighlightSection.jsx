@@ -27,7 +27,7 @@ const serviceHighlights = [
 export const ServiceHighlightSection = () => {
   return (
     <section className="py-16 md:py-24">
-      <div className="relative container space-y-20 md:space-y-28">
+      <div className="relative container space-y-16 px-4 sm:px-6 md:space-y-24 lg:px-4 lg:space-y-28">
         <div className="pointer-events-none absolute inset-0">
         </div>
 
@@ -51,7 +51,7 @@ export const ServiceHighlightSection = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="h-full min-h-[260px] w-full rounded-lg object-cover md:min-h-[420px]"
+                className="h-[260px] w-full rounded-lg object-cover sm:h-[340px] md:h-full md:min-h-[420px]"
               />
             </motion.div>
 
@@ -67,7 +67,7 @@ export const ServiceHighlightSection = () => {
                 item.imagePosition === "right" ? "md:order-1" : "md:order-2"
               } flex h-full max-w-xl flex-col justify-center md:pt-12 lg:pt-16`}
             >
-              <h2 className="mb-5 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                 {item.title}
               </h2>
 

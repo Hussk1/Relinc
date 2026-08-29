@@ -10,9 +10,9 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col gap-6 pb-24 pt-24 sm:pt-28 md:pb-32 md:pt-36"
+          className="flex flex-col gap-6 pb-20 pt-16 sm:pb-24 sm:pt-28 md:pb-32 md:pt-36"
         >
-          <h1 className="max-w-5xl text-5xl font-extrabold leading-tight text-white sm:text-6xl lg:text-[70px] lg:leading-[80px]">
+          <h1 className="max-w-5xl text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-[70px] lg:leading-[80px]">
             Relinc - en digital <br className="hidden md:block" />
             byrå för din tillväxt
           </h1>

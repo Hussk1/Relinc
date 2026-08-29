@@ -5,7 +5,7 @@ import { imagePath } from "@/lib/imagePath";
 
 export const TextImageBlock = () => {
   return (
-    <section className="relative container py-16 md:py-24">
+    <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-16">
         {/* TEXT */}
         <motion.div
@@ -15,7 +15,7 @@ export const TextImageBlock = () => {
           transition={{ duration: 0.6 }}
           className="text-white"
         >
-          <h2 className="mb-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+          <h2 className="mb-5 text-2xl font-bold leading-tight sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
             Bygg din digitala grund
           </h2>
 
@@ -56,7 +56,7 @@ export const TextImageBlock = () => {
           <img
             src={imagePath("images/digital-narvaro-for-foretag-malmo.webp")}
             alt="Bygg din digitala grund"
-            className="h-full w-full rounded-2xl object-cover"
+            className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[420px]"
           />
         </motion.div>
       </div>

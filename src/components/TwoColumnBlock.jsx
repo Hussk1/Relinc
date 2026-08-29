@@ -24,7 +24,7 @@ const TwoColumnBlockItems = [
 
 export const TwoColumnBlock = () => {
   return (
-    <section className="relative container py-16">
+    <section className="relative container px-4 py-12 sm:px-6 sm:py-16 lg:px-4">
       <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {TwoColumnBlockItems.map((item, index) => (
           <motion.div
@@ -38,12 +38,12 @@ export const TwoColumnBlock = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-[400px] rounded-2xl object-cover"
+                className="h-[260px] w-full rounded-2xl object-cover sm:h-[320px] md:h-[340px] lg:h-[400px]"
               />
             </div>
 
             <div>
-              <h2 className="pt-6 pb-2 text-3xl font-[700] leading-tight text-white sm:text-4xl lg:text-[42px]">
+              <h2 className="pb-2 pt-5 text-2xl font-[700] leading-tight text-white sm:pt-6 sm:text-3xl md:text-4xl lg:text-[42px]">
                 {item.title}
               </h2>
 
