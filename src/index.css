@@ -85,7 +85,6 @@
 
   * {
     @apply border-border;
-    background-color: var(--color-primary);
   }
 
   @font-face {
