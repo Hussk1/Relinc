@@ -11,8 +11,6 @@ const OmOss = () => {
         title="Om Relinc"
         subtitle="Vi hjälper företag att växa genom smarta digitala lösningar, stark visuell identitet och strategisk utveckling."
         image="images/Omoss.webp"
-        ctaText="Kontakta oss"
-        ctaLink="/kontakta-oss"
       />
 
       <section className="relative container py-16 text-white md:py-24">

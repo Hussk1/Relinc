@@ -6,21 +6,21 @@ const PuffBlockItems = [
   {
     title: "Webbdesign",
     description:
-      "Moderna och användarvänliga webbplatser som stärker ditt varumärke och driver resultat.",
-    linkText: "Till vårt erbjudande",
+      "Vi skapar moderna webbplatser som inte bara ser bra ut utan också konverterar besökare till kunder.",
+    linkText: "Läs mer",
     link: "/webbdesign",
   },
   {
-    title: "Logotypdesign",
+    title: "Logotyp & Grafisk profil",
     description:
-      "Unika logotyper som stärker ditt varumärke och skapar ett professionellt första intryck.",
-    linkText: "Till vårt erbjudande",
-    link: "/logotypdesign",
+      "Vi skapar en tydlig och professionell visuell identitet med logotyp, färger och design som stärker ditt varumärke och skapar igenkänning.",
+    linkText: "Läs mer",
+    link: "/LogotypGrafiskProfil",
   },
   {
     title: "Kontakta oss",
     description:
-      "Kontakta oss så hjälper vi dig att ta nästa steg med rätt strategi och lösning.",
+      "Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi.",
     linkText: "Kontakta oss",
     link: "/kontakta-oss",
   },
@@ -39,7 +39,7 @@ export const PuffBlock = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group flex h-full flex-col rounded-2xl border border-white/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-primary"
           >
-            <h3 className="mb-4 text-2xl font-bold text-white">
+            <h3 className="mb-4 text-2xl font-bold text-primary">
               {item.title}
             </h3>
 

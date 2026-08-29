@@ -92,7 +92,7 @@ const serviceHighlights = [
     description:
       "Ta första steget mot en stark närvaro med en genomtänkt visuell identitet. Vi hjälper dig att skapa logotyp, grafisk profil och design som speglar ditt företag och skapar förtroende hos dina kunder. Perfekt för dig som startar nytt eller vill stärka ditt varumärke.",
     buttonText: "Skapa din identitet",
-    link: "/logotypdesign",
+    link: "/LogotypGrafiskProfil",
     image: imagePath("images/grafisk-profil-logotypdesign-malmo.webp"),
     imagePosition: "left",
   },
@@ -152,8 +152,6 @@ const StartaForetag = () => {
         title="Webbredo"
         subtitle="Vi hjälper dig bygga en stark grund med varumärke, design och digital närvaro."
         image="images/Webbredo.webp"
-        ctaText="Till erbjudandet"
-        ctaLink="/kontakta-oss"
       />
 
       <section className="py-20 text-white md:py-28">
@@ -486,7 +484,7 @@ const StartaForetag = () => {
 
                 <Link
                   to={item.link}
-                  className="group inline-flex h-10 w-fit items-center gap-2 rounded-full border border-white px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+                  className="group inline-flex h-10 w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110 xl:inline-flex"
                 >
                   {item.buttonText}
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />

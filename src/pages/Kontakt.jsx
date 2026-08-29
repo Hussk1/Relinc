@@ -19,13 +19,6 @@ const contactCards = [
     value: "+46 70 466 70 04",
     href: "tel:+46704667004",
   },
-  {
-    icon: MapPin,
-    title: "Adress",
-    text: "Vi arbetar med företag över hela Sverige och digitalt.",
-    value: "Sverige",
-    href: "/",
-  },
 ];
 
 const Kontakt = () => {
@@ -35,8 +28,6 @@ const Kontakt = () => {
         title="Kontakta oss"
         subtitle="Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi."
         image="images/kontaktaoss.webp"
-        ctaText="Boka möte"
-        ctaLink="#kontaktform"
       />
 
       {/* Contact form */}
@@ -47,7 +38,7 @@ const Kontakt = () => {
       {/* Contact cards */}
       <section className="relative overflow-hidden py-20 text-white md:py-28">
         <div className="container relative z-10">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2">
             {contactCards.map((item, index) => {
               const Icon = item.icon;
 

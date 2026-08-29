@@ -38,9 +38,9 @@ export const TextImageBlock = () => {
 
           <Link
             to="/starta-foretag"
-            className="group inline-flex h-10 w-fit items-center gap-2 rounded-full border border-white px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+            className="group inline-flex h-10 w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110 xl:inline-flex"
           >
-            Till erbjudandet
+            Till webbredo
             <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>

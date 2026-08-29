@@ -26,8 +26,8 @@ const PuffBlockItems = [
     title: "Webbdesign",
     description:
       "Vi skapar moderna webbplatser som inte bara ser bra ut utan också konverterar besökare till kunder.",
-    linkText: "Till SEO optimering",
-    link: "/seo-optimering",
+    linkText: "Till webbdesign",
+    link: "/webbdesign",
   },
   {
     title: "Webbapplikationer",
@@ -86,8 +86,6 @@ const Sakerhet = () => {
         title="Säkerhet"
         subtitle="Säkra och stabila webblösningar med fokus på dataskydd, prestanda och trygg användarupplevelse."
         image="images/Utveckling.webp"
-        ctaText="Kontakta oss"
-        ctaLink="/kontakt"
       />
 
       <section className="relative container py-16 text-white md:py-24">

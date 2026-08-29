@@ -196,8 +196,6 @@ const Webbdesign = () => {
         title="Webbdesign"
         subtitle="Vi skapar moderna webbplatser som inte bara ser bra ut utan också konverterar besökare till kunder."
         image="images/Utveckling.webp"
-        ctaText="Kontakta oss"
-        ctaLink="/kontakta-oss"
       />
 
       <section className="relative container py-16 text-white md:py-24">

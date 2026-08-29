@@ -72,18 +72,18 @@ const faqs = [
 
 const PuffBlockItems = [
   {
-    title: "Banners & Annonser",
+    title: "Marknadsföringsmaterial",
     description:
       "Bannerdesign och annonser som fångar uppmärksamhet och stärker ditt varumärke. Vi skapar visuellt tilltalande och effektiva marknadsföringsmaterial som hjälper dig att nå din målgrupp.",
     linkText: "Till Banners & Annonser",
-    link: "/BannersAnnonser",
+    link: "/Marknadsforingsmaterial",
   },
   {
-    title: "Logotypdesign",
+    title: "Logotyp & Grafisk profil",
     description:
       "Unik visuell identitet som stärker ditt varumärke och skapar ett starkt första intryck. Vi utvecklar logotyper som är både estetiska och funktionella.",
     linkText: "Till Logotypdesign",
-    link: "/Logotypdesign",
+    link: "/LogotypGrafiskProfil",
   },
 ];
 
@@ -100,8 +100,6 @@ const Bildredigering = () => {
         title="Bildproduktion"
         subtitle="Vi skapar och redigerar professionellt bildmaterial anpassat för ditt varumärke, dina produkter och din marknadsföring."
         image="images/Grafisk.webp"
-        ctaText="Kontakta oss"
-        ctaLink="/kontakt"
       />
 
       <section className="container py-16 text-white">
@@ -128,7 +126,7 @@ const Bildredigering = () => {
               </p>
 
               <a
-                href="/kontakt"
+                href="/kontakta-oss"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
                 Kontakta oss
