@@ -13,8 +13,8 @@ const OmOss = () => {
         image="images/Omoss.webp"
       />
 
-      <section className="relative container py-16 text-white md:py-24">
-        <div className="relative z-10 my-14 space-y-28 md:space-y-36">
+      <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
+        <div className="relative z-10 my-10 space-y-20 sm:my-14 sm:space-y-24 md:space-y-36">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -26,7 +26,7 @@ const OmOss = () => {
               <img
                 src={imagePath("images/kundsamarbete-digital-byra-malmo.webp")}
                 alt="Relinc erbjudande"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
+                className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </motion.div>
 
@@ -41,7 +41,7 @@ const OmOss = () => {
                 Vårt erbjudande
               </span>
 
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                 Strategi, design och teknik som skapar resultat
               </h2>
 
@@ -53,7 +53,7 @@ const OmOss = () => {
               </p>
 
               <Link
-                to="/starta-foretag"
+                to="/webbredo"
                 className="inline-flex w-fit items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
                 Läs mer om vårt erbjudande
@@ -73,7 +73,7 @@ const OmOss = () => {
                 Team & kultur
               </span>
 
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                 Vi bygger långsiktiga relationer
               </h2>
 
@@ -102,7 +102,7 @@ const OmOss = () => {
               <img
                 src={imagePath("images/digitala-losningar-foretag-malmo.webp")}
                 alt="Relinc team"
-                className="h-full min-h-[320px] w-full rounded-2xl object-cover md:min-h-[460px]"
+                className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </motion.div>
           </div>
@@ -112,9 +112,9 @@ const OmOss = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.6 }}
-            className="my-24 md:my-32"
+            className="my-16 sm:my-20 md:my-32"
           >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
+            <h2 className="mb-6 text-2xl font-bold text-white sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
               Vår historia
             </h2>
 

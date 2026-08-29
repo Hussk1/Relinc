@@ -82,9 +82,9 @@ const PuffBlockItems = [
   {
     title: "Bildproduktion",
     description:
-      "Bildredigering som förbättrar och anpassar dina bilder för att skapa ett mer professionellt och visuellt tilltalande resultat. Vi hjälper dig att skapa högkvalitativa bilder som stärker ditt varumärke.",
-    linkText: "Till Bildredigering",
-    link: "/Bildredigering",
+      "Bildproduktion som förbättrar och anpassar dina bilder för att skapa ett mer professionellt och visuellt tilltalande resultat. Vi hjälper dig att skapa högkvalitativa bilder som stärker ditt varumärke.",
+    linkText: "Till Bildproduktion",
+    link: "/Bildproduktion",
   },
 ];
 
@@ -103,23 +103,23 @@ const Marknadsforingsmaterial = () => {
         image="images/Grafisk.webp"
       />
 
-      <section className="container py-16 text-white">
-        <div className="space-y-32 my-14">
-          <div className="grid grid-cols-2 gap-10">
-            <div>
+      <section className="container px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-4">
+        <div className="my-10 space-y-20 sm:my-14 sm:space-y-24 md:space-y-32">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl">
               <img
                 src="images/marknadsforingsmaterial-grafisk-design-malmo.webp"
                 alt="Marknadsföringsmaterial"
-                className="rounded-2xl"
+                className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </div>
 
             <div className="max-w-xl self-end">
-              <h2 className="mb-6 text-4xl font-bold text-white">
+              <h2 className="mb-6 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
                 Design som stärker din marknadsföring
               </h2>
 
-              <p className="mb-8 text-lg font-semibold leading-7 text-white">
+              <p className="mb-8 text-base font-semibold leading-7 text-white sm:text-lg">
                 Vi skapar visuellt marknadsföringsmaterial för sociala medier,
                 annonser, kampanjer och tryck som är anpassat efter ditt
                 varumärke och dina mål.
@@ -136,16 +136,16 @@ const Marknadsforingsmaterial = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
-        <div className="container relative z-10">
+      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
+        <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="mb-12 max-w-4xl md:mb-16"
+            className="mb-10 max-w-4xl sm:mb-12 md:mb-16"
           >
-            <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+            <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Vanliga frågor om marknadsföringsmaterial
             </h2>
           </motion.div>
@@ -162,7 +162,7 @@ const Marknadsforingsmaterial = () => {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between gap-6 p-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 p-4 text-left sm:gap-6 sm:p-5"
                 >
                   <span className="text-base font-medium leading-7 text-white sm:text-lg">
                     {faq.question}
@@ -176,9 +176,9 @@ const Marknadsforingsmaterial = () => {
                 </button>
 
                 <div
-                  className={`px-5 text-base leading-7 text-white/80 transition-all duration-300 sm:text-lg ${
+                  className={`px-4 text-base leading-7 text-white/80 transition-all duration-300 sm:px-5 sm:text-lg ${
                     openIndex === index
-                      ? "max-h-60 pb-5"
+                      ? "max-h-60 pb-4 sm:pb-5"
                       : "max-h-0 overflow-hidden"
                   }`}
                 >
@@ -190,20 +190,20 @@ const Marknadsforingsmaterial = () => {
         </div>
       </section>
 
-      <section className="relative container py-16 md:py-24">
+      <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="relative z-10 mb-12 max-w-3xl md:mb-16"
+          className="relative z-10 mb-10 max-w-3xl sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Relaterade tjänster
           </h2>
         </motion.div>
 
-        <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+        <div className="relative z-10 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           {PuffBlockItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -211,22 +211,23 @@ const Marknadsforingsmaterial = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex h-full flex-col rounded-2xl border-2 border-white px-4 py-12 transition duration-300 hover:-translate-y-1 hover:border-primary md:py-16"
+              className="flex h-full flex-col rounded-2xl border-2 border-white px-4 py-10 transition duration-300 hover:-translate-y-1 hover:border-primary sm:px-5 sm:py-12 md:py-16"
             >
-              <h2 className="mb-6 text-2xl font-medium leading-7 text-primary">
+              <h2 className="mb-6 text-xl font-medium leading-7 text-primary sm:text-2xl">
                 {item.title}
               </h2>
 
-              <p className="mb-6 text-lg font-medium text-white">
+              <p className="mb-6 text-base font-medium leading-7 text-white sm:text-lg">
                 {item.description}
               </p>
 
               <div className="mt-auto">
                 <Link
                   to={item.link}
-                  className="group inline-flex h-8 items-center gap-2 rounded-full border border-white px-4 font-semibold text-white transition hover:border-primary hover:text-primary"
+                  className="group inline-flex min-h-8 max-w-full items-center gap-2 rounded-full border border-white px-4 py-1.5 text-sm font-semibold text-white transition hover:border-primary hover:text-primary sm:text-base"
                 >
-                  {item.linkText}
+                  <span>{item.linkText}</span>
+
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                 </Link>
               </div>

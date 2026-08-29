@@ -27,7 +27,7 @@ const menuColumns = [
       },
       {
         label: "Bildproduktion",
-        path: "/bildredigering",
+        path: "/bildproduktion",
       },
     ],
   },
@@ -207,7 +207,7 @@ export const Navbar = () => {
             </div>
 
             <Link
-              to="/starta-foretag"
+              to="/webbredo"
               onClick={closeMobileMenu}
               className="block border-t border-white/10 py-4 text-lg font-semibold text-white/90"
             >

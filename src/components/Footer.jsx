@@ -71,10 +71,24 @@ export const Footer = () => {
             </p>
 
             <div className="mt-6 flex gap-4">
-              {[Instagram, Linkedin].map((Icon, i) => (
+              {[
+                {
+                  Icon: Instagram,
+                  href: "https://www.instagram.com/relinc.se/",
+                  label: "Instagram",
+                },
+                {
+                  Icon: Linkedin,
+                  href: "https://www.linkedin.com/company/relincab/",
+                  label: "LinkedIn",
+                },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-primary hover:text-primary"
                 >
                   <Icon size={18} />
@@ -96,10 +110,6 @@ export const Footer = () => {
                 <a href="tel:0704557004" className="hover:underline">
                   +46 70 455 70 04
                 </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin size={18} className="text-primary" />
-                Malmö, Sverige
               </li>
             </ul>
           </div>

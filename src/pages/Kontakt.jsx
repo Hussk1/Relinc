@@ -1,6 +1,5 @@
 import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
-
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
@@ -36,9 +35,9 @@ const Kontakt = () => {
       </div>
 
       {/* Contact cards */}
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
-        <div className="container relative z-10">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-2">
+      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
+        <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
             {contactCards.map((item, index) => {
               const Icon = item.icon;
 
@@ -53,13 +52,13 @@ const Kontakt = () => {
                     duration: 0.5,
                     delay: index * 0.08,
                   }}
-                  className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#1f1f1f]/90 p-8 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary/50"
+                  className="group flex h-full min-w-0 flex-col rounded-2xl border border-white/10 bg-[#1f1f1f]/90 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary/50 sm:p-6 lg:p-8"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-black">
-                    <Icon className="h-6 w-6" />
+                  <div className="mb-6 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-black sm:h-14 sm:w-14">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
 
-                  <h3 className="mb-3 text-2xl font-bold text-white">
+                  <h3 className="mb-3 text-xl font-bold text-white sm:text-2xl">
                     {item.title}
                   </h3>
 
@@ -67,10 +66,10 @@ const Kontakt = () => {
                     {item.text}
                   </p>
 
-                  <div className="mt-auto flex items-center gap-2 text-lg font-semibold text-primary">
-                    {item.value}
+                  <div className="mt-auto flex min-w-0 items-center gap-2 text-base font-semibold text-primary sm:text-lg">
+                    <span className="min-w-0 break-words">{item.value}</span>
 
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                 </motion.a>
               );

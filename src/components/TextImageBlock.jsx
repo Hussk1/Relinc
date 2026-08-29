@@ -37,7 +37,7 @@ export const TextImageBlock = () => {
           </p>
 
           <Link
-            to="/starta-foretag"
+            to="/webbredo"
             className="group inline-flex h-10 w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110 xl:inline-flex"
           >
             Till webbredo

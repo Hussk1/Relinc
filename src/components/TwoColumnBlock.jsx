@@ -9,7 +9,7 @@ const TwoColumnBlockItems = [
     description:
       "Varje företag är unikt och därför anpassar vi våra lösningar efter dina behov och mål. Genom ett nära samarbete skapar vi smarta och effektiva lösningar inom digital utveckling, design och affärsstöd. Vi hjälper dig med allt från webbdesign, SEO och systemutveckling till grafisk design, video och digital marknadsföring, samt erbjuder stöd inom redovisning och företagslösningar för att förenkla din vardag. Med rätt strategi, teknik och kreativitet bygger vi lösningar som stärker din verksamhet, effektiviserar processer och skapar långsiktig tillväxt.",
     linkText: "Webbredo",
-    link: "/starta-foretag",
+    link: "/webbredo",
   },
   {
     title: "Strategi möter resultat",

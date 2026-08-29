@@ -198,7 +198,7 @@ const Webbdesign = () => {
         image="images/Utveckling.webp"
       />
 
-      <section className="relative container py-16 text-white md:py-24">
+      <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <div className="relative z-10 my-10 md:my-14">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {TwoColumnBlockItems.map((item, index) => (
@@ -217,7 +217,7 @@ const Webbdesign = () => {
                   />
                 </div>
 
-                <h2 className="pb-2 pt-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-[42px]">
+                <h2 className="pb-2 pt-5 text-2xl font-bold leading-tight sm:pt-6 sm:text-3xl md:text-4xl lg:text-[42px]">
                   {item.title}
                 </h2>
 
@@ -230,20 +230,23 @@ const Webbdesign = () => {
         </div>
       </section>
 
-      <section id="paket" className="relative py-20 text-white md:py-28">
-        <div className="container relative z-10">
+      <section
+        id="paket"
+        className="relative py-16 text-white sm:py-20 md:py-28"
+      >
+        <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto mb-14 max-w-3xl text-center"
+            className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 md:mb-14"
           >
-            <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
+            <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm sm:tracking-[0.25em]">
               Våra paket
             </span>
 
-            <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+            <h2 className="mb-4 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Välj paket efter dina behov
             </h2>
 
@@ -254,7 +257,7 @@ const Webbdesign = () => {
           </motion.div>
 
           {/* MOBILE AND TABLET CARDS */}
-          <div className="grid grid-cols-1 gap-8 lg:hidden">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:hidden">
             {packages.map((item, index) => (
               <motion.article
                 key={item.name}
@@ -262,20 +265,20 @@ const Webbdesign = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`relative rounded-2xl bg-[#1f1f1f] p-6 ${
+                className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
                   item.popular
                     ? "border-2 border-primary"
                     : "border border-white/10"
                 }`}
               >
                 {item.popular && (
-                  <span className="absolute -top-4 left-6 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-black">
+                  <span className="absolute -top-4 left-5 rounded-full bg-primary px-3 py-2 text-[11px] font-bold uppercase tracking-wide text-black sm:left-6 sm:px-4 sm:text-xs">
                     Mest populär
                   </span>
                 )}
 
-                <div className="mb-7">
-                  <h3 className="mb-2 text-3xl font-bold text-white">
+                <div className="mb-6 sm:mb-7">
+                  <h3 className="mb-2 text-2xl font-bold text-white sm:text-3xl">
                     {item.name}
                   </h3>
 
@@ -283,12 +286,12 @@ const Webbdesign = () => {
                     {item.description}
                   </p>
 
-                  <p className="text-3xl font-bold text-primary">
+                  <p className="text-2xl font-bold text-primary sm:text-3xl">
                     {item.price}
                   </p>
                 </div>
 
-                <div className="mb-8 divide-y divide-white/10 border-y border-white/10">
+                <div className="mb-6 divide-y divide-white/10 border-y border-white/10 sm:mb-8">
                   {comparisonRows.map((row) => {
                     const key =
                       item.name === "Enkel"
@@ -300,13 +303,15 @@ const Webbdesign = () => {
                     return (
                       <div
                         key={row.label}
-                        className="flex items-center justify-between gap-6 py-4"
+                        className="flex items-center justify-between gap-4 py-4 sm:gap-6"
                       >
-                        <span className="text-sm font-semibold text-white/70">
+                        <span className="min-w-0 text-sm font-semibold text-white/70">
                           {row.label}
                         </span>
 
-                        <ComparisonValue value={row[key]} />
+                        <div className="shrink-0">
+                          <ComparisonValue value={row[key]} />
+                        </div>
                       </div>
                     );
                   })}
@@ -314,7 +319,7 @@ const Webbdesign = () => {
 
                 <Link
                   to="/kontakta-oss"
-                  className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
+                  className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold transition sm:px-5 ${
                     item.popular
                       ? "bg-primary text-black hover:opacity-90"
                       : "border border-primary text-primary hover:bg-primary hover:text-black"
@@ -324,7 +329,7 @@ const Webbdesign = () => {
                     ? "Begär offert"
                     : `Välj ${item.name}`}
 
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.article>
             ))}
@@ -456,16 +461,16 @@ const Webbdesign = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
-        <div className="container relative z-10">
+      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
+        <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="mb-12 max-w-3xl md:mb-16"
+            className="mb-10 max-w-3xl sm:mb-12 md:mb-16"
           >
-            <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+            <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Vanliga frågor om webbdesign
             </h2>
           </motion.div>
@@ -482,7 +487,7 @@ const Webbdesign = () => {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between gap-6 p-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 p-4 text-left sm:gap-6 sm:p-5"
                 >
                   <span className="text-base font-medium leading-7 text-white sm:text-lg">
                     {faq.question}
@@ -496,9 +501,9 @@ const Webbdesign = () => {
                 </button>
 
                 <div
-                  className={`px-5 text-base leading-7 text-white/80 transition-all duration-300 sm:text-lg ${
+                  className={`px-4 text-base leading-7 text-white/80 transition-all duration-300 sm:px-5 sm:text-lg ${
                     openIndex === index
-                      ? "max-h-60 pb-5"
+                      ? "max-h-60 pb-4 sm:pb-5"
                       : "max-h-0 overflow-hidden"
                   }`}
                 >
@@ -510,20 +515,20 @@ const Webbdesign = () => {
         </div>
       </section>
 
-      <section className="relative container py-16 md:py-24">
+      <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="relative z-10 mb-12 max-w-3xl md:mb-16"
+          className="relative z-10 mb-10 max-w-3xl sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Relaterade tjänster
           </h2>
         </motion.div>
 
-        <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="relative z-10 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {PuffBlockItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -531,22 +536,22 @@ const Webbdesign = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex h-full flex-col rounded-2xl border-2 border-white px-4 py-12 transition duration-300 hover:-translate-y-1 hover:border-primary md:py-16"
+              className="flex h-full flex-col rounded-2xl border-2 border-white px-4 py-10 transition duration-300 hover:-translate-y-1 hover:border-primary sm:px-5 sm:py-12 md:py-16"
             >
-              <h2 className="mb-6 text-2xl font-medium leading-7 text-primary">
+              <h2 className="mb-6 text-xl font-medium leading-7 text-primary sm:text-2xl">
                 {item.title}
               </h2>
 
-              <p className="mb-6 text-lg font-medium text-white">
+              <p className="mb-6 text-base font-medium leading-7 text-white sm:text-lg">
                 {item.description}
               </p>
 
               <div className="mt-auto">
                 <Link
                   to={item.link}
-                  className="group inline-flex h-8 items-center gap-2 rounded-full border border-white px-4 font-semibold text-white transition hover:border-primary hover:text-primary"
+                  className="group inline-flex min-h-8 max-w-full items-center gap-2 rounded-full border border-white px-4 py-1.5 text-sm font-semibold text-white transition hover:border-primary hover:text-primary sm:text-base"
                 >
-                  {item.linkText}
+                  <span>{item.linkText}</span>
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                 </Link>
               </div>
