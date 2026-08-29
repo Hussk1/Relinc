@@ -11,7 +11,7 @@ export const PageHero = ({
 }) => {
   return (
     <section
-      className="relative min-h-[520px] bg-cover bg-center pt-28 pb-14 sm:min-h-[560px] md:h-[60vh] md:pt-32 md:pb-16"
+      className="relative min-h-[440px] bg-cover bg-center pb-10 pt-24 sm:min-h-[500px] sm:pb-12 sm:pt-28 md:h-[60vh] md:min-h-[560px] md:pb-16 md:pt-32"
       style={{
         backgroundImage: `url(${imagePath(image)})`,
       }}
@@ -22,10 +22,10 @@ export const PageHero = ({
         initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, ease: "easeOut" }}
-        className="relative z-10 container flex h-full flex-col items-start justify-end gap-6"
+        className="container relative z-10 flex h-full flex-col items-start justify-end gap-5 px-4 sm:gap-6 sm:px-6 lg:px-4"
       >
-        <div className="border-b-4 border-primary pb-4">
-          <h1 className="text-5xl font-bold leading-none text-white sm:text-6xl lg:text-[70px]">
+        <div className="max-w-full border-b-4 border-primary pb-3 sm:pb-4">
+          <h1 className="break-words text-4xl font-bold leading-none text-white sm:text-5xl md:text-6xl lg:text-[70px]">
             {title}
           </h1>
         </div>
@@ -39,7 +39,7 @@ export const PageHero = ({
         {ctaText && ctaLink && (
           <Link
             to={ctaLink}
-            className="inline-flex rounded-full bg-secondary px-5 py-2.5 text-base font-semibold text-black transition hover:opacity-90 sm:text-lg"
+            className="inline-flex max-w-full rounded-full bg-secondary px-4 py-2.5 text-sm font-semibold text-black transition hover:opacity-90 sm:px-5 sm:text-base md:text-lg"
           >
             {ctaText}
           </Link>

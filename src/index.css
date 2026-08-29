@@ -87,6 +87,10 @@
     @apply border-border;
   }
 
+  body {
+    @apply bg-black;
+  }
+
   @font-face {
     font-family: Sofia Pro;
     src:

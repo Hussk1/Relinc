@@ -154,6 +154,7 @@ const Webbredo = () => {
         title="Webbredo"
         subtitle="Vi hjälper dig bygga en stark grund med varumärke, design och digital närvaro."
         image="images/Webbredo.webp"
+        className="bg-red-500"
       />
 
       <section className="py-20 text-white md:py-28">
