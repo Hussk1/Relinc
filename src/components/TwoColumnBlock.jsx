@@ -25,10 +25,6 @@ const TwoColumnBlockItems = [
 export const TwoColumnBlock = () => {
   return (
     <section className="relative container py-16">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[-500px] top-[500px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-      </div>
-
       <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {TwoColumnBlockItems.map((item, index) => (
           <motion.div

@@ -4,9 +4,6 @@ import { imagePath } from "@/lib/imagePath";
 export const LoaderScreen = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#171717]">
-      <div className="pointer-events-none absolute left-[-180px] top-[20%] h-[420px] w-[420px] rounded-full bg-primary/15 blur-[130px]" />
-      <div className="pointer-events-none absolute right-[-180px] bottom-[10%] h-[420px] w-[420px] rounded-full bg-secondary/15 blur-[130px]" />
-
       <div className="relative flex flex-col items-center">
         <motion.div
           initial={{ scale: 0.85, opacity: 0 }}

@@ -6,11 +6,6 @@ import { imagePath } from "@/lib/imagePath";
 export const TextImageBlock = () => {
   return (
     <section className="relative container py-16 md:py-24">
-      {/* BACKGROUND GLOWS */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute right-[-500px] top-[100px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-      </div>
-
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-16">
         {/* TEXT */}
         <motion.div

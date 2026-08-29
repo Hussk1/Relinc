@@ -16,11 +16,6 @@ const OmOss = () => {
       />
 
       <section className="relative container py-16 text-white md:py-24">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-500px] top-[300px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-          <div className="absolute right-[-500px] bottom-[200px] h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
-
         <div className="relative z-10 my-14 space-y-28 md:space-y-36">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
             <motion.div

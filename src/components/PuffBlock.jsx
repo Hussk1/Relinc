@@ -37,7 +37,7 @@ export const PuffBlock = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#1f1f1f] p-6 transition-all duration-300 hover:-translate-y-2 hover:border-primary"
+            className="group flex h-full flex-col rounded-2xl border border-white/50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-primary"
           >
             <h3 className="mb-4 text-2xl font-bold text-white">
               {item.title}

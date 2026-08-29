@@ -4,12 +4,7 @@ import { motion } from "framer-motion";
 
 export const WhyRelincSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[#1f1f1f] py-20 md:py-28">
-      {/* Glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
-      </div>
-
+    <section className="relative overflow-hidden py-20 md:py-28">
       <motion.div
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}

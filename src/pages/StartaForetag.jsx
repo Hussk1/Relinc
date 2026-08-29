@@ -213,10 +213,6 @@ const StartaForetag = () => {
       </section>
 
       <section id="paket" className="relative py-20 text-white md:py-28">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[140px]" />
-        </div>
-
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -444,10 +440,6 @@ const StartaForetag = () => {
 
       <section className="py-16 md:py-24">
         <div className="relative container space-y-20 md:space-y-28">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute bottom-[100px] left-[-400px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-          </div>
-
           {serviceHighlights.map((item) => (
             <div
               key={item.title}

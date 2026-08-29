@@ -39,11 +39,6 @@ export const ValuesSection = () => {
   return (
     <section className="py-20 md:py-28">
       <div className="relative container">
-        {/* BACKGROUND GLOWS */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-300px] bottom-[100px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

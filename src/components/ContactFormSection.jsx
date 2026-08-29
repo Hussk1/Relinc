@@ -23,14 +23,8 @@ const FormLinesIcon = ({ className = "" }) => (
 
 export const ContactFormSection = () => {
   return (
-    <section className="border-t border-white/20 py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="relative container">
-        {/* BACKGROUND GLOWS */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-500px] bottom-[100px] h-[400px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-          <div className="absolute right-[-500px] top-[100px] h-[100px] w-[300px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}

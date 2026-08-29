@@ -9,15 +9,15 @@ const contactCards = [
     icon: Mail,
     title: "E-post",
     text: "Kontakta oss via e-post så återkommer vi så snabbt som möjligt.",
-    value: "info@relinc.se",
-    href: "mailto:info@relinc.se",
+    value: "kontakt@relinc.se",
+    href: "mailto:kontakt@relinc.se",
   },
   {
     icon: Phone,
     title: "Telefon",
     text: "Ring oss för frågor, offert eller rådgivning kring era behov.",
-    value: "+46 70 000 00 00",
-    href: "tel:+46700000000",
+    value: "+46 70 466 70 04",
+    href: "tel:+46704667004",
   },
   {
     icon: MapPin,
@@ -34,7 +34,7 @@ const Kontakt = () => {
       <PageHero
         title="Kontakta oss"
         subtitle="Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi."
-        image="/images/kontaktaoss.webp"
+        image="images/kontaktaoss.webp"
         ctaText="Boka möte"
         ctaLink="#kontaktform"
       />
@@ -45,11 +45,6 @@ const Kontakt = () => {
       </div>
 
       <section className="relative overflow-hidden py-20 text-white md:py-28">
-        {/* GLOWS */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-400px] top-20 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-          <div className="absolute right-[-300px] bottom-0 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
 
         <div className="container relative z-10">
           {/* CONTACT CARDS */}

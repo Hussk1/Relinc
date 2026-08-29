@@ -21,7 +21,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-white/20 px-4 pb-10 pt-20 text-white">
+    <footer className="px-4 pb-10 pt-20 text-white">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 32 }}

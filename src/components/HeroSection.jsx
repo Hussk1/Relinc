@@ -4,27 +4,7 @@ import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
-    <section
-      id="hero"
-      className="relative overflow-visible pt-20"
-    >
-      {/* BACKGROUND GLOWS */}
-      <div className="pointer-events-none absolute inset-x-0 -top-40 -bottom-40 z-0 overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[-260px] top-[80px] h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px] md:h-[540px] md:w-[540px]"
-        />
-
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.35, 0.65, 0.35] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[-260px] top-[200px] h-[360px] w-[360px] rounded-full bg-primary/10 blur-[120px] md:h-[520px] md:w-[520px]"
-        />
-
-        <div className="absolute left-[35%] bottom-[-40px] h-[260px] w-[260px] rounded-full bg-primary/5 blur-[100px] md:h-[340px] md:w-[340px]" />
-      </div>
-
+    <section id="hero" className="relative overflow-hidden pt-20">
       <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 28 }}

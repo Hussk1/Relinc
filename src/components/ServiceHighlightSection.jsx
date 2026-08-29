@@ -29,7 +29,6 @@ export const ServiceHighlightSection = () => {
     <section className="py-16 md:py-24">
       <div className="relative container space-y-20 md:space-y-28">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-400px] bottom-[100px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
         </div>
 
         {serviceHighlights.map((item) => (

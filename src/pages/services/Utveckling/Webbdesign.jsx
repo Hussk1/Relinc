@@ -201,11 +201,6 @@ const Webbdesign = () => {
       />
 
       <section className="relative container py-16 text-white md:py-24">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute right-[-500px] bottom-[100px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-          <div className="absolute left-[-500px] bottom-[100px] h-[200px] w-[200px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
-
         <div className="relative z-10 my-10 md:my-14">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {TwoColumnBlockItems.map((item, index) => (
@@ -238,10 +233,6 @@ const Webbdesign = () => {
       </section>
 
       <section id="paket" className="relative py-20 text-white md:py-28">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[140px]" />
-        </div>
-
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -523,10 +514,6 @@ const Webbdesign = () => {
       </section>
 
       <section className="relative container py-16 md:py-24">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-500px] bottom-[100px] h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]" />
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
