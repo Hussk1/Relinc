@@ -1,6 +1,7 @@
 import { PageHero } from "../components/PageHero";
+
 import { ContactFormSection } from "../components/ContactFormSection";
-import { motion } from "framer-motion";
+
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 const contactCards = [
@@ -38,20 +39,13 @@ const Kontakt = () => {
       <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
-            {contactCards.map((item, index) => {
+            {contactCards.map((item) => {
               const Icon = item.icon;
 
               return (
-                <motion.a
+                <a
                   key={item.title}
                   href={item.href}
-                  initial={{ opacity: 0, y: 35 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                  }}
                   className="group flex h-full min-w-0 flex-col rounded-2xl border border-white/10 bg-[#1f1f1f]/90 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary/50 sm:p-6 lg:p-8"
                 >
                   <div className="mb-6 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-black sm:h-14 sm:w-14">
@@ -71,7 +65,7 @@ const Kontakt = () => {
 
                     <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
-                </motion.a>
+                </a>
               );
             })}
           </div>

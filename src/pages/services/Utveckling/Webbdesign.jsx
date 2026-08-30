@@ -1,6 +1,5 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
-import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight, Check, Sparkles, Minus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -201,14 +200,8 @@ const Webbdesign = () => {
       <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <div className="relative z-10 my-10 md:my-14">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            {TwoColumnBlockItems.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.55, delay: index * 0.1 }}
-              >
+            {TwoColumnBlockItems.map((item) => (
+              <div key={item.title}>
                 <div className="overflow-hidden rounded-2xl">
                   <img
                     src={item.image}
@@ -224,7 +217,7 @@ const Webbdesign = () => {
                 <p className="text-base font-medium leading-7 text-white sm:text-lg">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -235,13 +228,7 @@ const Webbdesign = () => {
         className="relative py-16 text-white sm:py-20 md:py-28"
       >
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 md:mb-14"
-          >
+          <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 md:mb-14">
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm sm:tracking-[0.25em]">
               Våra paket
             </span>
@@ -254,17 +241,13 @@ const Webbdesign = () => {
               Börja enkelt, välj en komplett lösning eller skapa ett helt
               skräddarsytt upplägg för ditt företag.
             </p>
-          </motion.div>
+          </div>
 
           {/* MOBILE AND TABLET CARDS */}
           <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:hidden">
-            {packages.map((item, index) => (
-              <motion.article
+            {packages.map((item) => (
+              <article
                 key={item.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
                   item.popular
                     ? "border-2 border-primary"
@@ -331,18 +314,12 @@ const Webbdesign = () => {
 
                   <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </motion.article>
+              </article>
             ))}
           </div>
 
           {/* DESKTOP COMPARISON TABLE */}
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6 }}
-            className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block"
-          >
+          <div className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[950px] border-collapse">
                 <thead>
@@ -457,32 +434,22 @@ const Webbdesign = () => {
                 </tfoot>
               </table>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mb-10 max-w-3xl sm:mb-12 md:mb-16"
-          >
+          <div className="mb-10 max-w-3xl sm:mb-12 md:mb-16">
             <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
               Vanliga frågor om webbdesign
             </h2>
-          </motion.div>
+          </div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <motion.div
+              <div
                 key={faq.question}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
                 className="overflow-hidden rounded-xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/50"
               >
                 <button
@@ -509,33 +476,23 @@ const Webbdesign = () => {
                 >
                   {faq.answer}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="relative z-10 mb-10 max-w-3xl sm:mb-12 md:mb-16"
-        >
+        <div className="relative z-10 mb-10 max-w-3xl sm:mb-12 md:mb-16">
           <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Relaterade tjänster
           </h2>
-        </motion.div>
+        </div>
 
         <div className="relative z-10 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {PuffBlockItems.map((item, index) => (
-            <motion.div
+          {PuffBlockItems.map((item) => (
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex h-full flex-col rounded-2xl border-2 border-white px-4 py-10 transition duration-300 hover:-translate-y-1 hover:border-primary sm:px-5 sm:py-12 md:py-16"
             >
               <h2 className="mb-6 text-xl font-medium leading-7 text-primary sm:text-2xl">
@@ -555,7 +512,7 @@ const Webbdesign = () => {
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>

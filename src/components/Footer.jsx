@@ -1,21 +1,26 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+
 import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { motion } from "framer-motion";
+
 import { imagePath } from "@/lib/imagePath";
 
 export const Footer = () => {
   const navigate = useNavigate();
+
   const location = useLocation();
 
   const handleScrollLink = (href) => {
     if (location.pathname !== "/") {
       navigate("/", { state: { scrollTo: href } });
+
       return;
     }
 
     const el = document.querySelector(href);
+
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 90;
+
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
@@ -23,13 +28,7 @@ export const Footer = () => {
   return (
     <footer className="px-4 pb-10 pt-16 text-white sm:px-6 sm:pt-20 lg:px-4">
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between"
-        >
+        <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
               Kontakt
@@ -47,15 +46,9 @@ export const Footer = () => {
           >
             Kontakta oss
           </Link>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 gap-10 border-b border-white/10 py-12 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="grid grid-cols-1 gap-10 border-b border-white/10 py-12 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <h3 className="mb-4 text-2xl font-extrabold uppercase tracking-wide">
               <img
@@ -105,8 +98,10 @@ export const Footer = () => {
                 <Mail size={18} className="text-primary" />
                 kontakt@relinc.se
               </li>
+
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary" />
+
                 <a href="tel:0704557004" className="hover:underline">
                   +46 70 455 70 04
                 </a>
@@ -123,7 +118,7 @@ export const Footer = () => {
               smarta lösningar och starkare varumärken som håller över tid.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         <div className="mt-8 flex flex-col gap-4 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
           <div>

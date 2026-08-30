@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
-import { motion } from "framer-motion";
 import { imagePath } from "@/lib/imagePath";
 
 const packages = [
@@ -160,13 +159,7 @@ const Webbredo = () => {
       <section className="py-20 text-white md:py-28">
         <div className="container px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -35 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.55 }}
-              className="max-w-xl"
-            >
+            <div className="max-w-xl">
               <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
                 Webbredo
               </span>
@@ -194,15 +187,9 @@ const Webbredo = () => {
                 Kontakta oss
                 <ArrowRight className="h-4 w-4" />
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 35 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.55 }}
-              className="overflow-hidden rounded-2xl"
-            >
+            <div className="overflow-hidden rounded-2xl">
               <img
                 src={imagePath(
                   "images/webbdesign-malmo-digital-narvaro.webp",
@@ -210,20 +197,14 @@ const Webbredo = () => {
                 alt="Webbredo"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="paket" className="relative py-20 text-white md:py-28">
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto mb-14 max-w-3xl text-center"
-          >
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
               Våra paket
             </span>
@@ -236,17 +217,13 @@ const Webbredo = () => {
               Börja enkelt, välj en komplett lösning eller skapa ett helt
               skräddarsytt upplägg för ditt företag.
             </p>
-          </motion.div>
+          </div>
 
           {/* MOBILE AND TABLET CARDS */}
           <div className="grid grid-cols-1 gap-8 lg:hidden">
-            {packages.map((item, index) => (
-              <motion.article
+            {packages.map((item) => (
+              <article
                 key={item.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
                   item.popular
                     ? "border-2 border-primary"
@@ -311,18 +288,12 @@ const Webbredo = () => {
 
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </motion.article>
+              </article>
             ))}
           </div>
 
           {/* DESKTOP COMPARISON TABLE */}
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6 }}
-            className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block"
-          >
+          <div className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[950px] border-collapse">
                 <thead>
@@ -439,7 +410,7 @@ const Webbredo = () => {
                 </tfoot>
               </table>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -450,16 +421,11 @@ const Webbredo = () => {
               key={item.title}
               className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-16"
             >
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: item.imagePosition === "right" ? 60 : -60,
-                }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6 }}
+              <div
                 className={
-                  item.imagePosition === "right" ? "md:order-2" : "md:order-1"
+                  item.imagePosition === "right"
+                    ? "md:order-2"
+                    : "md:order-1"
                 }
               >
                 <img
@@ -467,18 +433,13 @@ const Webbredo = () => {
                   alt={item.title}
                   className="h-[260px] w-full rounded-lg object-cover sm:h-[340px] md:h-full md:min-h-[420px]"
                 />
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: item.imagePosition === "right" ? -60 : 60,
-                }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+              <div
                 className={`${
-                  item.imagePosition === "right" ? "md:order-1" : "md:order-2"
+                  item.imagePosition === "right"
+                    ? "md:order-1"
+                    : "md:order-2"
                 } flex h-full max-w-xl flex-col justify-center md:pt-12 lg:pt-16`}
               >
                 <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
@@ -496,7 +457,7 @@ const Webbredo = () => {
                   {item.buttonText}
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                 </Link>
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>

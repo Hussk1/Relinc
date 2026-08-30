@@ -9,9 +9,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useState } from "react";
-import { text } from "framer-motion/client";
 import { imagePath } from "@/lib/imagePath";
 
 const products = [
@@ -164,26 +162,16 @@ const Accessoarer = () => {
         <div className="pointer-events-none absolute right-[-500px] top-20 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
 
         <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mb-14 text-center"
-          >
+          <div className="mb-14 text-center">
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Populärast bland företag
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {products.map((item, index) => (
-              <motion.div
+            {products.map((item) => (
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/30"
               >
                 <div className="h-[380px] overflow-hidden">
@@ -204,6 +192,7 @@ const Accessoarer = () => {
                       {item.price}
                     </p>
                   </div>
+
                   <Link
                     to="/kontakt"
                     className="text-sm font-bold text-white transition hover:text-primary"
@@ -211,12 +200,13 @@ const Accessoarer = () => {
                     Kontakta
                   </Link>
                 </div>
+
                 <div className="px-6 mb-6">
                   <p className="text-sm font-semibold text-white/80">
                     {item.text}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -231,13 +221,9 @@ const Accessoarer = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {sortiment.map((item, index) => (
-              <motion.div
+            {sortiment.map((item) => (
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f]"
               >
                 <div className="overflow-hidden">
@@ -258,6 +244,7 @@ const Accessoarer = () => {
                       {item.price}
                     </p>
                   </div>
+
                   <Link
                     to="/kontakt"
                     className="text-sm font-bold text-white transition hover:text-primary"
@@ -265,12 +252,13 @@ const Accessoarer = () => {
                     Kontakta
                   </Link>
                 </div>
+
                 <div className="px-6 mb-6">
                   <p className="text-sm font-semibold text-white/80">
                     {item.text}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -280,16 +268,12 @@ const Accessoarer = () => {
         <div className="pointer-events-none absolute left-[-500px] bottom-0 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
 
         <div className="container relative z-10 grid grid-cols-1 gap-8 md:grid-cols-4">
-          {benefits.map((item, index) => {
+          {benefits.map((item) => {
             const Icon = item.icon;
 
             return (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="rounded-2xl border border-white/10 bg-[#1f1f1f] p-8 text-center"
               >
                 <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-black">
@@ -297,10 +281,11 @@ const Accessoarer = () => {
                 </div>
 
                 <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+
                 <p className="text-sm font-semibold leading-6 text-white/70">
                   {item.text}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -308,26 +293,16 @@ const Accessoarer = () => {
 
       <section className="relative overflow-hidden py-20 text-white md:py-28">
         <div className="container relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mb-12 max-w-3xl md:mb-16"
-          >
+          <div className="mb-12 max-w-3xl md:mb-16">
             <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
               Vanliga frågor om accessoarer
             </h2>
-          </motion.div>
+          </div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <motion.div
+              <div
                 key={faq.question}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
                 className="overflow-hidden rounded-xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/50"
               >
                 <button
@@ -354,7 +329,7 @@ const Accessoarer = () => {
                 >
                   {faq.answer}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

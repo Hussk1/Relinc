@@ -1,27 +1,38 @@
 import { ArrowRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const PuffBlockItems = [
   {
     title: "Webbdesign",
+
     description:
       "Vi skapar moderna webbplatser som inte bara ser bra ut utan också konverterar besökare till kunder.",
+
     linkText: "Läs mer",
+
     link: "/webbdesign",
   },
+
   {
     title: "Logotyp & Grafisk profil",
+
     description:
       "Vi skapar en tydlig och professionell visuell identitet med logotyp, färger och design som stärker ditt varumärke och skapar igenkänning.",
+
     linkText: "Läs mer",
+
     link: "/LogotypGrafiskProfil",
   },
+
   {
     title: "Kontakta oss",
+
     description:
       "Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi.",
+
     linkText: "Kontakta oss",
+
     link: "/kontakta-oss",
   },
 ];
@@ -30,13 +41,9 @@ export const PuffBlock = () => {
   return (
     <section className="container px-4 py-16 sm:px-6 sm:py-20 md:py-28 lg:px-4">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {PuffBlockItems.map((item, index) => (
-          <motion.div
+        {PuffBlockItems.map((item) => (
+          <div
             key={item.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group flex h-full flex-col rounded-2xl border border-white/50 p-5 transition-all duration-300 hover:-translate-y-2 hover:border-primary sm:p-6"
           >
             <h3 className="mb-4 text-2xl font-bold text-primary">
@@ -57,7 +64,7 @@ export const PuffBlock = () => {
                 <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover/link:translate-x-1" />
               </Link>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

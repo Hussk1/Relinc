@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import { imagePath } from "@/lib/imagePath";
 
 export const PageHero = ({
@@ -18,12 +18,7 @@ export const PageHero = ({
     >
       <div className="absolute inset-0 z-0 bg-black/60" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, ease: "easeOut" }}
-        className="container relative z-10 flex h-full flex-col items-start justify-end gap-5 px-4 sm:gap-6 sm:px-6 lg:px-4"
-      >
+      <div className="container relative z-10 flex h-full flex-col items-start justify-end gap-5 px-4 sm:gap-6 sm:px-6 lg:px-4">
         <div className="max-w-full border-b-4 border-primary pb-3 sm:pb-4">
           <h1 className="break-words text-4xl font-bold leading-none text-white sm:text-5xl md:text-6xl lg:text-[70px]">
             {title}
@@ -44,7 +39,7 @@ export const PageHero = ({
             {ctaText}
           </Link>
         )}
-      </motion.div>
+      </div>
     </section>
   );
 };

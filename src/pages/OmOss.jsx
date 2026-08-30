@@ -1,7 +1,9 @@
 import { PageHero } from "../components/PageHero";
+
 import { ContactFormSection } from "../components/ContactFormSection";
+
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import { imagePath } from "@/lib/imagePath";
 
 const OmOss = () => {
@@ -16,27 +18,15 @@ const OmOss = () => {
       <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <div className="relative z-10 my-10 space-y-20 sm:my-14 sm:space-y-24 md:space-y-36">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.6 }}
-              className="overflow-hidden rounded-2xl"
-            >
+            <div className="overflow-hidden rounded-2xl">
               <img
                 src={imagePath("images/kundsamarbete-digital-byra-malmo.webp")}
                 alt="Relinc erbjudande"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex max-w-xl flex-col justify-end"
-            >
+            <div className="flex max-w-xl flex-col justify-end">
               <span className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary">
                 Vårt erbjudande
               </span>
@@ -58,17 +48,11 @@ const OmOss = () => {
               >
                 Läs mer om vårt erbjudande
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.6 }}
-              className="flex max-w-xl flex-col justify-end md:order-1"
-            >
+            <div className="flex max-w-xl flex-col justify-end md:order-1">
               <span className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary">
                 Team & kultur
               </span>
@@ -90,30 +74,18 @@ const OmOss = () => {
               >
                 Kontakta oss
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="overflow-hidden rounded-2xl md:order-2"
-            >
+            <div className="overflow-hidden rounded-2xl md:order-2">
               <img
                 src={imagePath("images/digitala-losningar-foretag-malmo.webp")}
                 alt="Relinc team"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.6 }}
-            className="my-16 sm:my-20 md:my-32"
-          >
+          <div className="my-16 sm:my-20 md:my-32">
             <h2 className="mb-6 text-2xl font-bold text-white sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl">
               Vår historia
             </h2>
@@ -135,7 +107,7 @@ const OmOss = () => {
                 tillväxt.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

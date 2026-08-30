@@ -1,17 +1,11 @@
 import { ArrowRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export const WhyRelincSection = () => {
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
-      <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="container relative z-10 flex flex-col items-center px-4 text-center sm:px-6 lg:px-4"
-      >
+      <div className="container relative z-10 flex flex-col items-center px-4 text-center sm:px-6 lg:px-4">
         <span className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary">
           Relinc
         </span>
@@ -36,7 +30,7 @@ export const WhyRelincSection = () => {
           Börja din resa här
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 };

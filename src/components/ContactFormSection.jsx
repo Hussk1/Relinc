@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, LoaderCircle, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const options = [
   "Jag vill boka ett möte eller begära offert",
@@ -126,13 +125,7 @@ export const ContactFormSection = ({
   return (
     <section className="py-20 md:py-28">
       <div className="relative container px-4 sm:px-6 lg:px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6 }}
-          className="relative mx-auto max-w-2xl"
-        >
+        <div className="relative mx-auto max-w-2xl">
           <h2 className="mb-8 max-w-xl text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Starta din resa <br /> med Relinc
           </h2>
@@ -184,13 +177,9 @@ export const ContactFormSection = ({
                   const id = `contact-option-${index}`;
 
                   return (
-                    <motion.label
+                    <label
                       htmlFor={id}
                       key={option}
-                      initial={{ opacity: 0, x: -15 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.05 }}
                       className="flex cursor-pointer items-center gap-3 text-sm font-semibold text-white sm:text-base"
                     >
                       <input
@@ -204,7 +193,7 @@ export const ContactFormSection = ({
                       />
 
                       {option}
-                    </motion.label>
+                    </label>
                   );
                 })}
               </div>
@@ -261,17 +250,7 @@ export const ContactFormSection = ({
               </span>
             </label>
 
-            <motion.button
-              whileHover={
-                status === "submitting"
-                  ? undefined
-                  : { scale: 1.03 }
-              }
-              whileTap={
-                status === "submitting"
-                  ? undefined
-                  : { scale: 0.97 }
-              }
+            <button
               type="submit"
               disabled={status === "submitting"}
               className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-base font-bold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
@@ -293,39 +272,21 @@ export const ContactFormSection = ({
                   />
                 </>
               )}
-            </motion.button>
+            </button>
           </form>
 
           <FormLinesIcon className="absolute -bottom-2 -right-24 hidden h-24 w-24 text-primary md:block" />
-        </motion.div>
+        </div>
       </div>
 
       {message && (status === "success" || status === "error") && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-labelledby="contact-status-title"
         >
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.92,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-            className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#202020] p-6 shadow-2xl sm:p-8"
-          >
+          <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#202020] p-6 shadow-2xl sm:p-8">
             <button
               type="button"
               onClick={closePopup}
@@ -369,8 +330,8 @@ export const ContactFormSection = ({
             >
               Stäng
             </button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </section>
   );

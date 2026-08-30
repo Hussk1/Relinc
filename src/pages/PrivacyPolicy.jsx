@@ -1,41 +1,16 @@
-import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
 export const PrivacyPolicy = () => {
   return (
     <section className="relative min-h-screen overflow-hidden px-4 py-24 pt-32 sm:px-6 sm:pt-36">
       <div className="mx-auto max-w-4xl">
-
         {/* HEADER */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mb-12"
-        >
+        <div className="mb-12">
           <h1 className="text-4xl font-bold text-white sm:text-5xl">
             Integritetspolicy
           </h1>
-        </motion.div>
+        </div>
 
         {/* TEXT */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="space-y-6 text-lg font-semibold leading-7 text-white/80"
-        >
+        <div className="space-y-6 text-lg font-semibold leading-7 text-white/80">
           <p>
             Relinc hanterar personuppgifter i enlighet med GDPR – EU:s
             dataskyddsförordning. Det innebär att alla personuppgifter som vi
@@ -88,17 +63,12 @@ export const PrivacyPolicy = () => {
             reCAPTCHA, vilket innebär att Googles integritetspolicy och
             användarvillkor gäller.
           </p>
-        </motion.div>
+        </div>
 
         {/* FOOTER */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-16 text-center text-sm text-white/60"
-        >
+        <p className="mt-16 text-center text-sm text-white/60">
           Genom att använda vår webbplats godkänner du denna integritetspolicy.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

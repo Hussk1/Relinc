@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+
 import { imagePath } from "@/lib/imagePath";
 
 export const TextImageBlock = () => {
@@ -8,13 +9,8 @@ export const TextImageBlock = () => {
     <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-16">
         {/* TEXT */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-white"
-        >
+
+        <div className="text-white">
           <h2 className="mb-5 text-2xl font-bold leading-tight sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
             Bygg din digitala grund
           </h2>
@@ -43,22 +39,17 @@ export const TextImageBlock = () => {
             Till webbredo
             <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1" />
           </Link>
-        </motion.div>
+        </div>
 
         {/* IMAGE */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="overflow-hidden rounded-2xl"
-        >
+
+        <div className="overflow-hidden rounded-2xl">
           <img
             src={imagePath("images/digital-narvaro-for-foretag-malmo.webp")}
             alt="Bygg din digitala grund"
             className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[420px]"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
