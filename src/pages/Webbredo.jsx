@@ -1,15 +1,8 @@
-import {
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
 
-import {
-  ArrowRight,
-  Check,
-  Minus,
-} from "lucide-react";
+import { ArrowRight, Check, Minus } from "lucide-react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -223,8 +216,7 @@ const Webbredo = () => {
         const rect = introSection.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateIntro();
@@ -285,8 +277,7 @@ const Webbredo = () => {
         const rect = packagesSection.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animatePackages();
@@ -309,13 +300,9 @@ const Webbredo = () => {
       );
 
       serviceRows.forEach((row, index) => {
-        const image = row.querySelector(
-          ".webbredo-service-image",
-        );
+        const image = row.querySelector(".webbredo-service-image");
 
-        const content = row.querySelector(
-          ".webbredo-service-content",
-        );
+        const content = row.querySelector(".webbredo-service-content");
 
         gsap.set(row, {
           visibility: "visible",
@@ -361,8 +348,7 @@ const Webbredo = () => {
         const rect = row.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateRow();
@@ -398,16 +384,10 @@ const Webbredo = () => {
 
       {/* INTRO */}
 
-      <section
-        ref={introRef}
-        className="invisible py-20 text-white md:py-28"
-      >
+      <section ref={introRef} className="invisible py-20 text-white md:py-28">
         <div className="container px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            <div
-              ref={introTextRef}
-              className="max-w-xl"
-            >
+            <div ref={introTextRef} className="max-w-xl">
               <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
                 Webbredo
               </span>
@@ -433,18 +413,16 @@ const Webbredo = () => {
                 className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition duration-300 hover:scale-[1.03] hover:opacity-90"
               >
                 Kontakta oss
-
                 <ArrowRight className="h-4 w-4 transition duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div
-              ref={introImageRef}
-              className="overflow-hidden rounded-2xl"
-            >
+            <div ref={introImageRef} className="overflow-hidden rounded-2xl">
               <img
                 src="/images/webbdesign-malmo-digital-narvaro.webp"
                 alt="Webbredo"
+                loading="lazy"
+                decoding="async"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </div>
@@ -647,9 +625,7 @@ const Webbredo = () => {
                         <td
                           key={item.name}
                           className={`p-6 ${
-                            item.popular
-                              ? "bg-primary/[0.07]"
-                              : "bg-[#191919]"
+                            item.popular ? "bg-primary/[0.07]" : "bg-[#191919]"
                           }`}
                         >
                           <Link
@@ -679,10 +655,7 @@ const Webbredo = () => {
 
       {/* SERVICE HIGHLIGHTS */}
 
-      <section
-        ref={servicesRef}
-        className="py-16 md:py-24"
-      >
+      <section ref={servicesRef} className="py-16 md:py-24">
         <div className="relative container space-y-16 px-4 sm:px-6 md:space-y-24 lg:px-4 lg:space-y-28">
           {serviceHighlights.map((item) => (
             <div
@@ -691,23 +664,21 @@ const Webbredo = () => {
             >
               <div
                 className={`webbredo-service-image overflow-hidden rounded-lg ${
-                  item.imagePosition === "right"
-                    ? "md:order-2"
-                    : "md:order-1"
+                  item.imagePosition === "right" ? "md:order-2" : "md:order-1"
                 }`}
               >
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-[260px] w-full rounded-lg object-cover sm:h-[340px] md:h-full md:min-h-[420px]"
                 />
               </div>
 
               <div
                 className={`webbredo-service-content ${
-                  item.imagePosition === "right"
-                    ? "md:order-1"
-                    : "md:order-2"
+                  item.imagePosition === "right" ? "md:order-1" : "md:order-2"
                 } flex h-full max-w-xl flex-col justify-center md:pt-12 lg:pt-16`}
               >
                 <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">

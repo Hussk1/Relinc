@@ -147,14 +147,13 @@ export const TwoColumnBlock = () => {
     >
       <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {TwoColumnBlockItems.map((item) => (
-          <div
-            key={item.title}
-            className="two-column-card invisible"
-          >
+          <div key={item.title} className="two-column-card invisible">
             <div className="two-column-image inline-block w-full overflow-hidden rounded-2xl">
               <img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="h-[260px] w-full rounded-2xl object-cover sm:h-[320px] md:h-[340px] lg:h-[400px]"
               />
             </div>

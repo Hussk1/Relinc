@@ -1,8 +1,4 @@
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
@@ -136,8 +132,7 @@ const LogotypGrafiskProfil = () => {
         const rect = section.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateSection();
@@ -182,6 +177,8 @@ const LogotypGrafiskProfil = () => {
               <img
                 src="images/visuell-identitet-grafisk-profil-malmo.webp"
                 alt="LogotypGrafiskProfil"
+                loading="lazy"
+                decoding="async"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </div>
@@ -237,9 +234,7 @@ const LogotypGrafiskProfil = () => {
 
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 transition ${
-                      openIndex === index
-                        ? "rotate-180 text-primary"
-                        : ""
+                      openIndex === index ? "rotate-180 text-primary" : ""
                     }`}
                   />
                 </button>

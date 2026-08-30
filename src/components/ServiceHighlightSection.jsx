@@ -108,10 +108,7 @@ export const ServiceHighlightSection = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-16 md:py-24"
-    >
+    <section ref={sectionRef} className="py-16 md:py-24">
       <div className="relative container space-y-16 px-4 sm:px-6 md:space-y-24 lg:px-4 lg:space-y-28">
         <div className="pointer-events-none absolute inset-0"></div>
 
@@ -122,23 +119,21 @@ export const ServiceHighlightSection = () => {
           >
             <div
               className={`service-highlight-image ${
-                item.imagePosition === "right"
-                  ? "md:order-2"
-                  : "md:order-1"
+                item.imagePosition === "right" ? "md:order-2" : "md:order-1"
               }`}
             >
               <img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="h-[260px] w-full rounded-lg object-cover sm:h-[340px] md:h-full md:min-h-[420px]"
               />
             </div>
 
             <div
               className={`service-highlight-content ${
-                item.imagePosition === "right"
-                  ? "md:order-1"
-                  : "md:order-2"
+                item.imagePosition === "right" ? "md:order-1" : "md:order-2"
               } flex h-full max-w-xl flex-col justify-center md:pt-12 lg:pt-16`}
             >
               <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">

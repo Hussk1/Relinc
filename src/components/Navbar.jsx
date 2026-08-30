@@ -1,15 +1,6 @@
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import {
-  ChevronDown,
-  Menu,
-  X,
-} from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
@@ -295,14 +286,12 @@ export const Navbar = () => {
       >
         {/* LOGO */}
 
-        <Link
-          to="/"
-          className="flex items-center"
-          onClick={closeMobileMenu}
-        >
+        <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
           <img
             src="/images/relinc-vit-logotyp.webp"
             alt="Relinc"
+            loading="lazy"
+            decoding="async"
             className="h-auto w-32"
           />
         </Link>
@@ -327,7 +316,6 @@ export const Navbar = () => {
               aria-haspopup="true"
             >
               Våra tjänster
-
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-300 ${
                   isServicesOpen ? "rotate-180" : ""
@@ -417,10 +405,7 @@ export const Navbar = () => {
         ref={mobileMenuRef}
         className="invisible h-0 overflow-hidden border-t border-white/10 bg-[#202020] xl:hidden"
       >
-        <div
-          ref={mobileMenuInnerRef}
-          className="container px-4 py-6 sm:px-6"
-        >
+        <div ref={mobileMenuInnerRef} className="container px-4 py-6 sm:px-6">
           {/* MOBILE SERVICES */}
 
           <div className="mobile-menu-item">
@@ -433,7 +418,6 @@ export const Navbar = () => {
               aria-expanded={isServicesOpen}
             >
               Våra tjänster
-
               <ChevronDown
                 className={`h-5 w-5 transition-transform duration-300 ${
                   isServicesOpen ? "rotate-180" : ""
@@ -447,26 +431,17 @@ export const Navbar = () => {
               ref={mobileServicesRef}
               className="invisible h-0 overflow-hidden"
             >
-              <div
-                ref={mobileServicesInnerRef}
-                className="pb-4 pt-2"
-              >
+              <div ref={mobileServicesInnerRef} className="pb-4 pt-2">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   {menuColumns.map((column) => (
-                    <div
-                      key={column.title}
-                      className="mobile-service-item"
-                    >
+                    <div key={column.title} className="mobile-service-item">
                       <h3 className="mb-3 font-semibold text-primary">
                         {column.title}
                       </h3>
 
                       <ul className="space-y-3">
                         {column.links.map((link) => (
-                          <li
-                            key={link.label}
-                            className="mobile-service-item"
-                          >
+                          <li key={link.label} className="mobile-service-item">
                             <Link
                               to={link.path}
                               onClick={closeMobileMenu}

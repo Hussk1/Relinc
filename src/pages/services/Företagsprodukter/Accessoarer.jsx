@@ -1,19 +1,9 @@
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
 
-import {
-  Leaf,
-  Truck,
-  RefreshCw,
-  Crown,
-  ChevronDown,
-} from "lucide-react";
+import { Leaf, Truck, RefreshCw, Crown, ChevronDown } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
@@ -225,8 +215,7 @@ const Accessoarer = () => {
         const rect = section.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateSection();
@@ -311,6 +300,8 @@ const Accessoarer = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
@@ -368,6 +359,8 @@ const Accessoarer = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-[320px] w-full object-cover"
                   />
                 </div>
@@ -425,9 +418,7 @@ const Accessoarer = () => {
                       <Icon className="h-6 w-6" />
                     </div>
 
-                    <h3 className="mb-3 text-xl font-bold">
-                      {item.title}
-                    </h3>
+                    <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
 
                     <p className="text-sm font-semibold leading-6 text-white/70">
                       {item.text}
@@ -469,9 +460,7 @@ const Accessoarer = () => {
 
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 transition ${
-                      openIndex === index
-                        ? "rotate-180 text-primary"
-                        : ""
+                      openIndex === index ? "rotate-180 text-primary" : ""
                     }`}
                   />
                 </button>

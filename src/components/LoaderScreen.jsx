@@ -38,9 +38,12 @@ export const LoaderScreen = ({ onComplete }) => {
           },
           "-=0.25",
         )
-        .to({}, {
-          duration: 0.9,
-        })
+        .to(
+          {},
+          {
+            duration: 0.9,
+          },
+        )
         .to(loaderRef.current, {
           opacity: 0,
           duration: 0.6,
@@ -67,14 +70,13 @@ export const LoaderScreen = ({ onComplete }) => {
             ref={logoRef}
             src="/images/favicon.webp"
             alt="Relinc"
+            loading="lazy"
+            decoding="async"
             className="h-24 w-24 object-contain drop-shadow-[0_0_35px_rgba(171,255,61,0.45)]"
           />
         </div>
 
-        <p
-          ref={textRef}
-          className="mt-8 text-lg font-semibold text-white"
-        >
+        <p ref={textRef} className="mt-8 text-lg font-semibold text-white">
           Laddar Relinc
           <span>...</span>
         </p>

@@ -1,7 +1,4 @@
-import {
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
@@ -78,8 +75,7 @@ const OmOss = () => {
         const rect = firstSection.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateFirstSection();
@@ -142,8 +138,7 @@ const OmOss = () => {
         const rect = secondSection.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateSecondSection();
@@ -204,8 +199,7 @@ const OmOss = () => {
         const rect = historySection.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateHistory();
@@ -240,20 +234,18 @@ const OmOss = () => {
 
       <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
         <div className="relative z-10 my-10 space-y-20 sm:my-14 sm:space-y-24 md:space-y-36">
-
           {/* FIRST BLOCK */}
 
           <div
             ref={firstSectionRef}
             className="invisible grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16"
           >
-            <div
-              ref={firstImageRef}
-              className="overflow-hidden rounded-2xl"
-            >
+            <div ref={firstImageRef} className="overflow-hidden rounded-2xl">
               <img
                 src="/images/kundsamarbete-digital-byra-malmo.webp"
                 alt="Relinc erbjudande"
+                loading="lazy"
+                decoding="async"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </div>
@@ -326,6 +318,8 @@ const OmOss = () => {
               <img
                 src="/images/digitala-losningar-foretag-malmo.webp"
                 alt="Relinc team"
+                loading="lazy"
+                decoding="async"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
             </div>
@@ -333,10 +327,7 @@ const OmOss = () => {
 
           {/* HISTORY */}
 
-          <div
-            ref={historyRef}
-            className="invisible my-16 sm:my-20 md:my-32"
-          >
+          <div ref={historyRef} className="invisible my-16 sm:my-20 md:my-32">
             <h2
               ref={historyTitleRef}
               className="mb-6 text-2xl font-bold text-white sm:text-3xl md:mb-8 md:text-4xl lg:text-5xl"

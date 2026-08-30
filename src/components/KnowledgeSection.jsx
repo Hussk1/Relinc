@@ -1,9 +1,4 @@
-import {
-  ArrowRight,
-  Clock3,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, Clock3, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const articles = [
@@ -71,6 +66,8 @@ export const KnowledgeSection = () => {
                   <img
                     src={article.image}
                     alt={article.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full rounded-t-lg object-cover"
                   />
 

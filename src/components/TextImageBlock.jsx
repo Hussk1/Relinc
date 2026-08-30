@@ -125,6 +125,8 @@ export const TextImageBlock = () => {
           <img
             src="/images/digital-narvaro-for-foretag-malmo.webp"
             alt="Bygg din digitala grund"
+            loading="lazy"
+            decoding="async"
             className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[420px]"
           />
         </div>

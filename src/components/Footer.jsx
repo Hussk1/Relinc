@@ -80,8 +80,7 @@ export const Footer = () => {
 
       const rect = footer.getBoundingClientRect();
 
-      const isAlreadyVisible =
-        rect.top < window.innerHeight && rect.bottom > 0;
+      const isAlreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
       if (isAlreadyVisible) {
         animateFooter();
@@ -161,6 +160,8 @@ export const Footer = () => {
               <img
                 src="/images/relinc-vit-logotyp.webp"
                 alt="Relinc Logo"
+                loading="lazy"
+                decoding="async"
                 className="h-auto w-32"
               />
             </h3>
@@ -199,9 +200,7 @@ export const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">
-              Kontakt
-            </h3>
+            <h3 className="mb-4 text-lg font-semibold text-white">Kontakt</h3>
 
             <ul className="space-y-4 text-white/70">
               <li className="flex items-center gap-3">
@@ -230,9 +229,7 @@ export const Footer = () => {
 
           {/* ABOUT */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">
-              Om oss
-            </h3>
+            <h3 className="mb-4 text-lg font-semibold text-white">Om oss</h3>
 
             <p className="text-white/70">
               Relinc grundades med ambitionen att hjälpa företag att växa

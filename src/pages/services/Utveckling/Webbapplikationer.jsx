@@ -1,16 +1,9 @@
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
 
-import {
-  ChevronDown,
-  ArrowRight,
-} from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
@@ -125,8 +118,7 @@ const Webbapplikationer = () => {
         const rect = section.getBoundingClientRect();
 
         const isAlreadyVisible =
-          rect.top < window.innerHeight &&
-          rect.bottom > 0;
+          rect.top < window.innerHeight && rect.bottom > 0;
 
         if (isAlreadyVisible) {
           animateSection();
@@ -160,10 +152,7 @@ const Webbapplikationer = () => {
       />
 
       <section className="relative container px-4 py-12 text-white sm:px-6 sm:py-16 md:py-24 lg:px-4">
-        <div
-          ref={twoColumnRef}
-          className="relative z-10 my-10 md:my-14"
-        >
+        <div ref={twoColumnRef} className="relative z-10 my-10 md:my-14">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {TwoColumnBlockItems.map((item) => (
               <div key={item.title}>
@@ -171,6 +160,8 @@ const Webbapplikationer = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-[260px] w-full rounded-2xl object-cover sm:h-[340px] lg:h-[420px]"
                   />
                 </div>
@@ -215,9 +206,7 @@ const Webbapplikationer = () => {
 
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 transition ${
-                      openIndex === index
-                        ? "rotate-180 text-primary"
-                        : ""
+                      openIndex === index ? "rotate-180 text-primary" : ""
                     }`}
                   />
                 </button>
