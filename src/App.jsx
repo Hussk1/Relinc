@@ -8,7 +8,7 @@ import { NotFound } from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import OmOss from "./pages/OmOss";
 import Webbredo from "./pages/Webbredo";
-import Kontakt from "./pages/Kontakt";
+import Kontakta from "./pages/Kontakta";
 
 // Utveckling
 import Webbdesign from "./pages/services/Utveckling/Webbdesign";
@@ -52,7 +52,7 @@ function App() {
           {/* Main pages */}
           <Route path="/om-oss" element={<OmOss />} />
           <Route path="/webbredo" element={<Webbredo />} />
-          <Route path="/kontakta-oss" element={<Kontakt />} />
+          <Route path="/kontakta" element={<Kontakta />} />
 
           {/* Utveckling */}
           <Route path="/webbdesign" element={<Webbdesign />} />

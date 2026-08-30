@@ -142,7 +142,7 @@ export const WhyRelincSection = () => {
 
         <Link
           ref={buttonRef}
-          to="/kontakta-oss"
+          to="/kontakta"
           className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:opacity-90"
         >
           Börja din resa här

@@ -117,7 +117,7 @@ const serviceHighlights = [
     description:
       "När grunden är på plats hjälper vi dig att synas och utvecklas vidare. Med SEO, mobilanpassning, innehåll och tydlig struktur skapar vi bättre förutsättningar för att nå rätt kunder och växa långsiktigt.",
     buttonText: "Kontakta oss",
-    link: "/kontakta-oss",
+    link: "/kontakta",
     image: "/images/seo-digital-narvaro-malmo.webp",
     imagePosition: "left",
   },
@@ -409,7 +409,7 @@ const Webbredo = () => {
               </p>
 
               <Link
-                to="/kontakta-oss"
+                to="/kontakta"
                 className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition duration-300 hover:scale-[1.03] hover:opacity-90"
               >
                 Kontakta oss
@@ -514,7 +514,7 @@ const Webbredo = () => {
                   </div>
 
                   <Link
-                    to="/kontakta-oss"
+                    to="/kontakta"
                     className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
                       item.popular
                         ? "bg-primary text-black hover:opacity-90"
@@ -613,7 +613,7 @@ const Webbredo = () => {
                         </p>
 
                         <Link
-                          to="/kontakta-oss"
+                          to="/kontakta"
                           className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-primary"
                         >
                           Få personlig hjälp
@@ -629,7 +629,7 @@ const Webbredo = () => {
                           }`}
                         >
                           <Link
-                            to="/kontakta-oss"
+                            to="/kontakta"
                             className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
                               item.popular
                                 ? "bg-primary text-black hover:opacity-90"

@@ -142,7 +142,7 @@ export const Footer = () => {
           </div>
 
           <Link
-            to="/kontakta-oss"
+            to="/kontakta"
             className="inline-flex h-11 w-fit items-center justify-center rounded-full border border-primary bg-primary px-6 font-semibold text-black transition duration-300 hover:scale-[1.03] hover:opacity-90"
           >
             Kontakta oss

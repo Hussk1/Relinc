@@ -376,7 +376,7 @@ export const Navbar = () => {
         {/* DESKTOP CONTACT */}
 
         <Link
-          to="/kontakta-oss"
+          to="/kontakta"
           className="hidden rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110 xl:inline-flex"
         >
           Kontakta oss
@@ -476,7 +476,7 @@ export const Navbar = () => {
           </Link>
 
           <Link
-            to="/kontakta-oss"
+            to="/kontakta"
             onClick={closeMobileMenu}
             className="mobile-menu-item mt-4 flex w-full items-center justify-center rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110"
           >

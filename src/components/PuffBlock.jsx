@@ -30,7 +30,7 @@ const PuffBlockItems = [
     description:
       "Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi.",
     linkText: "Kontakta oss",
-    link: "/kontakta-oss",
+    link: "/kontakta",
   },
 ];
 

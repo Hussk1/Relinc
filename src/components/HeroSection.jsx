@@ -102,7 +102,7 @@ export const HeroSection = () => {
             className="flex flex-col gap-4 sm:flex-row"
           >
             <Link
-              to="/kontakta-oss"
+              to="/kontakta"
               className="group inline-flex h-11 w-fit items-center gap-2 rounded-full border border-primary bg-primary px-6 font-semibold leading-none text-[#1b1b1b] transition duration-300 hover:scale-[1.03] hover:opacity-90"
             >
               Kontakta oss

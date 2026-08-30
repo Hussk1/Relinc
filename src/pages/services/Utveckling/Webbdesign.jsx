@@ -375,7 +375,7 @@ const Webbdesign = () => {
                 </div>
 
                 <Link
-                  to="/kontakta-oss"
+                  to="/kontakta"
                   className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-bold transition sm:px-5 ${
                     item.popular
                       ? "bg-primary text-black hover:opacity-90"
@@ -474,7 +474,7 @@ const Webbdesign = () => {
                       </p>
 
                       <Link
-                        to="/kontakta-oss"
+                        to="/kontakta"
                         className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-primary"
                       >
                         Få personlig hjälp
@@ -490,7 +490,7 @@ const Webbdesign = () => {
                         }`}
                       >
                         <Link
-                          to="/kontakta-oss"
+                          to="/kontakta"
                           className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
                             item.popular
                               ? "bg-primary text-black hover:opacity-90"

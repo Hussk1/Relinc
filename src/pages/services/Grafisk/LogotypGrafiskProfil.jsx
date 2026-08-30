@@ -195,7 +195,7 @@ const LogotypGrafiskProfil = () => {
               </p>
 
               <a
-                href="/kontakta-oss"
+                href="/kontakta"
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
                 Kontakta oss

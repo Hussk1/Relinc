@@ -304,7 +304,7 @@ const OmOss = () => {
               </p>
 
               <Link
-                to="/kontakta-oss"
+                to="/kontakta"
                 className="inline-flex w-fit items-center rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
               >
                 Kontakta oss

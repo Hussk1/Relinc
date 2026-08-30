@@ -152,7 +152,7 @@ export const NotFound = () => {
           </Link>
 
           <Link
-            to="/kontakta-oss"
+            to="/kontakta"
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 text-base font-semibold text-white transition hover:border-primary hover:text-primary sm:w-auto"
           >
             Kontakta oss

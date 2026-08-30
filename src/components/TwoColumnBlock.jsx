@@ -25,7 +25,7 @@ const TwoColumnBlockItems = [
     description:
       "Hos oss tror vi att de bästa resultaten skapas när strategi, teknik och kreativitet samverkar, och vi kombinerar teknisk kompetens med en djup förståelse för din verksamhet och dina mål. Oavsett om det handlar om att utveckla en modern webbplats, förbättra din synlighet genom SEO, skapa stark visuell kommunikation eller effektivisera din verksamhet med smarta system och redovisningstjänster är vårt mål alltid detsamma att leverera lösningar som inte bara möter dina behov idag utan också driver din verksamhet framåt långsiktigt.",
     linkText: "Kontakta oss",
-    link: "/kontakta-oss",
+    link: "/kontakta",
   },
 ];
 
