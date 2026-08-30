@@ -1,5 +1,12 @@
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
+
 import {
   Leaf,
   Truck,
@@ -7,8 +14,13 @@ import {
   Crown,
   ChevronDown,
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
-import { useState } from "react";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
@@ -142,12 +154,130 @@ const faqs = [
 const Accessoarer = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
+  const pageRef = useRef(null);
+  const popularRef = useRef(null);
+  const sortimentRef = useRef(null);
+  const benefitsRef = useRef(null);
+  const faqRef = useRef(null);
+
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const createSectionAnimation = ({
+        section,
+        headingSelector,
+        itemSelector,
+        stagger = 0.12,
+      }) => {
+        if (!section) return;
+
+        const heading = section.querySelector(headingSelector);
+        const items = gsap.utils.toArray(
+          section.querySelectorAll(itemSelector),
+        );
+
+        if (heading) {
+          gsap.set(heading, {
+            opacity: 0,
+            y: 45,
+          });
+        }
+
+        gsap.set(items, {
+          opacity: 0,
+          y: 50,
+        });
+
+        gsap.set(section, {
+          visibility: "visible",
+        });
+
+        const animateSection = () => {
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+          });
+
+          if (heading) {
+            timeline.to(heading, {
+              opacity: 1,
+              y: 0,
+              duration: 1.05,
+            });
+          }
+
+          timeline.to(
+            items,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1.05,
+              stagger,
+            },
+            heading ? "-=0.55" : 0,
+          );
+        };
+
+        const rect = section.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animateSection();
+        } else {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top 92%",
+            once: true,
+            onEnter: animateSection,
+          });
+        }
+      };
+
+      createSectionAnimation({
+        section: popularRef.current,
+        headingSelector: ".section-heading",
+        itemSelector: ".popular-card",
+        stagger: 0.13,
+      });
+
+      createSectionAnimation({
+        section: sortimentRef.current,
+        headingSelector: ".section-heading",
+        itemSelector: ".sortiment-card",
+        stagger: 0.1,
+      });
+
+      createSectionAnimation({
+        section: benefitsRef.current,
+        headingSelector: ".section-heading",
+        itemSelector: ".benefit-card",
+        stagger: 0.11,
+      });
+
+      createSectionAnimation({
+        section: faqRef.current,
+        headingSelector: ".section-heading",
+        itemSelector: ".faq-item",
+        stagger: 0.09,
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <>
+    <div ref={pageRef}>
       <PageHero
         title="Accessoarer"
         subtitle="Professionella accessoarer som stärker ert varumärke och skapar ett enhetligt intryck."
@@ -156,11 +286,16 @@ const Accessoarer = () => {
         ctaLink="/kontakt"
       />
 
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
+      {/* POPULÄRAST */}
+
+      <section
+        ref={popularRef}
+        className="invisible relative overflow-hidden py-20 text-white md:py-28"
+      >
         <div className="pointer-events-none absolute right-[-500px] top-20 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
 
         <div className="container relative z-10">
-          <div className="mb-14 text-center">
+          <div className="section-heading mb-14 text-center">
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Populärast bland företag
             </h2>
@@ -170,7 +305,7 @@ const Accessoarer = () => {
             {products.map((item) => (
               <div
                 key={item.title}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/30"
+                className="popular-card group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/30"
               >
                 <div className="h-[380px] overflow-hidden">
                   <img
@@ -180,7 +315,7 @@ const Accessoarer = () => {
                   />
                 </div>
 
-                <div className="flex flex-1 items-end justify-between px-6 pt-6 mb-4">
+                <div className="mb-4 flex flex-1 items-end justify-between px-6 pt-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white">
                       {item.title}
@@ -199,7 +334,7 @@ const Accessoarer = () => {
                   </Link>
                 </div>
 
-                <div className="px-6 mb-6">
+                <div className="mb-6 px-6">
                   <p className="text-sm font-semibold text-white/80">
                     {item.text}
                   </p>
@@ -210,19 +345,24 @@ const Accessoarer = () => {
         </div>
       </section>
 
-      <section className="py-20 text-white md:py-28">
+      {/* SORTIMENT */}
+
+      <section
+        ref={sortimentRef}
+        className="invisible py-20 text-white md:py-28"
+      >
         <div className="container">
-          <div className="mb-14 text-center">
+          <div className="section-heading mb-14 text-center">
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Vårt sortiment
             </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {sortiment.map((item) => (
+            {sortiment.map((item, index) => (
               <div
-                key={item.title}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f]"
+                key={`${item.title}-${index}`}
+                className="sortiment-card group overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f]"
               >
                 <div className="overflow-hidden">
                   <img
@@ -232,7 +372,7 @@ const Accessoarer = () => {
                   />
                 </div>
 
-                <div className="flex flex-1 items-end justify-between px-6 pt-6 mb-4">
+                <div className="mb-4 flex flex-1 items-end justify-between px-6 pt-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white">
                       {item.title}
@@ -251,7 +391,7 @@ const Accessoarer = () => {
                   </Link>
                 </div>
 
-                <div className="px-6 mb-6">
+                <div className="mb-6 px-6">
                   <p className="text-sm font-semibold text-white/80">
                     {item.text}
                   </p>
@@ -262,36 +402,52 @@ const Accessoarer = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
-        <div className="pointer-events-none absolute left-[-500px] bottom-0 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+      {/* BENEFITS */}
 
-        <div className="container relative z-10 grid grid-cols-1 gap-8 md:grid-cols-4">
-          {benefits.map((item) => {
-            const Icon = item.icon;
+      <section
+        ref={benefitsRef}
+        className="invisible relative overflow-hidden py-20 text-white md:py-28"
+      >
+        <div className="pointer-events-none absolute bottom-0 left-[-500px] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
 
-            return (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-white/10 bg-[#1f1f1f] p-8 text-center"
-              >
-                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-black">
-                  <Icon className="h-6 w-6" />
-                </div>
+        <div className="container relative z-10">
+          <div className="section-heading">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+              {benefits.map((item) => {
+                const Icon = item.icon;
 
-                <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                return (
+                  <div
+                    key={item.title}
+                    className="benefit-card rounded-2xl border border-white/10 bg-[#1f1f1f] p-8 text-center"
+                  >
+                    <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-black">
+                      <Icon className="h-6 w-6" />
+                    </div>
 
-                <p className="text-sm font-semibold leading-6 text-white/70">
-                  {item.text}
-                </p>
-              </div>
-            );
-          })}
+                    <h3 className="mb-3 text-xl font-bold">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm font-semibold leading-6 text-white/70">
+                      {item.text}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 text-white md:py-28">
+      {/* FAQ */}
+
+      <section
+        ref={faqRef}
+        className="invisible relative overflow-hidden py-20 text-white md:py-28"
+      >
         <div className="container relative z-10">
-          <div className="mb-12 max-w-3xl md:mb-16">
+          <div className="section-heading mb-12 max-w-3xl md:mb-16">
             <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
               Vanliga frågor om accessoarer
             </h2>
@@ -301,7 +457,7 @@ const Accessoarer = () => {
             {faqs.map((faq, index) => (
               <div
                 key={faq.question}
-                className="overflow-hidden rounded-xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/50"
+                className="faq-item overflow-hidden rounded-xl border border-white/10 bg-[#1f1f1f] transition hover:border-primary/50"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -313,7 +469,9 @@ const Accessoarer = () => {
 
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 transition ${
-                      openIndex === index ? "rotate-180 text-primary" : ""
+                      openIndex === index
+                        ? "rotate-180 text-primary"
+                        : ""
                     }`}
                   />
                 </button>
@@ -334,7 +492,7 @@ const Accessoarer = () => {
       </section>
 
       <ContactFormSection />
-    </>
+    </div>
   );
 };
 

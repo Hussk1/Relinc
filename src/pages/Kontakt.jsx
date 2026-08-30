@@ -1,8 +1,21 @@
-import { PageHero } from "../components/PageHero";
+import {
+  useLayoutEffect,
+  useRef,
+} from "react";
 
+import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
 
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  ArrowRight,
+} from "lucide-react";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const contactCards = [
   {
@@ -22,21 +35,99 @@ const contactCards = [
 ];
 
 const Kontakt = () => {
+  const pageRef = useRef(null);
+  const cardsSectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const section = cardsSectionRef.current;
+
+      if (!section) return;
+
+      const cards = gsap.utils.toArray(
+        ".contact-card",
+        section,
+      );
+
+      /*
+       * INITIAL STATE
+       */
+      gsap.set(cards, {
+        opacity: 0,
+        y: 50,
+      });
+
+      gsap.set(section, {
+        visibility: "visible",
+      });
+
+      /*
+       * ANIMATION
+       */
+      const animateCards = () => {
+        gsap.to(cards, {
+          opacity: 1,
+          y: 0,
+          duration: 1.05,
+          stagger: 0.14,
+          ease: "power3.out",
+        });
+      };
+
+      /*
+       * Om sektionen redan syns när sidan laddas
+       */
+      const rect = section.getBoundingClientRect();
+
+      const isAlreadyVisible =
+        rect.top < window.innerHeight &&
+        rect.bottom > 0;
+
+      if (isAlreadyVisible) {
+        animateCards();
+      } else {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 92%",
+          once: true,
+          onEnter: animateCards,
+        });
+      }
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]">
+    <div
+      ref={pageRef}
+      className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]"
+    >
       <PageHero
         title="Kontakta oss"
         subtitle="Låt oss prata om hur vi kan hjälpa ditt företag att växa genom smarta digitala lösningar, design och strategi."
         image="images/kontaktaoss.webp"
       />
 
-      {/* Contact form */}
-      <div id="kontaktform" className="scroll-mt-24">
+      {/* CONTACT FORM */}
+
+      <div
+        id="kontaktform"
+        className="scroll-mt-24"
+      >
         <ContactFormSection />
       </div>
 
-      {/* Contact cards */}
-      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
+      {/* CONTACT CARDS */}
+
+      <section
+        ref={cardsSectionRef}
+        className="invisible relative overflow-hidden py-16 text-white sm:py-20 md:py-28"
+      >
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
             {contactCards.map((item) => {
@@ -46,7 +137,7 @@ const Kontakt = () => {
                 <a
                   key={item.title}
                   href={item.href}
-                  className="group flex h-full min-w-0 flex-col rounded-2xl border border-white/10 bg-[#1f1f1f]/90 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary/50 sm:p-6 lg:p-8"
+                  className="contact-card group flex h-full min-w-0 flex-col rounded-2xl border border-white/10 bg-[#1f1f1f]/90 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-primary/50 sm:p-6 lg:p-8"
                 >
                   <div className="mb-6 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-black sm:h-14 sm:w-14">
                     <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -61,9 +152,11 @@ const Kontakt = () => {
                   </p>
 
                   <div className="mt-auto flex min-w-0 items-center gap-2 text-base font-semibold text-primary sm:text-lg">
-                    <span className="min-w-0 break-words">{item.value}</span>
+                    <span className="min-w-0 break-words">
+                      {item.value}
+                    </span>
 
-                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </a>
               );

@@ -1,7 +1,23 @@
+import {
+  useLayoutEffect,
+  useRef,
+} from "react";
+
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, Minus } from "lucide-react";
+
+import {
+  ArrowRight,
+  Check,
+  Minus,
+} from "lucide-react";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const packages = [
   {
@@ -144,8 +160,235 @@ const ComparisonValue = ({ value }) => {
 };
 
 const Webbredo = () => {
+  const pageRef = useRef(null);
+
+  const introRef = useRef(null);
+  const introTextRef = useRef(null);
+  const introImageRef = useRef(null);
+
+  const packagesRef = useRef(null);
+  const packagesHeaderRef = useRef(null);
+  const packagesContentRef = useRef(null);
+
+  const servicesRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      /*
+       * INTRO
+       */
+      const introSection = introRef.current;
+
+      if (introSection) {
+        gsap.set(introTextRef.current, {
+          opacity: 0,
+          y: 45,
+        });
+
+        gsap.set(introImageRef.current, {
+          opacity: 0,
+          y: 55,
+          scale: 1.04,
+        });
+
+        gsap.set(introSection, {
+          visibility: "visible",
+        });
+
+        const animateIntro = () => {
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+          });
+
+          timeline
+            .to(introTextRef.current, {
+              opacity: 1,
+              y: 0,
+              duration: 1.1,
+            })
+            .to(
+              introImageRef.current,
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.2,
+              },
+              "-=0.65",
+            );
+        };
+
+        const rect = introSection.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animateIntro();
+        } else {
+          ScrollTrigger.create({
+            trigger: introSection,
+            start: "top 92%",
+            once: true,
+            onEnter: animateIntro,
+          });
+        }
+      }
+
+      /*
+       * PACKAGES
+       */
+      const packagesSection = packagesRef.current;
+
+      if (packagesSection) {
+        gsap.set(packagesHeaderRef.current, {
+          opacity: 0,
+          y: 45,
+        });
+
+        gsap.set(packagesContentRef.current, {
+          opacity: 0,
+          y: 55,
+        });
+
+        gsap.set(packagesSection, {
+          visibility: "visible",
+        });
+
+        const animatePackages = () => {
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+          });
+
+          timeline
+            .to(packagesHeaderRef.current, {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+            })
+            .to(
+              packagesContentRef.current,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1.1,
+              },
+              "-=0.55",
+            );
+        };
+
+        const rect = packagesSection.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animatePackages();
+        } else {
+          ScrollTrigger.create({
+            trigger: packagesSection,
+            start: "top 92%",
+            once: true,
+            onEnter: animatePackages,
+          });
+        }
+      }
+
+      /*
+       * SERVICE HIGHLIGHTS
+       */
+      const serviceRows = gsap.utils.toArray(
+        ".webbredo-service-row",
+        servicesRef.current,
+      );
+
+      serviceRows.forEach((row, index) => {
+        const image = row.querySelector(
+          ".webbredo-service-image",
+        );
+
+        const content = row.querySelector(
+          ".webbredo-service-content",
+        );
+
+        gsap.set(row, {
+          visibility: "visible",
+        });
+
+        gsap.set(image, {
+          opacity: 0,
+          y: 55,
+          scale: 1.04,
+        });
+
+        gsap.set(content, {
+          opacity: 0,
+          y: 45,
+        });
+
+        const animateRow = () => {
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+            delay: index * 0.04,
+          });
+
+          timeline
+            .to(image, {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.15,
+            })
+            .to(
+              content,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+              },
+              "-=0.65",
+            );
+        };
+
+        const rect = row.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animateRow();
+        } else {
+          ScrollTrigger.create({
+            trigger: row,
+            start: "top 92%",
+            once: true,
+            onEnter: animateRow,
+          });
+        }
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]">
+    <div
+      ref={pageRef}
+      className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]"
+    >
       <PageHero
         title="Webbredo"
         subtitle="Vi hjälper dig bygga en stark grund med varumärke, design och digital närvaro."
@@ -153,10 +396,18 @@ const Webbredo = () => {
         className="bg-red-500"
       />
 
-      <section className="py-20 text-white md:py-28">
+      {/* INTRO */}
+
+      <section
+        ref={introRef}
+        className="invisible py-20 text-white md:py-28"
+      >
         <div className="container px-4 sm:px-6 lg:px-4">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-            <div className="max-w-xl">
+            <div
+              ref={introTextRef}
+              className="max-w-xl"
+            >
               <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
                 Webbredo
               </span>
@@ -179,14 +430,18 @@ const Webbredo = () => {
 
               <Link
                 to="/kontakta-oss"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition hover:opacity-90"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-lg font-semibold text-black transition duration-300 hover:scale-[1.03] hover:opacity-90"
               >
                 Kontakta oss
-                <ArrowRight className="h-4 w-4" />
+
+                <ArrowRight className="h-4 w-4 transition duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="overflow-hidden rounded-2xl">
+            <div
+              ref={introImageRef}
+              className="overflow-hidden rounded-2xl"
+            >
               <img
                 src="/images/webbdesign-malmo-digital-narvaro.webp"
                 alt="Webbredo"
@@ -197,9 +452,18 @@ const Webbredo = () => {
         </div>
       </section>
 
-      <section id="paket" className="relative py-20 text-white md:py-28">
+      {/* PACKAGES */}
+
+      <section
+        ref={packagesRef}
+        id="paket"
+        className="invisible relative py-20 text-white md:py-28"
+      >
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
+          <div
+            ref={packagesHeaderRef}
+            className="mx-auto mb-14 max-w-3xl text-center"
+          >
             <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.25em] text-primary">
               Våra paket
             </span>
@@ -214,214 +478,223 @@ const Webbredo = () => {
             </p>
           </div>
 
-          {/* MOBILE AND TABLET CARDS */}
-          <div className="grid grid-cols-1 gap-8 lg:hidden">
-            {packages.map((item) => (
-              <article
-                key={item.name}
-                className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
-                  item.popular
-                    ? "border-2 border-primary"
-                    : "border border-white/10"
-                }`}
-              >
-                {item.popular && (
-                  <span className="absolute -top-4 left-6 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-black">
-                    Mest populär
-                  </span>
-                )}
+          <div ref={packagesContentRef}>
+            {/* MOBILE AND TABLET CARDS */}
 
-                <div className="mb-7">
-                  <h3 className="mb-2 text-3xl font-bold text-white">
-                    {item.name}
-                  </h3>
-
-                  <p className="mb-5 text-sm font-medium leading-6 text-white/60">
-                    {item.description}
-                  </p>
-
-                  <p className="text-3xl font-bold text-primary">
-                    {item.price}
-                  </p>
-                </div>
-
-                <div className="mb-8 divide-y divide-white/10 border-y border-white/10">
-                  {comparisonRows.map((row) => {
-                    const key =
-                      item.name === "Enkel"
-                        ? "simple"
-                        : item.name === "Avancerad"
-                          ? "advanced"
-                          : "custom";
-
-                    return (
-                      <div
-                        key={row.label}
-                        className="flex items-center justify-between gap-6 py-4"
-                      >
-                        <span className="text-sm font-semibold text-white/70">
-                          {row.label}
-                        </span>
-
-                        <ComparisonValue value={row[key]} />
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <Link
-                  to="/kontakta-oss"
-                  className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
+            <div className="grid grid-cols-1 gap-8 lg:hidden">
+              {packages.map((item) => (
+                <article
+                  key={item.name}
+                  className={`relative rounded-2xl bg-[#1f1f1f] p-5 sm:p-6 ${
                     item.popular
-                      ? "bg-primary text-black hover:opacity-90"
-                      : "border border-primary text-primary hover:bg-primary hover:text-black"
+                      ? "border-2 border-primary"
+                      : "border border-white/10"
                   }`}
                 >
-                  {item.name === "Skräddarsydd"
-                    ? "Begär offert"
-                    : `Välj ${item.name}`}
+                  {item.popular && (
+                    <span className="absolute -top-4 left-6 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-black">
+                      Mest populär
+                    </span>
+                  )}
 
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </article>
-            ))}
-          </div>
+                  <div className="mb-7">
+                    <h3 className="mb-2 text-3xl font-bold text-white">
+                      {item.name}
+                    </h3>
 
-          {/* DESKTOP COMPARISON TABLE */}
-          <div className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[950px] border-collapse">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="sticky left-0 z-20 w-[260px] bg-[#191919] p-6 text-left align-middle">
-                      <span className="text-sm font-bold uppercase tracking-[0.18em] text-white/50">
-                        Funktioner
-                      </span>
-                    </th>
+                    <p className="mb-5 text-sm font-medium leading-6 text-white/60">
+                      {item.description}
+                    </p>
 
-                    {packages.map((item) => (
-                      <th
-                        key={item.name}
-                        className={`relative min-w-[220px] p-7 text-center align-top ${
-                          item.popular ? "bg-primary/[0.07]" : ""
-                        }`}
-                      >
-                        {item.popular && (
-                          <span className="mb-4 inline-flex whitespace-nowrap rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-black">
-                            Mest populär
+                    <p className="text-3xl font-bold text-primary">
+                      {item.price}
+                    </p>
+                  </div>
+
+                  <div className="mb-8 divide-y divide-white/10 border-y border-white/10">
+                    {comparisonRows.map((row) => {
+                      const key =
+                        item.name === "Enkel"
+                          ? "simple"
+                          : item.name === "Avancerad"
+                            ? "advanced"
+                            : "custom";
+
+                      return (
+                        <div
+                          key={row.label}
+                          className="flex items-center justify-between gap-6 py-4"
+                        >
+                          <span className="text-sm font-semibold text-white/70">
+                            {row.label}
                           </span>
-                        )}
 
-                        <h3 className="mb-3 text-2xl font-bold text-white">
-                          {item.name}
-                        </h3>
+                          <ComparisonValue value={row[key]} />
+                        </div>
+                      );
+                    })}
+                  </div>
 
-                        <p className="mx-auto mb-5 min-h-[72px] max-w-[250px] text-sm font-medium leading-6 text-white/60">
-                          {item.description}
-                        </p>
+                  <Link
+                    to="/kontakta-oss"
+                    className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
+                      item.popular
+                        ? "bg-primary text-black hover:opacity-90"
+                        : "border border-primary text-primary hover:bg-primary hover:text-black"
+                    }`}
+                  >
+                    {item.name === "Skräddarsydd"
+                      ? "Begär offert"
+                      : `Välj ${item.name}`}
 
-                        <p className="text-2xl font-bold text-primary">
-                          {item.price}
-                        </p>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            {/* DESKTOP COMPARISON TABLE */}
+
+            <div className="hidden overflow-hidden rounded-2xl border border-white/10 bg-[#1f1f1f] shadow-2xl lg:block">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[950px] border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/10">
+                      <th className="sticky left-0 z-20 w-[260px] bg-[#191919] p-6 text-left align-middle">
+                        <span className="text-sm font-bold uppercase tracking-[0.18em] text-white/50">
+                          Funktioner
+                        </span>
                       </th>
-                    ))}
-                  </tr>
-                </thead>
 
-                <tbody>
-                  {comparisonRows.map((row, index) => (
-                    <tr
-                      key={row.label}
-                      className={`transition hover:bg-white/[0.025] ${
-                        index !== comparisonRows.length - 1
-                          ? "border-b border-white/10"
-                          : ""
-                      }`}
-                    >
-                      <th
-                        scope="row"
-                        className="sticky left-0 z-10 bg-[#1f1f1f] px-6 py-5 text-left text-sm font-bold text-white"
-                      >
-                        {row.label}
-                      </th>
-
-                      <td className="px-6 py-5">
-                        <ComparisonValue value={row.simple} />
-                      </td>
-
-                      <td className="bg-primary/[0.035] px-6 py-5">
-                        <ComparisonValue value={row.advanced} />
-                      </td>
-
-                      <td className="px-6 py-5">
-                        <ComparisonValue value={row.custom} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-
-                <tfoot>
-                  <tr className="border-t border-white/10">
-                    <td className="sticky left-0 z-10 bg-[#191919] p-6">
-                      <p className="text-sm font-semibold leading-6 text-white/55">
-                        Osäker på vilket paket som passar?
-                      </p>
-
-                      <Link
-                        to="/kontakta-oss"
-                        className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-primary"
-                      >
-                        Få personlig hjälp
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </td>
-
-                    {packages.map((item) => (
-                      <td
-                        key={item.name}
-                        className={`p-6 ${
-                          item.popular
-                            ? "bg-primary/[0.07]"
-                            : "bg-[#191919]"
-                        }`}
-                      >
-                        <Link
-                          to="/kontakta-oss"
-                          className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
-                            item.popular
-                              ? "bg-primary text-black hover:opacity-90"
-                              : "border border-primary text-primary hover:bg-primary hover:text-black"
+                      {packages.map((item) => (
+                        <th
+                          key={item.name}
+                          className={`relative min-w-[220px] p-7 text-center align-top ${
+                            item.popular ? "bg-primary/[0.07]" : ""
                           }`}
                         >
-                          {item.name === "Skräddarsydd"
-                            ? "Begär offert"
-                            : `Välj ${item.name}`}
+                          {item.popular && (
+                            <span className="mb-4 inline-flex whitespace-nowrap rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-black">
+                              Mest populär
+                            </span>
+                          )}
 
-                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          <h3 className="mb-3 text-2xl font-bold text-white">
+                            {item.name}
+                          </h3>
+
+                          <p className="mx-auto mb-5 min-h-[72px] max-w-[250px] text-sm font-medium leading-6 text-white/60">
+                            {item.description}
+                          </p>
+
+                          <p className="text-2xl font-bold text-primary">
+                            {item.price}
+                          </p>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {comparisonRows.map((row, index) => (
+                      <tr
+                        key={row.label}
+                        className={`transition hover:bg-white/[0.025] ${
+                          index !== comparisonRows.length - 1
+                            ? "border-b border-white/10"
+                            : ""
+                        }`}
+                      >
+                        <th
+                          scope="row"
+                          className="sticky left-0 z-10 bg-[#1f1f1f] px-6 py-5 text-left text-sm font-bold text-white"
+                        >
+                          {row.label}
+                        </th>
+
+                        <td className="px-6 py-5">
+                          <ComparisonValue value={row.simple} />
+                        </td>
+
+                        <td className="bg-primary/[0.035] px-6 py-5">
+                          <ComparisonValue value={row.advanced} />
+                        </td>
+
+                        <td className="px-6 py-5">
+                          <ComparisonValue value={row.custom} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+
+                  <tfoot>
+                    <tr className="border-t border-white/10">
+                      <td className="sticky left-0 z-10 bg-[#191919] p-6">
+                        <p className="text-sm font-semibold leading-6 text-white/55">
+                          Osäker på vilket paket som passar?
+                        </p>
+
+                        <Link
+                          to="/kontakta-oss"
+                          className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-primary"
+                        >
+                          Få personlig hjälp
+                          <ArrowRight className="h-4 w-4" />
                         </Link>
                       </td>
-                    ))}
-                  </tr>
-                </tfoot>
-              </table>
+
+                      {packages.map((item) => (
+                        <td
+                          key={item.name}
+                          className={`p-6 ${
+                            item.popular
+                              ? "bg-primary/[0.07]"
+                              : "bg-[#191919]"
+                          }`}
+                        >
+                          <Link
+                            to="/kontakta-oss"
+                            className={`group inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition ${
+                              item.popular
+                                ? "bg-primary text-black hover:opacity-90"
+                                : "border border-primary text-primary hover:bg-primary hover:text-black"
+                            }`}
+                          >
+                            {item.name === "Skräddarsydd"
+                              ? "Begär offert"
+                              : `Välj ${item.name}`}
+
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                        </td>
+                      ))}
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      {/* SERVICE HIGHLIGHTS */}
+
+      <section
+        ref={servicesRef}
+        className="py-16 md:py-24"
+      >
         <div className="relative container space-y-16 px-4 sm:px-6 md:space-y-24 lg:px-4 lg:space-y-28">
           {serviceHighlights.map((item) => (
             <div
               key={item.title}
-              className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-16"
+              className="webbredo-service-row invisible grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-16"
             >
               <div
-                className={
+                className={`webbredo-service-image overflow-hidden rounded-lg ${
                   item.imagePosition === "right"
                     ? "md:order-2"
                     : "md:order-1"
-                }
+                }`}
               >
                 <img
                   src={item.image}
@@ -431,7 +704,7 @@ const Webbredo = () => {
               </div>
 
               <div
-                className={`${
+                className={`webbredo-service-content ${
                   item.imagePosition === "right"
                     ? "md:order-1"
                     : "md:order-2"
@@ -447,10 +720,11 @@ const Webbredo = () => {
 
                 <Link
                   to={item.link}
-                  className="group inline-flex h-10 w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition hover:brightness-110 xl:inline-flex"
+                  className="group inline-flex h-10 w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-lg font-semibold text-black transition duration-300 hover:brightness-110"
                 >
                   {item.buttonText}
-                  <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
+
+                  <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

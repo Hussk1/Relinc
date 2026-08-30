@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+
 import { ArrowRight, LoaderCircle, X } from "lucide-react";
+
 import { Link } from "react-router-dom";
+
+import { gsap } from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const options = [
   "Jag vill boka ett möte eller begära offert",
@@ -33,6 +41,78 @@ export const ContactFormSection = ({
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
 
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const formRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const section = sectionRef.current;
+      const title = titleRef.current;
+      const form = formRef.current;
+
+      gsap.set(title, {
+        opacity: 0,
+        y: 50,
+      });
+
+      gsap.set(form, {
+        opacity: 0,
+        y: 60,
+      });
+
+      gsap.set(section, {
+        visibility: "visible",
+      });
+
+      const animateSection = () => {
+        const timeline = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
+          },
+        });
+
+        timeline
+          .to(title, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          })
+          .to(
+            form,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1.1,
+            },
+            "-=0.55",
+          );
+      };
+
+      const rect = section.getBoundingClientRect();
+
+      const isAlreadyVisible =
+        rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (isAlreadyVisible) {
+        animateSection();
+      } else {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 92%",
+          once: true,
+          onEnter: animateSection,
+        });
+      }
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const toggleOption = (option) => {
     setSelectedOptions((current) =>
       current.includes(option)
@@ -57,8 +137,6 @@ export const ContactFormSection = ({
 
     const formData = new FormData(form);
 
-    // Bots often fill hidden fields. Pretend that the submission succeeded,
-    // but do not send anything when the honeypot contains a value.
     if (formData.get("website")) {
       form.reset();
       setSelectedOptions([]);
@@ -123,14 +201,24 @@ export const ContactFormSection = ({
   };
 
   return (
-    <section className="py-20 md:py-28">
+    <section
+      ref={sectionRef}
+      className="invisible py-20 md:py-28"
+    >
       <div className="relative container px-4 sm:px-6 lg:px-4">
         <div className="relative mx-auto max-w-2xl">
-          <h2 className="mb-8 max-w-xl text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            ref={titleRef}
+            className="mb-8 max-w-xl text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Starta din resa <br /> med Relinc
           </h2>
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form
+            ref={formRef}
+            className="space-y-5"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label
                 htmlFor="contact-email"

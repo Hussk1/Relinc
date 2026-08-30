@@ -1,16 +1,108 @@
+import {
+  useLayoutEffect,
+  useRef,
+} from "react";
+
+import { gsap } from "gsap";
+
 export const PrivacyPolicy = () => {
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const footerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      /*
+       * INITIAL STATE
+       */
+      gsap.set(titleRef.current, {
+        opacity: 0,
+        y: 50,
+      });
+
+      gsap.set(textRef.current, {
+        opacity: 0,
+        y: 40,
+      });
+
+      gsap.set(footerRef.current, {
+        opacity: 0,
+        y: 25,
+      });
+
+      /*
+       * Förhindrar flash innan GSAP är redo
+       */
+      gsap.set(contentRef.current, {
+        visibility: "visible",
+      });
+
+      /*
+       * ANIMATION
+       */
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      timeline
+        .to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+        })
+        .to(
+          textRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.05,
+          },
+          "-=0.6",
+        )
+        .to(
+          footerRef.current,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+          },
+          "-=0.5",
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative min-h-screen overflow-hidden px-4 py-24 pt-32 sm:px-6 sm:pt-36">
-      <div className="mx-auto max-w-4xl">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen overflow-hidden px-4 py-24 pt-32 sm:px-6 sm:pt-36"
+    >
+      <div
+        ref={contentRef}
+        className="invisible mx-auto max-w-4xl"
+      >
         {/* HEADER */}
+
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-white sm:text-5xl">
+          <h1
+            ref={titleRef}
+            className="text-4xl font-bold text-white sm:text-5xl"
+          >
             Integritetspolicy
           </h1>
         </div>
 
         {/* TEXT */}
-        <div className="space-y-6 text-lg font-semibold leading-7 text-white/80">
+
+        <div
+          ref={textRef}
+          className="space-y-6 text-lg font-semibold leading-7 text-white/80"
+        >
           <p>
             Relinc hanterar personuppgifter i enlighet med GDPR – EU:s
             dataskyddsförordning. Det innebär att alla personuppgifter som vi
@@ -53,7 +145,7 @@ export const PrivacyPolicy = () => {
           <p>
             Vid frågor om hur vi hanterar personuppgifter är du välkommen att
             kontakta oss på:{" "}
-            <span className="text-primary font-bold">
+            <span className="font-bold text-primary">
               kontakt@relinc.se
             </span>
           </p>
@@ -66,7 +158,11 @@ export const PrivacyPolicy = () => {
         </div>
 
         {/* FOOTER */}
-        <p className="mt-16 text-center text-sm text-white/60">
+
+        <p
+          ref={footerRef}
+          className="mt-16 text-center text-sm text-white/60"
+        >
           Genom att använda vår webbplats godkänner du denna integritetspolicy.
         </p>
       </div>

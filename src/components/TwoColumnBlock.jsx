@@ -1,5 +1,14 @@
+import { useLayoutEffect, useRef } from "react";
+
 import { ArrowRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
+
+import { gsap } from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TwoColumnBlockItems = [
   {
@@ -21,12 +30,128 @@ const TwoColumnBlockItems = [
 ];
 
 export const TwoColumnBlock = () => {
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray(".two-column-card");
+
+      cards.forEach((card, index) => {
+        const imageWrapper = card.querySelector(".two-column-image");
+        const image = card.querySelector(".two-column-image img");
+        const title = card.querySelector(".two-column-title");
+        const text = card.querySelector(".two-column-text");
+        const button = card.querySelector(".two-column-button");
+
+        gsap.set(card, {
+          visibility: "visible",
+        });
+
+        gsap.set(imageWrapper, {
+          opacity: 0,
+          y: 50,
+        });
+
+        gsap.set(image, {
+          scale: 1.06,
+        });
+
+        gsap.set([title, text, button], {
+          opacity: 0,
+          y: 30,
+        });
+
+        const animateCard = () => {
+          const timeline = gsap.timeline({
+            defaults: {
+              ease: "power3.out",
+            },
+            delay: index * 0.08,
+          });
+
+          timeline
+            .to(imageWrapper, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+            })
+            .to(
+              image,
+              {
+                scale: 1,
+                duration: 1,
+                ease: "power2.out",
+              },
+              "<",
+            )
+            .to(
+              title,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+              },
+              "-=0.45",
+            )
+            .to(
+              text,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+              },
+              "-=0.35",
+            )
+            .to(
+              button,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+              },
+              "-=0.3",
+            );
+
+          return timeline;
+        };
+
+        const rect = card.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animateCard();
+        } else {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top 95%",
+            once: true,
+            onEnter: animateCard,
+          });
+        }
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative container px-4 py-12 sm:px-6 sm:py-16 lg:px-4">
+    <section
+      ref={sectionRef}
+      className="relative container px-4 py-12 sm:px-6 sm:py-16 lg:px-4"
+    >
       <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {TwoColumnBlockItems.map((item) => (
-          <div key={item.title}>
-            <div className="inline-block w-full overflow-hidden rounded-2xl">
+          <div
+            key={item.title}
+            className="two-column-card invisible"
+          >
+            <div className="two-column-image inline-block w-full overflow-hidden rounded-2xl">
               <img
                 src={item.image}
                 alt={item.title}
@@ -35,21 +160,22 @@ export const TwoColumnBlock = () => {
             </div>
 
             <div>
-              <h2 className="pb-2 pt-5 text-2xl font-[700] leading-tight text-white sm:pt-6 sm:text-3xl md:text-4xl lg:text-[42px]">
+              <h2 className="two-column-title pb-2 pt-5 text-2xl font-[700] leading-tight text-white sm:pt-6 sm:text-3xl md:text-4xl lg:text-[42px]">
                 {item.title}
               </h2>
 
-              <p className="mb-6 text-base font-medium leading-7 text-white sm:text-lg">
+              <p className="two-column-text mb-6 text-base font-medium leading-7 text-white sm:text-lg">
                 {item.description}
               </p>
 
-              <div className="inline-block">
+              <div className="two-column-button inline-block">
                 <Link
                   to={item.link}
-                  className="flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-6 font-semibold leading-none text-[#1b1b1b]"
+                  className="group flex h-10 items-center gap-2 rounded-full border border-primary bg-primary px-6 font-semibold leading-none text-[#1b1b1b] transition duration-300 hover:scale-[1.03] hover:opacity-90"
                 >
                   {item.linkText}
-                  <ArrowRight className="h-4 w-4 shrink-0" />
+
+                  <ArrowRight className="h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

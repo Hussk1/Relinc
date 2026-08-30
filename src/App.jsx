@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { LoaderScreen } from "./components/LoaderScreen";
 import Layout from "./components/Layout";
 import { ScrollToTop } from "./components/ScrollToTop";
-
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -31,16 +29,14 @@ import Accessoarer from "./pages/services/Företagsprodukter/Accessoarer";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   if (loading) {
-    return <LoaderScreen />;
+    return (
+      <LoaderScreen
+        onComplete={() => {
+          setLoading(false);
+        }}
+      />
+    );
   }
 
   return (
@@ -70,10 +66,12 @@ function App() {
             path="/LogotypGrafiskProfil"
             element={<LogotypGrafiskProfil />}
           />
+
           <Route
             path="/Marknadsforingsmaterial"
             element={<Marknadsforingsmaterial />}
           />
+
           <Route path="/bildproduktion" element={<Bildproduktion />} />
 
           {/* Företagsprodukter */}

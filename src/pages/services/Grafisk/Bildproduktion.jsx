@@ -1,5 +1,12 @@
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
+
 import {
   ArrowRight,
   ChevronDown,
@@ -9,8 +16,13 @@ import {
   ChartNoAxesCombined,
   Handshake,
 } from "lucide-react";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const values = [
   {
@@ -88,21 +100,84 @@ const PuffBlockItems = [
 const Bildproduktion = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
+  const pageRef = useRef(null);
+  const introRef = useRef(null);
+  const faqRef = useRef(null);
+  const relatedRef = useRef(null);
+
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const sections = [
+        introRef.current,
+        faqRef.current,
+        relatedRef.current,
+      ].filter(Boolean);
+
+      sections.forEach((section) => {
+        gsap.set(section, {
+          opacity: 0,
+          y: 30,
+        });
+
+        const animateSection = () => {
+          gsap.to(section, {
+            opacity: 1,
+            y: 0,
+            duration: 0.95,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+          });
+        };
+
+        const rect = section.getBoundingClientRect();
+
+        const isAlreadyVisible =
+          rect.top < window.innerHeight &&
+          rect.bottom > 0;
+
+        if (isAlreadyVisible) {
+          animateSection();
+        } else {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top 90%",
+            once: true,
+            onEnter: animateSection,
+          });
+        }
+      });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]">
+    <div
+      ref={pageRef}
+      className="min-h-screen overflow-x-hidden bg-[#1b1b1b] [background-image:radial-gradient(circle_at_7%_6%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_9%,transparent_20%),radial-gradient(circle_at_78%_15%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_11%,transparent_25%),radial-gradient(circle_at_32%_27%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_7%,transparent_17%),radial-gradient(circle_at_94%_39%,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_10%,transparent_23%),radial-gradient(circle_at_13%_48%,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_61%_58%,rgba(0,0,0,0.36)_0%,rgba(0,0,0,0.17)_8%,transparent_19%),radial-gradient(circle_at_20%_71%,rgba(0,0,0,0.33)_0%,rgba(0,0,0,0.15)_10%,transparent_22%),radial-gradient(circle_at_87%_82%,rgba(0,0,0,0.29)_0%,rgba(0,0,0,0.14)_12%,transparent_26%),radial-gradient(circle_at_38%_95%,rgba(0,0,0,0.37)_0%,rgba(0,0,0,0.17)_9%,transparent_21%)] bg-no-repeat bg-[length:100%_100%]"
+    >
       <PageHero
         title="Bildproduktion"
         subtitle="Vi skapar och redigerar professionellt bildmaterial anpassat för ditt varumärke, dina produkter och din marknadsföring."
         image="images/Grafisk.webp"
       />
 
+      {/* INTRO */}
+
       <section className="container px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-4">
         <div className="my-10 space-y-20 sm:my-14 sm:space-y-24 md:space-y-32">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div
+            ref={introRef}
+            className="grid grid-cols-1 gap-10 md:grid-cols-2"
+          >
             <div className="overflow-hidden rounded-2xl">
               <img
                 src="images/professionell-bildproduktion-malmo.webp"
@@ -134,7 +209,12 @@ const Bildproduktion = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28">
+      {/* FAQ */}
+
+      <section
+        ref={faqRef}
+        className="relative overflow-hidden py-16 text-white sm:py-20 md:py-28"
+      >
         <div className="container relative z-10 px-4 sm:px-6 lg:px-4">
           <div className="mb-10 max-w-3xl sm:mb-12 md:mb-16">
             <h2 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
@@ -158,7 +238,9 @@ const Bildproduktion = () => {
 
                   <ChevronDown
                     className={`h-5 w-5 shrink-0 transition ${
-                      openIndex === index ? "rotate-180 text-primary" : ""
+                      openIndex === index
+                        ? "rotate-180 text-primary"
+                        : ""
                     }`}
                   />
                 </button>
@@ -178,7 +260,12 @@ const Bildproduktion = () => {
         </div>
       </section>
 
-      <section className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4">
+      {/* RELATED SERVICES */}
+
+      <section
+        ref={relatedRef}
+        className="relative container px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:px-4"
+      >
         <div className="relative z-10 mb-10 max-w-3xl sm:mb-12 md:mb-16">
           <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
             Relaterade tjänster
@@ -205,6 +292,7 @@ const Bildproduktion = () => {
                   className="group inline-flex min-h-8 max-w-full items-center gap-2 rounded-full border border-white px-4 py-1.5 text-sm font-semibold text-white transition hover:border-primary hover:text-primary sm:text-base"
                 >
                   <span>{item.linkText}</span>
+
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                 </Link>
               </div>
