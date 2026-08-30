@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const menuColumns = [
   {
@@ -79,7 +78,7 @@ export const Navbar = () => {
           onClick={closeMobileMenu}
         >
           <img
-            src={imagePath("images/relinc-vit-logotyp.webp")}
+            src="/images/relinc-vit-logotyp.webp"
             alt="Relinc"
             className="h-auto w-32"
           />

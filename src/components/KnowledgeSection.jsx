@@ -5,7 +5,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const articles = [
   {
@@ -13,7 +12,7 @@ const articles = [
     title: "Markvaruhuset väljer Toxic för ny e-handelsplattform i Litium",
     description:
       "Att bygga e-handel för en aktör som säljer till både företag och privatpersoner – med olika flöden, olika logik och höga krav på integration mot affärssystem – är ett projekt som ställer höga krav...",
-    image: imagePath("images/KnowledgeSection-1.webp"),
+    image: "/images/KnowledgeSection-1.webp",
     readTime: "2min",
   },
   {
@@ -21,7 +20,7 @@ const articles = [
     title: "Femte gången gillt – vi är nominerade till Umbraco Awards 2026!",
     description:
       "Vi är väldigt glada över att ännu en gång vara nominerade till Umbraco Awards. I år är vi nominerade i kategorin Best Cloud Solution med vår lösning för KABE AB.",
-    image: imagePath("images/KnowledgeSection-2.webp"),
+    image: "/images/KnowledgeSection-2.webp",
     readTime: "3min",
   },
   {
@@ -29,7 +28,7 @@ const articles = [
     title: "Vad är Meta Andromeda och hur påverkar det din annonsering?",
     description:
       "Annonserar du på Instagram och Facebook? Då har du säkert märkt att annonserna inte riktigt fungerar som förut. Plötsligt verkar vissa annonser nå rätt personer medan andra försvinner i flödet. Vad...",
-    image: imagePath("images/KnowledgeSection-3.webp"),
+    image: "/images/KnowledgeSection-3.webp",
     readTime: "4min",
     blueTag: true,
   },

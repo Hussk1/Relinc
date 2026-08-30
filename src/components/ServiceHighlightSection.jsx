@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const serviceHighlights = [
   {
@@ -13,7 +12,7 @@ const serviceHighlights = [
 
     link: "/LogotypGrafiskProfil",
 
-    image: imagePath("images/grafisk-profil-logotypdesign-malmo.webp"),
+    image: "/images/grafisk-profil-logotypdesign-malmo.webp",
 
     imagePosition: "left",
   },
@@ -28,7 +27,7 @@ const serviceHighlights = [
 
     link: "/webbdesign",
 
-    image: imagePath("images/webbdesign-malmo-seo-optimerad-hemsida.webp"),
+    image: "/images/webbdesign-malmo-seo-optimerad-hemsida.webp",
 
     imagePosition: "right",
   },

@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 
-import { imagePath } from "@/lib/imagePath";
-
 export const PageHero = ({
   title,
   subtitle,
@@ -13,7 +11,7 @@ export const PageHero = ({
     <section
       className="relative min-h-[440px] bg-cover bg-center pb-10 pt-24 sm:min-h-[500px] sm:pb-12 sm:pt-28 md:h-[60vh] md:min-h-[560px] md:pb-16 md:pt-32"
       style={{
-        backgroundImage: `url(${imagePath(image)})`,
+        backgroundImage: `url(${image})`,
       }}
     >
       <div className="absolute inset-0 z-0 bg-black/60" />

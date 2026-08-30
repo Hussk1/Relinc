@@ -1,5 +1,3 @@
-import { imagePath } from "@/lib/imagePath";
-
 export const LoaderScreen = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#171717]">
@@ -8,7 +6,7 @@ export const LoaderScreen = () => {
           <div className="absolute inset-[-18px] rounded-full border-2 border-primary/20 border-t-primary" />
 
           <img
-            src={imagePath("images/favicon.webp")}
+            src="/images/favicon.webp"
             alt="Relinc"
             className="h-24 w-24 object-contain drop-shadow-[0_0_35px_rgba(171,255,61,0.45)]"
           />

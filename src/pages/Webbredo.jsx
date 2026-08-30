@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { ContactFormSection } from "../components/ContactFormSection";
-import { imagePath } from "@/lib/imagePath";
 
 const packages = [
   {
@@ -92,7 +91,7 @@ const serviceHighlights = [
       "Ta första steget mot en stark närvaro med en genomtänkt visuell identitet. Vi hjälper dig att skapa logotyp, grafisk profil och design som speglar ditt företag och skapar förtroende hos dina kunder. Perfekt för dig som startar nytt eller vill stärka ditt varumärke.",
     buttonText: "Skapa din identitet",
     link: "/LogotypGrafiskProfil",
-    image: imagePath("images/grafisk-profil-logotypdesign-malmo.webp"),
+    image: "/images/grafisk-profil-logotypdesign-malmo.webp",
     imagePosition: "left",
   },
   {
@@ -101,9 +100,7 @@ const serviceHighlights = [
       "Vi skapar moderna, användarvänliga och SEO-optimerade webbplatser anpassade efter dina affärsmål. Genom att kombinera kreativ design, teknisk utveckling och strategisk förståelse bygger vi en digital plattform som stärker ditt varumärke och driver resultat. Vi hjälper dig hela vägen från idé och design till utveckling, innehåll och långsiktig tillväxt.",
     buttonText: "Vårt erbjudande inom webb",
     link: "/webbdesign",
-    image: imagePath(
-      "images/webbutveckling-malmo-seo-optimerad-hemsida.webp",
-    ),
+    image: "/images/webbutveckling-malmo-seo-optimerad-hemsida.webp",
     imagePosition: "right",
   },
   {
@@ -112,7 +109,7 @@ const serviceHighlights = [
       "När grunden är på plats hjälper vi dig att synas och utvecklas vidare. Med SEO, mobilanpassning, innehåll och tydlig struktur skapar vi bättre förutsättningar för att nå rätt kunder och växa långsiktigt.",
     buttonText: "Kontakta oss",
     link: "/kontakta-oss",
-    image: imagePath("images/seo-digital-narvaro-malmo.webp"),
+    image: "/images/seo-digital-narvaro-malmo.webp",
     imagePosition: "left",
   },
 ];
@@ -191,9 +188,7 @@ const Webbredo = () => {
 
             <div className="overflow-hidden rounded-2xl">
               <img
-                src={imagePath(
-                  "images/webbdesign-malmo-digital-narvaro.webp",
-                )}
+                src="/images/webbdesign-malmo-digital-narvaro.webp"
                 alt="Webbredo"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />

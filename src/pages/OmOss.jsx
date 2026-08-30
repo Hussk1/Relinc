@@ -1,10 +1,6 @@
 import { PageHero } from "../components/PageHero";
-
 import { ContactFormSection } from "../components/ContactFormSection";
-
 import { Link } from "react-router-dom";
-
-import { imagePath } from "@/lib/imagePath";
 
 const OmOss = () => {
   return (
@@ -20,7 +16,7 @@ const OmOss = () => {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
             <div className="overflow-hidden rounded-2xl">
               <img
-                src={imagePath("images/kundsamarbete-digital-byra-malmo.webp")}
+                src="/images/kundsamarbete-digital-byra-malmo.webp"
                 alt="Relinc erbjudande"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />
@@ -78,7 +74,7 @@ const OmOss = () => {
 
             <div className="overflow-hidden rounded-2xl md:order-2">
               <img
-                src={imagePath("images/digitala-losningar-foretag-malmo.webp")}
+                src="/images/digitala-losningar-foretag-malmo.webp"
                 alt="Relinc team"
                 className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[460px]"
               />

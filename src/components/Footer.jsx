@@ -1,8 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
-import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-
-import { imagePath } from "@/lib/imagePath";
+import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   const navigate = useNavigate();
@@ -52,7 +49,7 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 text-2xl font-extrabold uppercase tracking-wide">
               <img
-                src={imagePath("images/relinc-vit-logotyp.webp")}
+                src="/images/relinc-vit-logotyp.webp"
                 alt="Relinc Logo"
                 className="w-32 h-auto"
               />

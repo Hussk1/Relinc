@@ -1,20 +1,19 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
-import { ChevronDown, ArrowRight, Check, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const TwoColumnBlockItems = [
   {
     title: "Ökad synlighet online",
-    image: imagePath("images/seo-optimering-malmo.webp"),
+    image: "/images/seo-optimering-malmo.webp",
     description:
       "Vi hjälper din webbplats att synas bättre i sökresultaten genom genomtänkt SEO, optimerat innehåll och tekniska förbättringar som stärker din digitala närvaro.",
   },
   {
     title: "Smart SEO-struktur",
-    image: imagePath("images/seo-optimerad-webbdesign-malmo.webp"),
+    image: "/images/seo-optimerad-webbdesign-malmo.webp",
     description:
       "En framgångsrik webbplats behöver vara snabb, användarvänlig och tydligt strukturerad. Vi kombinerar modern webbdesign med SEO för att skapa en bättre upplevelse för både besökare och sökmotorer.",
   },

@@ -1,20 +1,19 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
-import { ChevronDown, ArrowRight, Check, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const TwoColumnBlockItems = [
   {
     title: "Säkra webblösningar",
-    image: imagePath("images/sakra-webblosningar-malmo.webp"),
+    image: "/images/sakra-webblosningar-malmo.webp",
     description:
       "Vi utvecklar webbplatser med fokus på säkerhet, stabilitet och skydd mot digitala hot. Genom moderna säkerhetslösningar hjälper vi till att skydda både data och användare.",
   },
   {
     title: "Skydd och prestanda",
-    image: imagePath("images/webbsakerhet-prestanda-malmo.webp"),
+    image: "/images/webbsakerhet-prestanda-malmo.webp",
     description:
       "En säker webbplats handlar om mer än bara skydd. Vi arbetar med uppdateringar, optimering och säkerhetsåtgärder för att skapa en trygg och stabil upplevelse för alla besökare.",
   },

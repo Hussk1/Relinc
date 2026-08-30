@@ -1,8 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
 import { Link } from "react-router-dom";
-
-import { imagePath } from "@/lib/imagePath";
 
 export const TextImageBlock = () => {
   return (
@@ -45,7 +42,7 @@ export const TextImageBlock = () => {
 
         <div className="overflow-hidden rounded-2xl">
           <img
-            src={imagePath("images/digital-narvaro-for-foretag-malmo.webp")}
+            src="/images/digital-narvaro-for-foretag-malmo.webp"
             alt="Bygg din digitala grund"
             className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] md:h-full md:min-h-[420px]"
           />

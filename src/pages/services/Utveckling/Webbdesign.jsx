@@ -1,9 +1,8 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
-import { ChevronDown, ArrowRight, Check, Sparkles, Minus } from "lucide-react";
+import { ChevronDown, ArrowRight, Check, Minus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const packages = [
   {
@@ -89,13 +88,13 @@ const comparisonRows = [
 const TwoColumnBlockItems = [
   {
     title: "Modern webbdesign",
-    image: imagePath("images/modern-webbdesign-malmo.webp"),
+    image: "/images/modern-webbdesign-malmo.webp",
     description:
       "Vi skapar visuellt tilltalande och moderna webbplatser som stärker ditt varumärke. Genom genomtänkt design, färgval och typografi ser vi till att din webbplats ger ett starkt första intryck och sticker ut i mängden.",
   },
   {
     title: "Användarvänlig upplevelse",
-    image: imagePath("images/anvandarvanlig-webbdesign-malmo.webp"),
+    image: "/images/anvandarvanlig-webbdesign-malmo.webp",
     description:
       "En bra webbplats ska vara enkel att använda. Vi designar med fokus på struktur, navigering och tillgänglighet så att dina besökare snabbt hittar det de söker och får en smidig upplevelse oavsett enhet.",
   },

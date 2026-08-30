@@ -1,7 +1,6 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
 import {
-  ArrowRight,
   Leaf,
   Truck,
   RefreshCw,
@@ -10,26 +9,25 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { imagePath } from "@/lib/imagePath";
 
 const products = [
   {
     title: "Arbetsjackor",
     price: "Från 3 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hoodie.webp"),
+    image: "/images/hoodie.webp",
   },
   {
     title: "Profilkläder",
     price: "Från 1 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hat.webp"),
+    image: "/images/hat.webp",
   },
   {
     title: "T-shirts & Hoodies",
     price: "Från 9 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/shirt.webp"),
+    image: "/images/shirt.webp",
   },
 ];
 
@@ -38,55 +36,55 @@ const sortiment = [
     title: "Arbetsjackor",
     price: "Från 3 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hoodie.webp"),
+    image: "/images/hoodie.webp",
   },
   {
     title: "Profilkläder",
     price: "Från 1 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hat.webp"),
+    image: "/images/hat.webp",
   },
   {
     title: "T-shirts & Hoodies",
     price: "Från 9 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/shirt.webp"),
+    image: "/images/shirt.webp",
   },
   {
     title: "Arbetsjackor",
     price: "Från 3 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hoodie.webp"),
+    image: "/images/hoodie.webp",
   },
   {
     title: "Profilkläder",
     price: "Från 1 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hat.webp"),
+    image: "/images/hat.webp",
   },
   {
     title: "T-shirts & Hoodies",
     price: "Från 9 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/shirt.webp"),
+    image: "/images/shirt.webp",
   },
   {
     title: "Arbetsjackor",
     price: "Från 3 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hoodie.webp"),
+    image: "/images/hoodie.webp",
   },
   {
     title: "Profilkläder",
     price: "Från 1 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/hat.webp"),
+    image: "/images/hat.webp",
   },
   {
     title: "T-shirts & Hoodies",
     price: "Från 9 200 kr",
     text: "Minsta beställningsmängd 25",
-    image: imagePath("images/shirt.webp"),
+    image: "/images/shirt.webp",
   },
 ];
 

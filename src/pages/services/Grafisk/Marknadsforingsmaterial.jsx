@@ -8,11 +8,9 @@ import {
   Check,
   ChartNoAxesCombined,
   Handshake,
-  Ban,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const values = [
   {

@@ -1,20 +1,19 @@
 import { PageHero } from "../../../components/PageHero";
 import { ContactFormSection } from "../../../components/ContactFormSection";
-import { ChevronDown, ArrowRight, Check, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imagePath } from "@/lib/imagePath";
 
 const TwoColumnBlockItems = [
   {
     title: "Responsiv design",
-    image: imagePath("images/responsiv-webbdesign-malmo.webp"),
+    image: "/images/responsiv-webbdesign-malmo.webp",
     description:
       "Vi skapar mobilanpassade webbplatser som fungerar smidigt på alla enheter och skärmstorlekar. Med responsiv design säkerställer vi en konsekvent och användarvänlig upplevelse för alla besökare.",
   },
   {
     title: "Smidig användarupplevelse",
-    image: imagePath("images/ux-design-webbdesign-malmo.webp"),
+    image: "/images/ux-design-webbdesign-malmo.webp",
     description:
       "Vi designar webbplatser med fokus på snabbhet, tydlig navigering och enkel användning för att skapa en bättre upplevelse på både mobil, surfplatta och dator.",
   },
